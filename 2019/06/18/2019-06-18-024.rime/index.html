@@ -1,0 +1,304 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>中州韵与98五笔 | 五笔小筑</title><meta name="keywords" content="小狼毫"><meta name="author" content="五笔小筑"><meta name="copyright" content="五笔小筑"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="纯形佳作纯形方案中，有分主副字根的流派，比如「郑码」、「山人通用」、「徐码」等等，还有不分主副根的单编码类方案，五笔就是典型代表。而86、98、新世纪、这三版五笔中，98版是拆字最为和谐自洽，字根数量最多，击键协调性最好，对大字符集适应最好的一版。小狼毫前端的开发者「nameoverflow」，同文输入法作者「osfans」，都是大家比较熟悉的98五笔用户。另外，OpenResty 的作者章亦春，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="中州韵与98五笔">
+<meta property="og:url" content="https://wubi98.gitee.io/2019/06/18/2019-06-18-024.rime/index.html">
+<meta property="og:site_name" content="五笔小筑">
+<meta property="og:description" content="纯形佳作纯形方案中，有分主副字根的流派，比如「郑码」、「山人通用」、「徐码」等等，还有不分主副根的单编码类方案，五笔就是典型代表。而86、98、新世纪、这三版五笔中，98版是拆字最为和谐自洽，字根数量最多，击键协调性最好，对大字符集适应最好的一版。小狼毫前端的开发者「nameoverflow」，同文输入法作者「osfans」，都是大家比较熟悉的98五笔用户。另外，OpenResty 的作者章亦春，">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://wubi98.gitee.io/img/index.jpg">
+<meta property="article:published_time" content="2019-06-17T16:00:00.000Z">
+<meta property="article:modified_time" content="2019-06-17T16:00:00.000Z">
+<meta property="article:author" content="五笔小筑">
+<meta property="article:tag" content="小狼毫">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://wubi98.gitee.io/img/index.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://wubi98.gitee.io/2019/06/18/2019-06-18-024.rime/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2019-06-18 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><link rel="stylesheet" href="/css/footer.min.css"><link rel="stylesheet" href="/css/buttons.min.css"><link rel="stylesheet" href="/css/plugins.min.css"><link rel="stylesheet" href="/css/friend.min.css"><link rel="stylesheet" href="/css/my.css"><link rel="stylesheet" href="/css/font.css"><link rel="stylesheet" href="/css/iconfont.css"><meta name="generator" content="Hexo 5.4.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/me.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">40</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">23</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/artitalk/"><i class="fa-fw fa fa-paper-plane"></i><span> 随记</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/pic/01.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">五笔小筑</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/artitalk/"><i class="fa-fw fa fa-paper-plane"></i><span> 随记</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">中州韵与98五笔</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2019-06-17T16:00:00.000Z" title="发表于 2019-06-18 00:00:00">2019-06-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2019-06-17T16:00:00.000Z" title="更新于 2019-06-18 00:00:00">2019-06-18</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%B0%8F%E7%8B%BC%E6%AF%AB/">小狼毫</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>4分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="中州韵与98五笔"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="纯形佳作"><a href="#纯形佳作" class="headerlink" title="纯形佳作"></a>纯形佳作</h2><p>纯形方案中，有分主副字根的流派，比如「郑码」、「山人通用」、「徐码」等等，还有不分主副根的单编码类方案，五笔就是典型代表。<br>而86、98、新世纪、这三版五笔中，98版是拆字最为和谐自洽，字根数量最多，击键协调性最好，对大字符集适应最好的一版。<br>小狼毫前端的开发者「nameoverflow」，同文输入法作者「osfans」，都是大家比较熟悉的98五笔用户。另外，OpenResty 的作者章亦春，也是98五笔高手，而且非常喜爱鼠须管前端。<br>98五笔小组一直致力维护98五笔资源，自 librime-1.3.2 内核对多翻译器支持的缺陷修复后，我们将资源制作的重心转移到中州韵平台上。</p>
+<h2 id="中州韵上的98五笔"><a href="#中州韵上的98五笔" class="headerlink" title="中州韵上的98五笔"></a>中州韵上的98五笔</h2><ul>
+<li>opencc组件适配</li>
+</ul>
+<p>我们利用 opencc 组件在 RIME 上所俱备的给候选词「嵌入注解」的功能，制作了<a target="_blank" rel="noopener" href="https://github.com/yanhuacuo/98wubi-tables">98五笔码元拆分提示</a>， 由于 RIME 的跨平台特性，在 Linux \ MacOS \ Android 等不同操作系统下的中州韵前端，也有同样精美的功能实现。</p>
+<p>其实这并不容易，我们从零制作了拆分提示所需要的「矢量字体」，并且对日常使用的 GB18030 全部两万七千多汉字逐一校对 opencc 拆分文件。但这些辛苦非常值得，用惯了普通输入法软件的人，初见这样的功能界面时，无不惊艳。</p>
+<p><img src="/img/old/id/1.jpg" alt="pic"></p>
+<p>这部分功能的实现，拓展到了「拼音反查」中，当用户以「z」键进入「临时拼音」时，我们以 opencc 「嵌入注解」的模式，提供「三重注解」，如下是 Linux 下的截图：</p>
+<p><img src="/img/old/id/2.png" alt="pic"></p>
+<p align="center"><a target="_blank" rel="noopener" href="https://github.com/yanhuacuo/98wubi">iBus-Rime 下的拼音反查三重注解</a></p>
+
+<ul>
+<li>扩展词库</li>
+</ul>
+<p>98五笔主码表中的词条及词频，我们一直在持续更新维护。这部分，是不期望用户删改的。借助于 RIME 扩展词库的功能，我们制作了适配的<a target="_blank" rel="noopener" href="https://github.com/yanhuacuo/98wubi/blob/master/wubi98_ci.extended.dict.yaml">98五笔扩展词库</a>，对于有本地词条管理需求的人，非常友好。</p>
+<p>日常有批量添加词条需求的话，可以直接以纯词条的方式，写入扩展词库中，若有类似其它输入法软件「快捷输入」需求的话，也能以追加编码的方式实现。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"># ↓ 扩展词库的用法一：「无码加词」</span><br><span class="line"># 无编码词条直接拷贝进来、保存一下，就批量加入了，下面几首诗，可以「五笔词条」的方式打出</span><br><span class="line"># 注意，末尾不可有符号。</span><br><span class="line"></span><br><span class="line">春眠不觉晓，处处闻啼鸟。夜来风雨声，花落知多少</span><br><span class="line">红豆生南国，春来发几枝。愿君多采撷，此物最相思</span><br><span class="line">向晚意不适，驱车登古原。夕阳无限好，只是近黄昏</span><br><span class="line">故人西辞黄鹤楼，烟花三月下扬州。孤帆远影碧空尽，唯见长江天际流</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 无编码的词条，程序会自动处理，但不应太长，太长以致无法自动编码的话，就需要手动加入编码了。</span><br><span class="line"># 推荐从别的条目「复制」间隔位填充词条与编码或词频的间隔，以防格式出错。</span><br><span class="line"></span><br><span class="line">今夜鄜州月，闺中只独看。遥怜小儿女，未解忆长安。香雾云鬟湿，清辉玉臂寒。何时倚虚幌，双照泪痕干	wyof</span><br><span class="line">清江一曲抱村流，长夏江村事事幽。自去自来堂上燕，相亲相近水中鸥。老妻画纸为棋局，稚子敲针作钓钩。但有故人供禄米，微躯此外更何求	iigg</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># ↓ 扩展词库的用法二：「快捷输入」</span><br><span class="line">#  主词库中缺少的常用短语，个人信息等等，可如下快捷输入，删掉下面三行的「#」号，则可以定义在后面的「编码」输出</span><br><span class="line"></span><br><span class="line">#北京市海淀区清华大学医学科学楼	addr</span><br><span class="line">#tsps_e@tsinghua.edu.cn	mail</span><br><span class="line">#13552888888	tel</span><br></pre></td></tr></table></figure>
+<p>针对扩展词库部分更友好的 GUI 实现，也有了相应计划，正在制作中。</p>
+<ul>
+<li>引导造词</li>
+</ul>
+<p>在日常办公写作中，不离开光标焦点，即时添加新词条是很有用的功能。到目前为止，仅有中州韵能实现输入法光标焦点处引导造词，而且全程不需要视线转移。</p>
+<p>这部分功能的实现，依赖于 librime-1.3.2 起，对多翻译器支持的完善。我们使用 3 组翻译器，很巧妙地做到了「主表固序」与「新词靠后」的结合。</p>
+<ul>
+<li>音形互通</li>
+</ul>
+<p>特别做了「~引导以形查音」和「z键引导拼音反查」两种功能，使音和形有互通的办法。辅以码元拆分提示的实现，在能可实现的范围里，最大程度地利用了中州韵的特性。</p>
+<h2 id="全平台打包"><a href="#全平台打包" class="headerlink" title="全平台打包"></a>全平台打包</h2><p>在使用人数最多的 Win 、Mac 和 Android 下，我们制作了傻瓜式的安装包，Linux 下，有一步到位的 Shell 迁移脚本。</p>
+<p>除了这些安装方式尽可能地友好之外，在 Android 下，还有<a target="_blank" rel="noopener" href="https://github.com/yanhuacuo/98wubi">同文98五笔版</a>这样专门绘制皮肤素材的尝试。</p>
+<p>我们98小组维护的98五笔中州韵配置，是目前最大程度地利用了中州韵的特技，而且是用得最好的，没有之一。</p>
+<h2 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h2><div class="content">
+<ul>
+<li>98五笔-QQ群：<a target="_blank" rel="noopener" href="//shang.qq.com/wpa/qunwpa?idkey=26ae7c9099c6f37a78e0501329e179da09820470312195252a6927c565fcb995">547820540</a></li>
+<li>98五笔-项目：<a target="_blank" rel="noopener" href="https://github.com/yanhuacuo/98wubi-tables">GitHub</a></li>
+<li>98五笔-资源库：<a target="_blank" rel="noopener" href="https://wb98.gitee.io/">资源下载</a></li>
+<li>98五笔-博客：<a href="https://wubi98.gitee.io/">五笔小筑</a></li>
+<li>98五笔-视频库：<a target="_blank" rel="noopener" href="https://space.bilibili.com/13979976">B站视频库</a></li>
+<li>98五笔-主页：<a target="_blank" rel="noopener" href="http://www.98wubi.com/">98五笔主页</a></li>
+<li>98五笔-贴吧：<a target="_blank" rel="noopener" href="http://tieba.baidu.com/f?kw=98%E4%BA%94%E7%AC%94&ie=utf-8&tab=main">贴吧</a></li>
+</ul>
+</div>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%B0%8F%E7%8B%BC%E6%AF%AB/">小狼毫</a></div><div class="post_share"><div class="social-share" data-image="/img/index.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.png" target="_blank"><img class="post-qr-code-img" src="/img/wechat.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/img/alipay.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2019/06/20/2019-06-06-020.poem/"><img class="prev-cover" src="/img/index.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">天高霜月砧声苦，风满寒林木叶黄</div></div></a></div><div class="next-post pull-right"><a href="/2019/06/16/2019-06-16-023.jekyll/"><img class="next-cover" src="/img/index.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">博客环境迁移到ubuntu</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div><div id="comment-switch"><span class="first-comment">Waline</span><span class="switch-btn"></span><span class="second-comment">Gitalk</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div><div><div id="gitalk-container"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/me.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">五笔小筑</div><div class="author-info__description">五笔小筑</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">40</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">23</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">23</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://wb98.gitee.io/"><i></i><span>98五笔资源库</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/yanhuacuo/98wubi-tables" target="_blank" title="Github"><i class="iconfont icon-github"></i></a><a class="social-icon" href="http://98wb.ys168.com" target="_blank" title="网盘"><i class="iconfont icon-hua"></i></a><a class="social-icon" href="https://space.bilibili.com/13979976" target="_blank" title="bilibili"><i class="iconfont icon-bilibili"></i></a><a class="social-icon" href="/img/QQ.png" target="_blank" title="QQ"><i class="iconfont icon-qq"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">致力解决98五笔的使用问题</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%AF%E5%BD%A2%E4%BD%B3%E4%BD%9C"><span class="toc-number">1.</span> <span class="toc-text">纯形佳作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%AD%E5%B7%9E%E9%9F%B5%E4%B8%8A%E7%9A%8498%E4%BA%94%E7%AC%94"><span class="toc-number">2.</span> <span class="toc-text">中州韵上的98五笔</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%A8%E5%B9%B3%E5%8F%B0%E6%89%93%E5%8C%85"><span class="toc-number">3.</span> <span class="toc-text">全平台打包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E9%93%BE%E6%8E%A5"><span class="toc-number">4.</span> <span class="toc-text">相关链接</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/11/10/hello-world/" title="Hello World">Hello World</a><time datetime="2021-11-09T18:38:22.773Z" title="发表于 2021-11-10 02:38:22">2021-11-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/11/09/2021-11-08-040.fcitx5/" title="fcitx5仿微软主题">fcitx5仿微软主题</a><time datetime="2021-11-08T16:00:00.000Z" title="发表于 2021-11-09 00:00:00">2021-11-09</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/11/09/2021-11-10-041.wb/" title="fcitx5仿微软主题">fcitx5仿微软主题</a><time datetime="2021-11-08T16:00:00.000Z" title="发表于 2021-11-09 00:00:00">2021-11-09</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/11/08/2021-11-08-039.fcitx5/" title="fcitx5下的98五笔解决方案">fcitx5下的98五笔解决方案</a><time datetime="2021-11-07T16:00:00.000Z" title="发表于 2021-11-08 00:00:00">2021-11-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/11/06/2021-11-06-037.wb/" title="初学者的码长怠惰">初学者的码长怠惰</a><time datetime="2021-11-05T16:00:00.000Z" title="发表于 2021-11-06 00:00:00">2021-11-06</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="footer_custom_text"><span>©2021 </span><i id="heartbeat" class="fa fas fa-heartbeat"></i> <span> Continue.Run</span></br><a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=i1iHIym3H6ZNT1djsq07_y9BHsFwzrPO&jump_from=webapi">QQ群：547820540</a></br>京ICP备17007345号</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    loader: {
+      source: {
+        '[tex]/amsCd': '[tex]/amscd'
+      }
+    },
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        addClass: [200,() => {
+          document.querySelectorAll('mjx-container:not([display=\'true\']').forEach( node => {
+            const target = node.parentNode
+            if (!target.classList.contains('has-jax')) {
+              target.classList.add('mathjax-overflow')
+            }
+          })
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script><script>function loadWaline () {
+  function initWaline () {
+    const waline = new Waline(Object.assign({
+      el: '#waline-wrap',
+      serverURL: 'https://my-waline-yanhuacuo.vercel.app/',
+      avatar: 'monsterid',
+      path: location.pathname,
+      emojiCDN: '',
+      emojiMaps: "",
+      visitor: false
+    }, {"placeholder":"我有句话不知当讲不当讲","requiredFields":["nick","mail"]}))
+  }
+
+  if (typeof Waline === 'function') initWaline() 
+  else getScript('https://cdn.jsdelivr.net/gh/yanhuacuo/blog-css@2.3/Waline.min.js').then(initWaline)
+}
+
+if ('Waline' === 'Waline' || !false) {
+  if (false) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+  else setTimeout(loadWaline, 0)
+} else {
+  function loadOtherComment () {
+    loadWaline()
+  }
+}</script><script>function addGitalkSource () {
+  const ele = document.createElement('link')
+  ele.rel = 'stylesheet'
+  ele.href= 'https://cdn.jsdelivr.net/gh/98wb/wb@4.0/gitalk.min.css'
+  document.getElementsByTagName('head')[0].appendChild(ele)
+}
+
+function loadGitalk () {
+  function initGitalk () {
+    var gitalk = new Gitalk(Object.assign({
+      clientID: '2ea2c4bb720c8c7986a1',
+      clientSecret: '5e19a65d70de308387ae655335be2a4bd5ec0373',
+      repo: 'wb',
+      owner: '98wb',
+      admin: ['98wb'],
+      id: '71f07bb3fbcbc73f9c8271a033981dde',
+      language: 'zh-CN',
+      perPage: 10,
+      distractionFreeMode: false,
+      pagerDirection: 'last',
+      createIssueManually: false,
+      updateCountCallback: commentCount
+    },null))
+
+    gitalk.render('gitalk-container')
+  }
+
+  if (typeof Gitalk === 'function') initGitalk()
+  else {
+    addGitalkSource()
+    getScript('https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js').then(initGitalk)
+  }
+}
+
+function commentCount(n){
+  let isCommentCount = document.querySelector('#post-meta .gitalk-comment-count')
+  if (isCommentCount) {
+    isCommentCount.innerHTML= n
+  }
+}
+
+if ('Waline' === 'Gitalk' || !false) {
+  if (false) btf.loadComment(document.getElementById('gitalk-container'), loadGitalk)
+  else loadGitalk()
+} else {
+  function loadOtherComment () {
+    loadGitalk()
+  }
+}</script></div><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = true;
+document.body.addEventListener('input', POWERMODE);
+</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
