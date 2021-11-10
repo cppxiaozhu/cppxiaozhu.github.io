@@ -242,31 +242,6 @@
     
     
     <entry>
-      <title>扩展词库</title>
-      <link href="/2019/12/03/2019-12-03-033.extended/"/>
-      <url>/2019/12/03/2019-12-03-033.extended/</url>
-      
-        <content type="html"><![CDATA[<h2 id="深蓝词库工具"><a href="#深蓝词库工具" class="headerlink" title="深蓝词库工具"></a><a href="https://github.com/studyzy/imewlconverter">深蓝词库工具</a></h2><p>①： 下载较新的 <a href="https://github.com/studyzy/imewlconverter/releases">Releases</a></p><p>②： 阅读 <a href="https://github.com/studyzy/imewlconverter/tree/master/src/ImeWlConverterCmd">说明</a>，补齐 <a href="https://dotnet.microsoft.com/download/dotnet-core/2.2">依赖</a></p><p>③： 在 <a href="https://github.com/studyzy/imewlconverter/releases">Releases</a> 解压得到的文件夹上右键调出「菜单」——「新建位于文件夹位置的终端窗口」</p><p>④： 使用下面的命令，将「通信工程专业词汇.scel」转成「纯汉字.txt」</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dotnet ImeWlConverterCmd.dll -i:scel ../通信工程专业词汇.scel -o:word ../纯汉字.txt</span><br></pre></td></tr></table></figure><h3 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h3><ul><li>搜狗细胞词库官网：<a href="https://pinyin.sogou.com/dict/">https://pinyin.sogou.com/dict/</a></li><li>注意「示例命令」中，文件的相对位置关系，改成你实际用得到的名称。</li></ul><p>比如，「通信工程专业词汇.scel」和「publish」文件夹，在同一个目录下，截图如下：</p><p><img src="/img/old/shenlan/1.jpg" alt="位置"></p><p><img src="/img/old/shenlan/2.jpg" alt="位置"></p><h2 id="添加到扩展词库"><a href="#添加到扩展词库" class="headerlink" title="添加到扩展词库"></a>添加到扩展词库</h2><p>①： 复制「扩词库词」到「用户目录」下，终端执行：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp -rf /Library/Input\ Methods/Squirrel.app/Contents/SharedSupport/wubi98_ci.extended.dict.yaml ~/Library/Rime/</span><br></pre></td></tr></table></figure><p>②： 打开「wubi98_ci.extended.dict.yaml」</p><p><img src="/img/old/shenlan/3.jpg" alt="位置"></p><p>③： 你看「ci」它是汉语拼音「词」的全拼，「extended」它是「扩展」的意思，所以它是「含词选单」才能用的。</p><p>④： 将「纯汉字.txt」全部复制入「wubi98_ci.extended.dict.yaml」，保存。</p><p><img src="/img/old/shenlan/4.jpg" alt="位置"></p><p>⑤： 重新部署。</p><p>⑥： 建议使用 <a href="https://code.visualstudio.com/">vscode</a> 等专业工具编辑 YAML 文件，防止格式问题。</p><h2 id="Windows下的同理操作"><a href="#Windows下的同理操作" class="headerlink" title="Windows下的同理操作"></a>Windows下的同理操作</h2><p>视频讲解：<a href="https://www.bilibili.com/video/av44660387">为小狼毫添加扩展词库</a></p><h2 id="回放"><a href="#回放" class="headerlink" title="回放"></a>回放</h2><p><strong>拿到「纯词条」，塞到「扩展词库」下，喂到「用户目录」中。</strong></p><p>命令俱全，演示充分，没有理由再出错。</p><h2 id="获取支持"><a href="#获取支持" class="headerlink" title="获取支持"></a>获取支持</h2><p>98五笔团队不仅在方案适配上做了很多工作，在软件应用和98五笔学习资源上也一直在努力，如果你在使用98五笔方案中有任何困惑，欢迎交流。</p><div class="content"><ul><li>98五笔-QQ群：<a href="//shang.qq.com/wpa/qunwpa?idkey=26ae7c9099c6f37a78e0501329e179da09820470312195252a6927c565fcb995">547820540</a></li><li>98五笔-项目：<a href="https://github.com/yanhuacuo/98wubi-tables">GitHub</a></li><li>98五笔-资源库：<a href="https://wb98.gitee.io/">资源下载</a></li><li>98五笔-博客：<a href="https://wubi98.gitee.io/">五笔小筑</a></li><li>98五笔-视频库：<a href="https://space.bilibili.com/13979976">B站视频库</a></li><li>98五笔-主页：<a href="http://www.98wubi.com/">98五笔主页</a></li><li>98五笔-贴吧：<a href="http://tieba.baidu.com/f?kw=98%E4%BA%94%E7%AC%94&ie=utf-8&tab=main">贴吧</a></li></ul></div>]]></content>
-      
-      
-      <categories>
-          
-          <category> 词库工具 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 词库工具 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>柚子·小甜版</title>
       <link href="/2019/12/03/2019-12-03-034.yours/"/>
       <url>/2019/12/03/2019-12-03-034.yours/</url>
@@ -284,6 +259,31 @@
         <tags>
             
             <tag> 柚子小甜版 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>扩展词库</title>
+      <link href="/2019/12/03/2019-12-03-033.extended/"/>
+      <url>/2019/12/03/2019-12-03-033.extended/</url>
+      
+        <content type="html"><![CDATA[<h2 id="深蓝词库工具"><a href="#深蓝词库工具" class="headerlink" title="深蓝词库工具"></a><a href="https://github.com/studyzy/imewlconverter">深蓝词库工具</a></h2><p>①： 下载较新的 <a href="https://github.com/studyzy/imewlconverter/releases">Releases</a></p><p>②： 阅读 <a href="https://github.com/studyzy/imewlconverter/tree/master/src/ImeWlConverterCmd">说明</a>，补齐 <a href="https://dotnet.microsoft.com/download/dotnet-core/2.2">依赖</a></p><p>③： 在 <a href="https://github.com/studyzy/imewlconverter/releases">Releases</a> 解压得到的文件夹上右键调出「菜单」——「新建位于文件夹位置的终端窗口」</p><p>④： 使用下面的命令，将「通信工程专业词汇.scel」转成「纯汉字.txt」</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dotnet ImeWlConverterCmd.dll -i:scel ../通信工程专业词汇.scel -o:word ../纯汉字.txt</span><br></pre></td></tr></table></figure><h3 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h3><ul><li>搜狗细胞词库官网：<a href="https://pinyin.sogou.com/dict/">https://pinyin.sogou.com/dict/</a></li><li>注意「示例命令」中，文件的相对位置关系，改成你实际用得到的名称。</li></ul><p>比如，「通信工程专业词汇.scel」和「publish」文件夹，在同一个目录下，截图如下：</p><p><img src="/img/old/shenlan/1.jpg" alt="位置"></p><p><img src="/img/old/shenlan/2.jpg" alt="位置"></p><h2 id="添加到扩展词库"><a href="#添加到扩展词库" class="headerlink" title="添加到扩展词库"></a>添加到扩展词库</h2><p>①： 复制「扩词库词」到「用户目录」下，终端执行：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp -rf /Library/Input\ Methods/Squirrel.app/Contents/SharedSupport/wubi98_ci.extended.dict.yaml ~/Library/Rime/</span><br></pre></td></tr></table></figure><p>②： 打开「wubi98_ci.extended.dict.yaml」</p><p><img src="/img/old/shenlan/3.jpg" alt="位置"></p><p>③： 你看「ci」它是汉语拼音「词」的全拼，「extended」它是「扩展」的意思，所以它是「含词选单」才能用的。</p><p>④： 将「纯汉字.txt」全部复制入「wubi98_ci.extended.dict.yaml」，保存。</p><p><img src="/img/old/shenlan/4.jpg" alt="位置"></p><p>⑤： 重新部署。</p><p>⑥： 建议使用 <a href="https://code.visualstudio.com/">vscode</a> 等专业工具编辑 YAML 文件，防止格式问题。</p><h2 id="Windows下的同理操作"><a href="#Windows下的同理操作" class="headerlink" title="Windows下的同理操作"></a>Windows下的同理操作</h2><p>视频讲解：<a href="https://www.bilibili.com/video/av44660387">为小狼毫添加扩展词库</a></p><h2 id="回放"><a href="#回放" class="headerlink" title="回放"></a>回放</h2><p><strong>拿到「纯词条」，塞到「扩展词库」下，喂到「用户目录」中。</strong></p><p>命令俱全，演示充分，没有理由再出错。</p><h2 id="获取支持"><a href="#获取支持" class="headerlink" title="获取支持"></a>获取支持</h2><p>98五笔团队不仅在方案适配上做了很多工作，在软件应用和98五笔学习资源上也一直在努力，如果你在使用98五笔方案中有任何困惑，欢迎交流。</p><div class="content"><ul><li>98五笔-QQ群：<a href="//shang.qq.com/wpa/qunwpa?idkey=26ae7c9099c6f37a78e0501329e179da09820470312195252a6927c565fcb995">547820540</a></li><li>98五笔-项目：<a href="https://github.com/yanhuacuo/98wubi-tables">GitHub</a></li><li>98五笔-资源库：<a href="https://wb98.gitee.io/">资源下载</a></li><li>98五笔-博客：<a href="https://wubi98.gitee.io/">五笔小筑</a></li><li>98五笔-视频库：<a href="https://space.bilibili.com/13979976">B站视频库</a></li><li>98五笔-主页：<a href="http://www.98wubi.com/">98五笔主页</a></li><li>98五笔-贴吧：<a href="http://tieba.baidu.com/f?kw=98%E4%BA%94%E7%AC%94&ie=utf-8&tab=main">贴吧</a></li></ul></div>]]></content>
+      
+      
+      <categories>
+          
+          <category> 词库工具 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 词库工具 </tag>
             
         </tags>
       
