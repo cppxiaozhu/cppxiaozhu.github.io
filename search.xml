@@ -17,11 +17,11 @@
     
     
     <entry>
-      <title>fcitx5仿微软主题</title>
-      <link href="/2021/11/09/2021-11-08-040.fcitx5/"/>
-      <url>/2021/11/09/2021-11-08-040.fcitx5/</url>
+      <title>fcitx5已内置98方案</title>
+      <link href="/2021/11/10/2021-11-10-041.fcitx5/"/>
+      <url>/2021/11/10/2021-11-10-041.fcitx5/</url>
       
-        <content type="html"><![CDATA[<h2 id="获取文件"><a href="#获取文件" class="headerlink" title="获取文件"></a>获取文件</h2><ul><li>GitHub <a href="https://github.com/yanhuacuo/fcitx5-wubi98">fcitx5-wubi98</a></li><li>永硕网盘 <a href="http://98wb.ys168.com/">http://98wb.ys168.com/</a></li></ul><p><img src="/img/1109/00.png" alt="pic"></p><h2 id="自助安装"><a href="#自助安装" class="headerlink" title="自助安装"></a>自助安装</h2><p>终端输入如下命令即可安装</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod a+x skin.sh</span><br><span class="line">sh skin.sh</span><br></pre></td></tr></table></figure><p><img src="/img/1109/01.png" alt="pic"></p><p><img src="/img/1109/02.png" alt="pic"></p><h2 id="配色一览"><a href="#配色一览" class="headerlink" title="配色一览"></a>配色一览</h2><ul><li><p><img src="/img/1109/autumn.png" alt="pic"></p></li><li><p><img src="/img/1109/spring.png" alt="pic"></p></li><li><p><img src="/img/1109/transparent-green.png" alt="pic"></p></li><li><p><img src="/img/1109/green.png" alt="pic"></p></li><li><p><img src="/img/1109/summer.png" alt="pic"></p></li><li><p><img src="/img/1109/winter.png" alt="pic"></p></li></ul><h2 id="附"><a href="#附" class="headerlink" title="附"></a>附</h2><ul><li><p>适应98拆分字体<br>相对于原作，这里的改动，主要在主题的『theme.conf』中，修改字体为『98WB-1』，以方便显示拆分字体。</p></li><li><p>类TSF嵌入外观<br>在 Fcitx5 中，这是『预编辑』嵌入，相关参数为</p></li></ul><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 在程序中显示预编辑文本</span><br><span class="line">PreeditInApplication=True</span><br></pre></td></tr></table></figure><p>这里分享的版本，已从参数上做好了设定。特别提示一下，从 GUI 中的修改方式为：</p><p><img src="/img/1109/03.png" alt="pic"></p><ul><li>原作者项目地址 <a href="https://github.com/thep0y/fcitx5-themes">fcitx5-themes</a></li></ul>]]></content>
+        <content type="html"><![CDATA[<p>我们已为 Fcitx5 框架下的<strong>原生码表</strong>制作了设置参数一步到位的 <a href="https://github.com/yanhuacuo/fcitx5-wubi98">配置文件</a></p><p>后来收到 Fcitx5 的 <a href="https://github.com/fcitx/fcitx5-table-extra/">码表仓库</a>  的  pull request </p><p>邀约，添加了『wubi98-single』、『wubi98-pinyin』，『wubi98』三种模式的98方案码表。</p><p>未来内置 Fcitx5 的发行版，都有现成的『98五笔方案』可用了。</p><p><img src="/img/1110/fcitx5.png" alt="pic"></p><p>Fcitx5 在设置方面，有较为齐全的图形界面，受图形设置支配的配置文件在 </p><blockquote><p>~/.config/fcitx5/table</p></blockquote><p>一份典型的『wb98-dz.conf』参数如下</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><span class="line">[InputMethod]</span><br><span class="line">Name[ca]=Wubi98-dz</span><br><span class="line">Name[da]=Wubi98-dz</span><br><span class="line">Name[de]=Wubi98-dz</span><br><span class="line">Name[ko]=Wubi98-dz</span><br><span class="line">Name[ru]=Wubi98-dz</span><br><span class="line">Name[zh_CN]=五笔98·单字</span><br><span class="line">Name=Wubi98-dz</span><br><span class="line">Icon=fcitx-wubi</span><br><span class="line">Label=五</span><br><span class="line">LangCode=zh_CN</span><br><span class="line">Addon=table</span><br><span class="line">Configurable=True</span><br><span class="line"></span><br><span class="line">[Table]</span><br><span class="line">File=/usr/share/libime/dz.dict</span><br><span class="line"># 页大小</span><br><span class="line">PageSize=5</span><br><span class="line"># 自动选择候选词之后提交</span><br><span class="line">CommitAfterSelect=True</span><br><span class="line"># 取消激活输入法时提交输入缓冲区</span><br><span class="line">CommitWhenDeactivate=True</span><br><span class="line"># 提交无效分段</span><br><span class="line">CommitInvalidSegment=False</span><br><span class="line"># 使用全角字符</span><br><span class="line">UseFullWidth=False</span><br><span class="line"># 忽略内置标点</span><br><span class="line">IgnorePunc=False</span><br><span class="line"># 将第一个候选词作为预编辑文本</span><br><span class="line">FirstCandidateAsPreedit=False</span><br><span class="line"># 快速输入的触发键</span><br><span class="line">QuickPhraseKey=</span><br><span class="line"># 触发快速输入的文本</span><br><span class="line">QuickPhraseText=ABCDEFGHIJLKLMNOPQRSTUVWXYZ</span><br><span class="line"># 不对短于...的词排序</span><br><span class="line">NoSortInputLength=2</span><br><span class="line"># 排序规则</span><br><span class="line">OrderPolicy=No</span><br><span class="line"># 使用系统语言模型</span><br><span class="line">UseSystemLanguageModel=False</span><br><span class="line"># 根据当前上下文排序候选词</span><br><span class="line">UseContextRelatedOrder=False</span><br><span class="line"># 模糊键</span><br><span class="line">MatchingKey=</span><br><span class="line"># 触发拼音的前缀键</span><br><span class="line">PinyinKey=z</span><br><span class="line"># 自动选择候选词</span><br><span class="line">AutoSelect=True</span><br><span class="line"># 选择唯一候选词的长度限制</span><br><span class="line">AutoSelectLength=-1</span><br><span class="line"># 选择唯一候选词的正则表达式</span><br><span class="line">AutoSelectRegex=</span><br><span class="line"># 没有匹配时自动选择</span><br><span class="line">NoMatchAutoSelectLength=-1</span><br><span class="line"># 没有匹配时自动选择的正则表达式</span><br><span class="line">NoMatchAutoSelectRegex=</span><br><span class="line"># 自动词组长度</span><br><span class="line">AutoPhraseLength=0</span><br><span class="line"># 在输入...次后保存自动组词</span><br><span class="line">SaveAutoPhraseAfter=-8</span><br><span class="line"># 精确匹配</span><br><span class="line">ExactMatch=True</span><br><span class="line"># 学习</span><br><span class="line">Learning=False</span><br><span class="line"># 显示词的提示</span><br><span class="line">Hint=False</span><br><span class="line"># 显示自定义提示</span><br><span class="line">DisplayCustomHint=False</span><br><span class="line"># 提示和候选词之间的分隔符文本</span><br><span class="line">HintSeparator=</span><br><span class="line"># 候选词列表方向</span><br><span class="line">CandidateLayoutHint=Horizontal</span><br><span class="line"></span><br><span class="line">[Table/PrevPage]</span><br><span class="line">0=Up</span><br><span class="line">1=minus</span><br><span class="line"></span><br><span class="line">[Table/NextPage]</span><br><span class="line">0=Down</span><br><span class="line">1=equal</span><br><span class="line"></span><br><span class="line">[Table/PrevCandidate]</span><br><span class="line">0=Left</span><br><span class="line"></span><br><span class="line">[Table/NextCandidate]</span><br><span class="line">0=Right</span><br><span class="line"></span><br><span class="line">[Table/SecondCandidate]</span><br><span class="line">0=semicolon</span><br><span class="line"></span><br><span class="line">[Table/ThirdCandidate]</span><br><span class="line">0=apostrophe</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
@@ -43,8 +43,8 @@
     
     <entry>
       <title>fcitx5仿微软主题</title>
-      <link href="/2021/11/09/2021-11-10-041.wb/"/>
-      <url>/2021/11/09/2021-11-10-041.wb/</url>
+      <link href="/2021/11/09/2021-11-09-040.fcitx5/"/>
+      <url>/2021/11/09/2021-11-09-040.fcitx5/</url>
       
         <content type="html"><![CDATA[<h2 id="获取文件"><a href="#获取文件" class="headerlink" title="获取文件"></a>获取文件</h2><ul><li>GitHub <a href="https://github.com/yanhuacuo/fcitx5-wubi98">fcitx5-wubi98</a></li><li>永硕网盘 <a href="http://98wb.ys168.com/">http://98wb.ys168.com/</a></li></ul><p><img src="/img/1109/00.png" alt="pic"></p><h2 id="自助安装"><a href="#自助安装" class="headerlink" title="自助安装"></a>自助安装</h2><p>终端输入如下命令即可安装</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod a+x skin.sh</span><br><span class="line">sh skin.sh</span><br></pre></td></tr></table></figure><p><img src="/img/1109/01.png" alt="pic"></p><p><img src="/img/1109/02.png" alt="pic"></p><h2 id="配色一览"><a href="#配色一览" class="headerlink" title="配色一览"></a>配色一览</h2><ul><li><p><img src="/img/1109/autumn.png" alt="pic"></p></li><li><p><img src="/img/1109/spring.png" alt="pic"></p></li><li><p><img src="/img/1109/transparent-green.png" alt="pic"></p></li><li><p><img src="/img/1109/green.png" alt="pic"></p></li><li><p><img src="/img/1109/summer.png" alt="pic"></p></li><li><p><img src="/img/1109/winter.png" alt="pic"></p></li></ul><h2 id="附"><a href="#附" class="headerlink" title="附"></a>附</h2><ul><li><p>适应98拆分字体<br>相对于原作，这里的改动，主要在主题的『theme.conf』中，修改字体为『98WB-1』，以方便显示拆分字体。</p></li><li><p>类TSF嵌入外观<br>在 Fcitx5 中，这是『预编辑』嵌入，相关参数为</p></li></ul><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 在程序中显示预编辑文本</span><br><span class="line">PreeditInApplication=True</span><br></pre></td></tr></table></figure><p>这里分享的版本，已从参数上做好了设定。特别提示一下，从 GUI 中的修改方式为：</p><p><img src="/img/1109/03.png" alt="pic"></p><ul><li>原作者项目地址 <a href="https://github.com/thep0y/fcitx5-themes">fcitx5-themes</a></li></ul>]]></content>
       
@@ -92,31 +92,6 @@
     
     
     <entry>
-      <title>初学者的码长怠惰</title>
-      <link href="/2021/11/06/2021-11-06-037.wb/"/>
-      <url>/2021/11/06/2021-11-06-037.wb/</url>
-      
-        <content type="html"><![CDATA[<h2 id="码长怠惰"><a href="#码长怠惰" class="headerlink" title="码长怠惰"></a>码长怠惰</h2><p>初学者，不论是否已有五笔基础，都有一些「短码癖」：总觉得「这个字竟然需要四码打出来，太累了，我想改短，改成简码」；又或者，这个简码排序有问题，我要改一改。形成这种心理的主要诱因有两方面：没能正确认识五笔的基本概念，缺乏适应性练习。</p><ul><li>正确认识五笔：打字是一个快乐的过程</li></ul><p>五笔将「汉字」分流为「键名字」、「成字码元」、「常规拆解字」。不同的汉字，从分类上有不同的「检索方案」，每个字都在这个分类模式下有确定的「全码」。五笔打字，让你可以像一个技法高超的飞刀手一样，一刀飞出、精准命中。这个过程，是十指协调、心手合一的愉快过程。既然选择了五笔，那就应当建立这样的信念。</p><p>简码是重要的，但不是最重要的，初学者应当简全一视同仁，都要心平气和地对待。简码位，是有限的，你不可能将所有你觉得打不顺的「四码字」统统塞到 625 个空间里来。恰恰相反，你应认真对待你觉得不好打的四码字，并彻底在心手协调的角度上消除这种初上手的障碍。</p><ul><li>做正确的适应性练习：单字前五百~单字前一千五</li></ul><p>我建议上手了 98五笔之后，立刻着手「单字前五百」的系统性训练，在这个过程中要尝试适应码表，并最大可能培养打字的正确习惯。比如善用「一简二重」与「二简二重」，无论是以数字选 2 上屏，还是利用「；」键上屏，都不是问题，持之以恒地练一段时间，你会发现你的「击键」水平已经有了质的飞跃，接下来，打啥都快，打啥都顺手。</p><p>适应性训练是非常重要的，很多初学者缺少这样的训练，而且从一开始着手时，就带着固有的偏见审视方案本身，这样的心态只是在浪费你的时间，因为真正决定手速水平的，是「击键水平」，而不是一段文章，你打了几个简码，几个全码。</p><h2 id="携手同行"><a href="#携手同行" class="headerlink" title="携手同行"></a>携手同行</h2><p>98五笔方案在一众热心大佬的参与下，已经是工具精巧、资源到位的优势形码。新老朋友也因这个方案而齐聚一堂，动辄变动单字表的不成熟做法，可能使我们的交流与沟通充满障碍。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 初学者 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 初学者 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>便携版五笔的一些问题</title>
       <link href="/2021/11/06/2021-11-06-038.wb/"/>
       <url>/2021/11/06/2021-11-06-038.wb/</url>
@@ -134,6 +109,31 @@
         <tags>
             
             <tag> 反馈 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>初学者的码长怠惰</title>
+      <link href="/2021/11/06/2021-11-06-037.wb/"/>
+      <url>/2021/11/06/2021-11-06-037.wb/</url>
+      
+        <content type="html"><![CDATA[<h2 id="码长怠惰"><a href="#码长怠惰" class="headerlink" title="码长怠惰"></a>码长怠惰</h2><p>初学者，不论是否已有五笔基础，都有一些「短码癖」：总觉得「这个字竟然需要四码打出来，太累了，我想改短，改成简码」；又或者，这个简码排序有问题，我要改一改。形成这种心理的主要诱因有两方面：没能正确认识五笔的基本概念，缺乏适应性练习。</p><ul><li>正确认识五笔：打字是一个快乐的过程</li></ul><p>五笔将「汉字」分流为「键名字」、「成字码元」、「常规拆解字」。不同的汉字，从分类上有不同的「检索方案」，每个字都在这个分类模式下有确定的「全码」。五笔打字，让你可以像一个技法高超的飞刀手一样，一刀飞出、精准命中。这个过程，是十指协调、心手合一的愉快过程。既然选择了五笔，那就应当建立这样的信念。</p><p>简码是重要的，但不是最重要的，初学者应当简全一视同仁，都要心平气和地对待。简码位，是有限的，你不可能将所有你觉得打不顺的「四码字」统统塞到 625 个空间里来。恰恰相反，你应认真对待你觉得不好打的四码字，并彻底在心手协调的角度上消除这种初上手的障碍。</p><ul><li>做正确的适应性练习：单字前五百~单字前一千五</li></ul><p>我建议上手了 98五笔之后，立刻着手「单字前五百」的系统性训练，在这个过程中要尝试适应码表，并最大可能培养打字的正确习惯。比如善用「一简二重」与「二简二重」，无论是以数字选 2 上屏，还是利用「；」键上屏，都不是问题，持之以恒地练一段时间，你会发现你的「击键」水平已经有了质的飞跃，接下来，打啥都快，打啥都顺手。</p><p>适应性训练是非常重要的，很多初学者缺少这样的训练，而且从一开始着手时，就带着固有的偏见审视方案本身，这样的心态只是在浪费你的时间，因为真正决定手速水平的，是「击键水平」，而不是一段文章，你打了几个简码，几个全码。</p><h2 id="携手同行"><a href="#携手同行" class="headerlink" title="携手同行"></a>携手同行</h2><p>98五笔方案在一众热心大佬的参与下，已经是工具精巧、资源到位的优势形码。新老朋友也因这个方案而齐聚一堂，动辄变动单字表的不成熟做法，可能使我们的交流与沟通充满障碍。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 初学者 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 初学者 </tag>
             
         </tags>
       
@@ -242,31 +242,6 @@
     
     
     <entry>
-      <title>柚子·小甜版</title>
-      <link href="/2019/12/03/2019-12-03-034.yours/"/>
-      <url>/2019/12/03/2019-12-03-034.yours/</url>
-      
-        <content type="html"><![CDATA[<h2 id="基本情况"><a href="#基本情况" class="headerlink" title="基本情况"></a>基本情况</h2><ul><li>Win操作系统</li><li>98五笔方案</li><li>绿色便携软件</li><li>支持十万超集</li><li>支持划译为98五笔拆解</li><li>设置入口齐全</li></ul><h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><p><p align="center"><a href="http://98wb.ys168.com/">98五笔资源库</a></p><br><img src="/img/old/sweet/1.jpg" alt="下载地址"></p><h2 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h2><p>下载后，解压到 U 盘中。进入主程序目录，右键「以管理员权限运行」。</p><ul><li><p><p align="center"><a href="http://98wb.ys168.com/">「以管理员权限运行」</a></p><br><img src="/img/old/sweet/2.jpg" alt="使用方式"></p></li><li><p><p align="center"><a href="http://98wb.ys168.com/">「悬浮色块--右键--各种设置项」</a></p><br><img src="/img/old/sweet/3.jpg" alt="设置方式"></p></li></ul><h2 id="特别说明"><a href="#特别说明" class="headerlink" title="特别说明"></a>特别说明</h2><ul><li>超集需要到「98五笔资源库」做一下「字体支持」。</li><li>如有「拆分显示」需要，设置字体为「98WB-0」或「98WB-P0」。</li><li>右键「以管理员权限运行」，可以避免一些「兼容性问题」。</li><li>ALT + Q = 划译</li><li>CTRL + Q = 查看字根图</li><li>分号、引号 = 2，3 选重</li></ul><h2 id="功能引导"><a href="#功能引导" class="headerlink" title="功能引导"></a>功能引导</h2><p>〔 / 〕引导〔 标签别名 〕，进入相关〔 功能 〕。比如：</p><ul><li>〔 /cj 〕=〔 98超集方案开关 〕</li><li>〔 /ci 〕=〔 单字/含词切换 〕</li></ul><p>〔 / 〕同时引导〔 符号 〕，与 RIME 保持一致的逻辑：<a href="https://github.com/yanhuacuo/98wubi/blob/master/symbols.yaml">详情</a></p><p>〔 z 〕引导〔 临时拼音兼反查 〕，同时提示〔 历史输入 〕。</p><p>〔 ~ 〕引导〔 以形查音 〕。</p><p>〔 ` 〕引导〔 快捷符号 〕。</p><h2 id="标签列表"><a href="#标签列表" class="headerlink" title="标签列表"></a>标签列表</h2><div class="table-container"><table><thead><tr><th style="text-align:center">标签别名</th><th style="text-align:center">label</th><th style="text-align:center">标签说明</th></tr></thead><tbody><tr><td style="text-align:center">cx</td><td style="text-align:center">lookup_status</td><td style="text-align:center">〔转换查询开关〕</td></tr><tr><td style="text-align:center">cf</td><td style="text-align:center">Cut_Mode</td><td style="text-align:center">〔字根拆分显示开关〕</td></tr><tr><td style="text-align:center">smsp</td><td style="text-align:center">limit_code</td><td style="text-align:center">〔四码上屏开关〕</td></tr><tr><td style="text-align:center">jf</td><td style="text-align:center">Trad_Mode</td><td style="text-align:center">〔简繁模式切换〕</td></tr><tr><td style="text-align:center">ci</td><td style="text-align:center">Wubi_Schema</td><td style="text-align:center">〔单字/含词切换〕</td></tr><tr><td style="text-align:center">more</td><td style="text-align:center">More_Setting</td><td style="text-align:center">〔调出设置界面〕</td></tr><tr><td style="text-align:center">cj</td><td style="text-align:center">Extend_Schema</td><td style="text-align:center">〔98超集方案开关〕</td></tr><tr><td style="text-align:center">dz</td><td style="text-align:center">Wubi_Schema</td><td style="text-align:center">〔单字/含词切换〕</td></tr><tr><td style="text-align:center">zq</td><td style="text-align:center">Startup</td><td style="text-align:center">〔开机自启/取消自启〕</td></tr><tr><td style="text-align:center">mode</td><td style="text-align:center">Textdirection</td><td style="text-align:center">〔候选横排/竖排〕</td></tr><tr><td style="text-align:center">week</td><td style="text-align:center">get_week_now</td><td style="text-align:center">〔上屏日期+时间〕</td></tr><tr><td style="text-align:center">date</td><td style="text-align:center">get_date_now</td><td style="text-align:center">〔上屏日期〕</td></tr><tr><td style="text-align:center">nl</td><td style="text-align:center">get_lunarDate_now</td><td style="text-align:center">〔上屏农历日期+时辰〕</td></tr><tr><td style="text-align:center">time</td><td style="text-align:center">get_time_now</td><td style="text-align:center">〔上当前屏时间〕</td></tr><tr><td style="text-align:center">bqsz</td><td style="text-align:center">Label_show</td><td style="text-align:center">〔打开标签设置页〕</td></tr><tr><td style="text-align:center">zc</td><td style="text-align:center">Add_Code</td><td style="text-align:center">〔打开造词窗口〕</td></tr><tr><td style="text-align:center">hx</td><td style="text-align:center">ToolTipStyle</td><td style="text-align:center">〔候选样式切换〕</td></tr><tr><td style="text-align:center">yj</td><td style="text-align:center">Radius</td><td style="text-align:center">〔Gdip圆角开关〕</td></tr><tr><td style="text-align:center">cz</td><td style="text-align:center">OnReload</td><td style="text-align:center">〔重载脚本〕</td></tr><tr><td style="text-align:center">dzsp</td><td style="text-align:center">symb_send</td><td style="text-align:center">〔符号顶屏开关〕</td></tr><tr><td style="text-align:center">line</td><td style="text-align:center">Gdip_Line</td><td style="text-align:center">〔Gdip边框开关〕</td></tr><tr><td style="text-align:center">logo</td><td style="text-align:center">Logo_Switch</td><td style="text-align:center">〔桌面图标显示开关〕</td></tr><tr><td style="text-align:center">kmts</td><td style="text-align:center">Prompt_Word</td><td style="text-align:center">〔空码提示开关〕</td></tr><tr><td style="text-align:center">date</td><td style="text-align:center">A_YYYY A_MM A_DD</td><td style="text-align:center">〔时间一〕</td></tr><tr><td style="text-align:center">time</td><td style="text-align:center">A_Hour : A_Min : A_Sec</td><td style="text-align:center">〔时间二〕</td></tr><tr><td style="text-align:center">date</td><td style="text-align:center">A_YYYY 年 A_MM 月 A_DD 日 A_DDDD</td><td style="text-align:center">〔时间三〕</td></tr><tr><td style="text-align:center">week</td><td style="text-align:center">A_YYYY A_MM A_DD A_Hour  A_Min  A_Sec</td><td style="text-align:center">〔时间四〕</td></tr><tr><td style="text-align:center">date</td><td style="text-align:center">A_YYYY A_MM A_DD A_Hour  A_Min  A_Sec</td><td style="text-align:center">〔时间五〕</td></tr></tbody></table></div><h2 id="外观典例"><a href="#外观典例" class="headerlink" title="外观典例"></a>外观典例</h2><p><p align="center">设为「98WB-0」字体 && 「更多设置-拆分显示」&&「默认配色」</p><br><img src="/img/old/sweet/4.jpg" alt="外观"></p><h2 id="词库管理"><a href="#词库管理" class="headerlink" title="词库管理"></a>词库管理</h2><ul><li>「含词码表」支持「导出」后修改，「导入」后生效。</li><li>「单字」&amp;「超集」是固化的，这是「98五笔」的基础表单，不支持更改。</li><li>「SQLite」二进制码表，性能无忧。</li><li>「快捷造词」已支持。</li><li>「在线调频」已支持。</li><li>「在线删词」已支持。</li></ul><h2 id="好用到哭"><a href="#好用到哭" class="headerlink" title="好用到哭"></a>好用到哭</h2><ul><li>开放的码表管理策略。</li><li>音形互通，以形查音，以音查形。</li><li>拆分提示，五笔划译。</li><li>高性能，sqlite 二进制码表，日常占用 10M 以下。</li><li>兼容性好，通杀一切 win 发行版。</li><li>绿色便携，放到 U 盘，<strong>随时随地装逼</strong>。</li></ul>]]></content>
-      
-      
-      <categories>
-          
-          <category> 柚子输入法 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 柚子小甜版 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>扩展词库</title>
       <link href="/2019/12/03/2019-12-03-033.extended/"/>
       <url>/2019/12/03/2019-12-03-033.extended/</url>
@@ -284,6 +259,31 @@
         <tags>
             
             <tag> 词库工具 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>柚子·小甜版</title>
+      <link href="/2019/12/03/2019-12-03-034.yours/"/>
+      <url>/2019/12/03/2019-12-03-034.yours/</url>
+      
+        <content type="html"><![CDATA[<h2 id="基本情况"><a href="#基本情况" class="headerlink" title="基本情况"></a>基本情况</h2><ul><li>Win操作系统</li><li>98五笔方案</li><li>绿色便携软件</li><li>支持十万超集</li><li>支持划译为98五笔拆解</li><li>设置入口齐全</li></ul><h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><p><p align="center"><a href="http://98wb.ys168.com/">98五笔资源库</a></p><br><img src="/img/old/sweet/1.jpg" alt="下载地址"></p><h2 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h2><p>下载后，解压到 U 盘中。进入主程序目录，右键「以管理员权限运行」。</p><ul><li><p><p align="center"><a href="http://98wb.ys168.com/">「以管理员权限运行」</a></p><br><img src="/img/old/sweet/2.jpg" alt="使用方式"></p></li><li><p><p align="center"><a href="http://98wb.ys168.com/">「悬浮色块--右键--各种设置项」</a></p><br><img src="/img/old/sweet/3.jpg" alt="设置方式"></p></li></ul><h2 id="特别说明"><a href="#特别说明" class="headerlink" title="特别说明"></a>特别说明</h2><ul><li>超集需要到「98五笔资源库」做一下「字体支持」。</li><li>如有「拆分显示」需要，设置字体为「98WB-0」或「98WB-P0」。</li><li>右键「以管理员权限运行」，可以避免一些「兼容性问题」。</li><li>ALT + Q = 划译</li><li>CTRL + Q = 查看字根图</li><li>分号、引号 = 2，3 选重</li></ul><h2 id="功能引导"><a href="#功能引导" class="headerlink" title="功能引导"></a>功能引导</h2><p>〔 / 〕引导〔 标签别名 〕，进入相关〔 功能 〕。比如：</p><ul><li>〔 /cj 〕=〔 98超集方案开关 〕</li><li>〔 /ci 〕=〔 单字/含词切换 〕</li></ul><p>〔 / 〕同时引导〔 符号 〕，与 RIME 保持一致的逻辑：<a href="https://github.com/yanhuacuo/98wubi/blob/master/symbols.yaml">详情</a></p><p>〔 z 〕引导〔 临时拼音兼反查 〕，同时提示〔 历史输入 〕。</p><p>〔 ~ 〕引导〔 以形查音 〕。</p><p>〔 ` 〕引导〔 快捷符号 〕。</p><h2 id="标签列表"><a href="#标签列表" class="headerlink" title="标签列表"></a>标签列表</h2><div class="table-container"><table><thead><tr><th style="text-align:center">标签别名</th><th style="text-align:center">label</th><th style="text-align:center">标签说明</th></tr></thead><tbody><tr><td style="text-align:center">cx</td><td style="text-align:center">lookup_status</td><td style="text-align:center">〔转换查询开关〕</td></tr><tr><td style="text-align:center">cf</td><td style="text-align:center">Cut_Mode</td><td style="text-align:center">〔字根拆分显示开关〕</td></tr><tr><td style="text-align:center">smsp</td><td style="text-align:center">limit_code</td><td style="text-align:center">〔四码上屏开关〕</td></tr><tr><td style="text-align:center">jf</td><td style="text-align:center">Trad_Mode</td><td style="text-align:center">〔简繁模式切换〕</td></tr><tr><td style="text-align:center">ci</td><td style="text-align:center">Wubi_Schema</td><td style="text-align:center">〔单字/含词切换〕</td></tr><tr><td style="text-align:center">more</td><td style="text-align:center">More_Setting</td><td style="text-align:center">〔调出设置界面〕</td></tr><tr><td style="text-align:center">cj</td><td style="text-align:center">Extend_Schema</td><td style="text-align:center">〔98超集方案开关〕</td></tr><tr><td style="text-align:center">dz</td><td style="text-align:center">Wubi_Schema</td><td style="text-align:center">〔单字/含词切换〕</td></tr><tr><td style="text-align:center">zq</td><td style="text-align:center">Startup</td><td style="text-align:center">〔开机自启/取消自启〕</td></tr><tr><td style="text-align:center">mode</td><td style="text-align:center">Textdirection</td><td style="text-align:center">〔候选横排/竖排〕</td></tr><tr><td style="text-align:center">week</td><td style="text-align:center">get_week_now</td><td style="text-align:center">〔上屏日期+时间〕</td></tr><tr><td style="text-align:center">date</td><td style="text-align:center">get_date_now</td><td style="text-align:center">〔上屏日期〕</td></tr><tr><td style="text-align:center">nl</td><td style="text-align:center">get_lunarDate_now</td><td style="text-align:center">〔上屏农历日期+时辰〕</td></tr><tr><td style="text-align:center">time</td><td style="text-align:center">get_time_now</td><td style="text-align:center">〔上当前屏时间〕</td></tr><tr><td style="text-align:center">bqsz</td><td style="text-align:center">Label_show</td><td style="text-align:center">〔打开标签设置页〕</td></tr><tr><td style="text-align:center">zc</td><td style="text-align:center">Add_Code</td><td style="text-align:center">〔打开造词窗口〕</td></tr><tr><td style="text-align:center">hx</td><td style="text-align:center">ToolTipStyle</td><td style="text-align:center">〔候选样式切换〕</td></tr><tr><td style="text-align:center">yj</td><td style="text-align:center">Radius</td><td style="text-align:center">〔Gdip圆角开关〕</td></tr><tr><td style="text-align:center">cz</td><td style="text-align:center">OnReload</td><td style="text-align:center">〔重载脚本〕</td></tr><tr><td style="text-align:center">dzsp</td><td style="text-align:center">symb_send</td><td style="text-align:center">〔符号顶屏开关〕</td></tr><tr><td style="text-align:center">line</td><td style="text-align:center">Gdip_Line</td><td style="text-align:center">〔Gdip边框开关〕</td></tr><tr><td style="text-align:center">logo</td><td style="text-align:center">Logo_Switch</td><td style="text-align:center">〔桌面图标显示开关〕</td></tr><tr><td style="text-align:center">kmts</td><td style="text-align:center">Prompt_Word</td><td style="text-align:center">〔空码提示开关〕</td></tr><tr><td style="text-align:center">date</td><td style="text-align:center">A_YYYY A_MM A_DD</td><td style="text-align:center">〔时间一〕</td></tr><tr><td style="text-align:center">time</td><td style="text-align:center">A_Hour : A_Min : A_Sec</td><td style="text-align:center">〔时间二〕</td></tr><tr><td style="text-align:center">date</td><td style="text-align:center">A_YYYY 年 A_MM 月 A_DD 日 A_DDDD</td><td style="text-align:center">〔时间三〕</td></tr><tr><td style="text-align:center">week</td><td style="text-align:center">A_YYYY A_MM A_DD A_Hour  A_Min  A_Sec</td><td style="text-align:center">〔时间四〕</td></tr><tr><td style="text-align:center">date</td><td style="text-align:center">A_YYYY A_MM A_DD A_Hour  A_Min  A_Sec</td><td style="text-align:center">〔时间五〕</td></tr></tbody></table></div><h2 id="外观典例"><a href="#外观典例" class="headerlink" title="外观典例"></a>外观典例</h2><p><p align="center">设为「98WB-0」字体 && 「更多设置-拆分显示」&&「默认配色」</p><br><img src="/img/old/sweet/4.jpg" alt="外观"></p><h2 id="词库管理"><a href="#词库管理" class="headerlink" title="词库管理"></a>词库管理</h2><ul><li>「含词码表」支持「导出」后修改，「导入」后生效。</li><li>「单字」&amp;「超集」是固化的，这是「98五笔」的基础表单，不支持更改。</li><li>「SQLite」二进制码表，性能无忧。</li><li>「快捷造词」已支持。</li><li>「在线调频」已支持。</li><li>「在线删词」已支持。</li></ul><h2 id="好用到哭"><a href="#好用到哭" class="headerlink" title="好用到哭"></a>好用到哭</h2><ul><li>开放的码表管理策略。</li><li>音形互通，以形查音，以音查形。</li><li>拆分提示，五笔划译。</li><li>高性能，sqlite 二进制码表，日常占用 10M 以下。</li><li>兼容性好，通杀一切 win 发行版。</li><li>绿色便携，放到 U 盘，<strong>随时随地装逼</strong>。</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 柚子输入法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 柚子小甜版 </tag>
             
         </tags>
       
@@ -517,31 +517,6 @@
     
     
     <entry>
-      <title>改映射操作流程</title>
-      <link href="/2019/06/15/2019-12-03-030.rime/"/>
-      <url>/2019/06/15/2019-12-03-030.rime/</url>
-      
-        <content type="html"><![CDATA[<h1 id="五笔的设计与英文键盘无关"><a href="#五笔的设计与英文键盘无关" class="headerlink" title="五笔的设计与英文键盘无关"></a>五笔的设计与英文键盘无关</h1><p>五笔的设计思路，是将汉字的「五种笔划」（横，竖，撇，捺，折）归为「五个区」。它的布局方式，与键面字符「叫什么名称」毫无关系。</p><p>但是普通五笔码表的「编码」是基于「QWERTY」的键名映射，只需将「键名映射」改一改，那五笔就可以契合与任意一种英文键盘布局。</p><h1 id="映射关系"><a href="#映射关系" class="headerlink" title="映射关系"></a>映射关系</h1><p>这个脚本 <a href="https://github.com/98wb/qwerty2other/blob/master/%E6%98%A0%E5%B0%84%E6%95%B0%E6%8D%AE.py">映射数据.py</a> 可以建立「QWERTY」与其它键面布局的键名对应关系：</p><p>QWERTY 是 <a href="https://github.com/98wb/qwerty2other/blob/master/base/MAPPING.txt">示例数据</a> 的「第一列」，Norman layout 是 <a href="https://github.com/98wb/qwerty2other/blob/master/base/MAPPING.txt">示例数据</a> 的「第二列」—映射关系来自小妖。</p><p>运行该脚本之前，需要在 <a href="https://github.com/98wb/qwerty2other/blob/master/base/MAPPING.txt">示例数据</a> 中改好你自己的映射。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 映射数据.py</span><br></pre></td></tr></table></figure><h1 id="准备码表正文"><a href="#准备码表正文" class="headerlink" title="准备码表正文"></a>准备码表正文</h1><p>在 <a href="https://github.com/98wb/fcitx-rime">fcitx-rime</a> 这个存档中，有 <a href="https://github.com/98wb/fcitx-rime/blob/master/wubi98_U.dict.yaml">wubi98_U.dict.yaml</a> 和 <a href="https://github.com/98wb/fcitx-rime/blob/master/wubi98_ci.dict.yaml">wubi98_ci.dict.yaml</a> ，以及 <a href="https://github.com/98wb/fcitx-rime/blob/master/py.dict.yaml">py.dict.yaml</a>  三份码表文件。</p><p>至于哪些是码表正文，如何取出码表正文，在 <a href="https://github.com/98wb/qwerty2other">qwerty2other</a> 下，有 wubi98_ci.txt， wubi98_U.txt, py.txt 三份文本样版，对比着取出类似的「正文」即可。</p><p>注意一点，「 py.txt 」其实没有必要一并转码，假如你能适应新模式下的「拼音」编码布局。转了之后，将保持「QWERTY」键位下的拼音映射关系，这个看个人需求了。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 新表生成.py</span><br></pre></td></tr></table></figure><h1 id="取出-YAML-新表"><a href="#取出-YAML-新表" class="headerlink" title="取出 YAML 新表"></a>取出 YAML 新表</h1><p>脚本会直接合成新的 YAML 表，它们在 <a href="https://github.com/98wb/qwerty2other/tree/master/new-tables">new-tables</a> 下面。</p><h1 id="替换旧数据"><a href="#替换旧数据" class="headerlink" title="替换旧数据"></a>替换旧数据</h1><p>目标文档是 <a href="https://github.com/98wb/fcitx-rime">fcitx-rime</a> 这个存档。诚如所见，它的根目录下，有 wubi98_ci.dict.yaml 与 wubi98_U.dict.yaml 两份「RIME 码表」。你用新生成的 YAML 表替换掉旧的。</p><p>然后到它的 「linux」 子文件夹下，去执行 「rime.sh」 脚本。但是要注意，「rime.sh」是按照 Debian 系的「apt install」写的。要改为你的「发行版」它所认可的「安装命令」，安装 rime 的必要组件 opencc 和 fcitx-rime，脚本执行要以「普通用户」进行，直到它要求 sudo 权限时再给它。</p><p>因为不同的发行版对环境变量设计不同，如果直接以 sudo 运行，在有些发行版中，会把输入法装给超级管理员。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh rime.sh</span><br></pre></td></tr></table></figure><h1 id="要点回顾"><a href="#要点回顾" class="headerlink" title="要点回顾"></a>要点回顾</h1><ul><li>填写「qwerty2other/base/MAPPING.txt」，生成「映射数据」，作为码表转换的依据</li><li>取码表正文放到「qwerty2other」根目录下面，名称要与模版进行替换，以防意外发生</li><li>生成新的 YAML 表在「qwerty2other/new-tables」中，取出，替换掉「fcitx-rime」包中的旧表</li><li>在「fcitx-rime」包下的「linux」目录中，将「rime.sh」改为适合你发行版的 install 命令，然后以普通用户权限执行</li><li>重启计算机，在设置，区域与语言中添加「RIME」。</li></ul><h1 id="超集字体支持"><a href="#超集字体支持" class="headerlink" title="超集字体支持"></a>超集字体支持</h1><p>建议以 <a href="https://github.com/yanhuacuo/98wubi-unicode">98wubi-unicode</a> 发布的字体为准。</p><h1 id="符号补充"><a href="#符号补充" class="headerlink" title="符号补充"></a>符号补充</h1><p>非主流键盘布局，可能会涉及到「标点符号」被排在了正常的 「QWERTY」 键名「a-z」上。为添加符号支持，需要额外在「schema」文件中声明之：</p><p>比如，仔细观察，可知「alphabet」的定义里，添加了「分号」作为「编码」，嗯，还有「z」。</p><p>wubi98_ci.schema.yaml</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">speller:</span><br><span class="line">  alphabet: z;yxwvutsrqponmlkjihgfedcba</span><br><span class="line">  auto_select: true</span><br><span class="line">  auto_clear: max_length</span><br><span class="line">  delimiter: &quot;`&quot;</span><br><span class="line">  max_code_length: 4</span><br></pre></td></tr></table></figure><h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><p>这个存档中，「小妖的配置包」，就是从「qwerty」到「norman layout」的转换示例。已配置好了「dict」码表和「schema」定义声明，可以直接使用。</p><p>在这个示例中，因为「小妖」的「MAPPING.txt」里显示 「;→p」 ，所以在 schema 中，添加了一行「alphabet」来声明哪些键是用作「编码符」的。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">speller:</span><br><span class="line">  alphabet: z;yxwvutsrqponmlkjihgfedcba</span><br><span class="line">  auto_select: true</span><br><span class="line">  auto_clear: max_length</span><br><span class="line">  delimiter: &quot;`&quot;</span><br><span class="line">  max_code_length: 4</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      <categories>
-          
-          <category> python </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> python </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>柚子熟了</title>
       <link href="/2019/06/15/2019-12-03-031.yours/"/>
       <url>/2019/06/15/2019-12-03-031.yours/</url>
@@ -559,6 +534,31 @@
         <tags>
             
             <tag> 柚子98五笔 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>改映射操作流程</title>
+      <link href="/2019/06/15/2019-12-03-030.rime/"/>
+      <url>/2019/06/15/2019-12-03-030.rime/</url>
+      
+        <content type="html"><![CDATA[<h1 id="五笔的设计与英文键盘无关"><a href="#五笔的设计与英文键盘无关" class="headerlink" title="五笔的设计与英文键盘无关"></a>五笔的设计与英文键盘无关</h1><p>五笔的设计思路，是将汉字的「五种笔划」（横，竖，撇，捺，折）归为「五个区」。它的布局方式，与键面字符「叫什么名称」毫无关系。</p><p>但是普通五笔码表的「编码」是基于「QWERTY」的键名映射，只需将「键名映射」改一改，那五笔就可以契合与任意一种英文键盘布局。</p><h1 id="映射关系"><a href="#映射关系" class="headerlink" title="映射关系"></a>映射关系</h1><p>这个脚本 <a href="https://github.com/98wb/qwerty2other/blob/master/%E6%98%A0%E5%B0%84%E6%95%B0%E6%8D%AE.py">映射数据.py</a> 可以建立「QWERTY」与其它键面布局的键名对应关系：</p><p>QWERTY 是 <a href="https://github.com/98wb/qwerty2other/blob/master/base/MAPPING.txt">示例数据</a> 的「第一列」，Norman layout 是 <a href="https://github.com/98wb/qwerty2other/blob/master/base/MAPPING.txt">示例数据</a> 的「第二列」—映射关系来自小妖。</p><p>运行该脚本之前，需要在 <a href="https://github.com/98wb/qwerty2other/blob/master/base/MAPPING.txt">示例数据</a> 中改好你自己的映射。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 映射数据.py</span><br></pre></td></tr></table></figure><h1 id="准备码表正文"><a href="#准备码表正文" class="headerlink" title="准备码表正文"></a>准备码表正文</h1><p>在 <a href="https://github.com/98wb/fcitx-rime">fcitx-rime</a> 这个存档中，有 <a href="https://github.com/98wb/fcitx-rime/blob/master/wubi98_U.dict.yaml">wubi98_U.dict.yaml</a> 和 <a href="https://github.com/98wb/fcitx-rime/blob/master/wubi98_ci.dict.yaml">wubi98_ci.dict.yaml</a> ，以及 <a href="https://github.com/98wb/fcitx-rime/blob/master/py.dict.yaml">py.dict.yaml</a>  三份码表文件。</p><p>至于哪些是码表正文，如何取出码表正文，在 <a href="https://github.com/98wb/qwerty2other">qwerty2other</a> 下，有 wubi98_ci.txt， wubi98_U.txt, py.txt 三份文本样版，对比着取出类似的「正文」即可。</p><p>注意一点，「 py.txt 」其实没有必要一并转码，假如你能适应新模式下的「拼音」编码布局。转了之后，将保持「QWERTY」键位下的拼音映射关系，这个看个人需求了。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 新表生成.py</span><br></pre></td></tr></table></figure><h1 id="取出-YAML-新表"><a href="#取出-YAML-新表" class="headerlink" title="取出 YAML 新表"></a>取出 YAML 新表</h1><p>脚本会直接合成新的 YAML 表，它们在 <a href="https://github.com/98wb/qwerty2other/tree/master/new-tables">new-tables</a> 下面。</p><h1 id="替换旧数据"><a href="#替换旧数据" class="headerlink" title="替换旧数据"></a>替换旧数据</h1><p>目标文档是 <a href="https://github.com/98wb/fcitx-rime">fcitx-rime</a> 这个存档。诚如所见，它的根目录下，有 wubi98_ci.dict.yaml 与 wubi98_U.dict.yaml 两份「RIME 码表」。你用新生成的 YAML 表替换掉旧的。</p><p>然后到它的 「linux」 子文件夹下，去执行 「rime.sh」 脚本。但是要注意，「rime.sh」是按照 Debian 系的「apt install」写的。要改为你的「发行版」它所认可的「安装命令」，安装 rime 的必要组件 opencc 和 fcitx-rime，脚本执行要以「普通用户」进行，直到它要求 sudo 权限时再给它。</p><p>因为不同的发行版对环境变量设计不同，如果直接以 sudo 运行，在有些发行版中，会把输入法装给超级管理员。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh rime.sh</span><br></pre></td></tr></table></figure><h1 id="要点回顾"><a href="#要点回顾" class="headerlink" title="要点回顾"></a>要点回顾</h1><ul><li>填写「qwerty2other/base/MAPPING.txt」，生成「映射数据」，作为码表转换的依据</li><li>取码表正文放到「qwerty2other」根目录下面，名称要与模版进行替换，以防意外发生</li><li>生成新的 YAML 表在「qwerty2other/new-tables」中，取出，替换掉「fcitx-rime」包中的旧表</li><li>在「fcitx-rime」包下的「linux」目录中，将「rime.sh」改为适合你发行版的 install 命令，然后以普通用户权限执行</li><li>重启计算机，在设置，区域与语言中添加「RIME」。</li></ul><h1 id="超集字体支持"><a href="#超集字体支持" class="headerlink" title="超集字体支持"></a>超集字体支持</h1><p>建议以 <a href="https://github.com/yanhuacuo/98wubi-unicode">98wubi-unicode</a> 发布的字体为准。</p><h1 id="符号补充"><a href="#符号补充" class="headerlink" title="符号补充"></a>符号补充</h1><p>非主流键盘布局，可能会涉及到「标点符号」被排在了正常的 「QWERTY」 键名「a-z」上。为添加符号支持，需要额外在「schema」文件中声明之：</p><p>比如，仔细观察，可知「alphabet」的定义里，添加了「分号」作为「编码」，嗯，还有「z」。</p><p>wubi98_ci.schema.yaml</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">speller:</span><br><span class="line">  alphabet: z;yxwvutsrqponmlkjihgfedcba</span><br><span class="line">  auto_select: true</span><br><span class="line">  auto_clear: max_length</span><br><span class="line">  delimiter: &quot;`&quot;</span><br><span class="line">  max_code_length: 4</span><br></pre></td></tr></table></figure><h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><p>这个存档中，「小妖的配置包」，就是从「qwerty」到「norman layout」的转换示例。已配置好了「dict」码表和「schema」定义声明，可以直接使用。</p><p>在这个示例中，因为「小妖」的「MAPPING.txt」里显示 「;→p」 ，所以在 schema 中，添加了一行「alphabet」来声明哪些键是用作「编码符」的。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">speller:</span><br><span class="line">  alphabet: z;yxwvutsrqponmlkjihgfedcba</span><br><span class="line">  auto_select: true</span><br><span class="line">  auto_clear: max_length</span><br><span class="line">  delimiter: &quot;`&quot;</span><br><span class="line">  max_code_length: 4</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> python </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> python </tag>
             
         </tags>
       
