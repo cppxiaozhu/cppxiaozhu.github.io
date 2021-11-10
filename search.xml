@@ -4,19 +4,6 @@
   
     
     <entry>
-      <title>Hello World</title>
-      <link href="/2021/11/10/hello-world/"/>
-      <url>/2021/11/10/hello-world/</url>
-      
-        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>fcitx5已内置98方案</title>
       <link href="/2021/11/10/2021-11-10-041.fcitx5/"/>
       <url>/2021/11/10/2021-11-10-041.fcitx5/</url>
@@ -92,31 +79,6 @@
     
     
     <entry>
-      <title>便携版五笔的一些问题</title>
-      <link href="/2021/11/06/2021-11-06-038.wb/"/>
-      <url>/2021/11/06/2021-11-06-038.wb/</url>
-      
-        <content type="html"><![CDATA[<h2 id="结构问题"><a href="#结构问题" class="headerlink" title="结构问题"></a>结构问题</h2><p>考虑到「便携的特性」的应用场景，塞到 U 盘中到其它机器上用时，误杀率 100%，不论是自带的杀毒，还是第三方的杀毒。也许拆包会好一些。</p><p>win10 专业版，21H1 对 Gdip 的「字体链接」支持出了问题，所有使用 fontlink 的字体全部无法显示被链接的对象。所以，在程序结构上，每次执行时都吐出一个 font/98WB-3.otf 已经失去意义。</p><p>事实上，即使没有「fontlink」的问题，该机制本身也需要「注销一次后生效」。这与「便携」的应用场景不符。</p><p>一定要带字体的话，字符完整的「98WB-1」或「98WB-2」更合适，毕竟装上无需注销即可使用。</p><p>建议：不再封包，以及去除内置的「fontlink」字体。</p><h2 id="功能问题"><a href="#功能问题" class="headerlink" title="功能问题"></a>功能问题</h2><ul><li><p>「~」打出异常，「~」应予在中文模式下打出，类似于「RIME」机制，「~」在中文模式下被打出并显示「以形查音」后，如遇「shift」，应将「~」顶上屏，功能入口不应同时「吞掉」编码本身。</p></li><li><p>「破折号」打出异常。</p></li></ul><ul><li><p>「『』」配对异常。</p></li><li><p>需要 shift 配合的「符号」，在顶屏时异常。比如「？」、「：」、「！」等等。这个问题，在柚子中有成熟的解决办法，应该是小问题。</p></li><li><p>中文模式下，无法打出省略号。</p></li></ul><h2 id="建议类"><a href="#建议类" class="headerlink" title="建议类"></a>建议类</h2><ul><li>字重选项意义不大</li></ul><p>请求去除「字重」选项，「常规」、「粗体」、「斜体」这些选项似乎会对选中的字体添加额外的参数，致使渲染不理想，剧齿严重，同样为 Gdip 模式下的柚子，则没有这个问题。这个能是 Gdip 本身的问题，不过这个选项意义不大，倒不如在那个窗口里设为当前选中字体名的显示栏。</p><ul><li>设置项不友好</li></ul><p>「设置字体」这个入口，感觉冗余而违反直觉，因为字体设不对时，只能如下盲猜（设为了 98WB-3，但它不能被 Gdip 正常渲染）</p><p><img src="/img/1106/1.png" alt="pic"></p><p><img src="/img/1106/2.png" alt="pic"></p><ul><li>默认配色</li></ul><p>默认配色是全白的，一上手时，啥也看不到，建议给个默认配色，</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">BgColor=4280079980</span><br><span class="line">BorderColor=4280079980</span><br><span class="line">TextColor=4294967245</span><br></pre></td></tr></table></figure><ul><li>默认字体</li></ul><p>宋体或雅黑比较普及，有个能确认能显示的字体比较重要。</p><h2 id="鸣谢"><a href="#鸣谢" class="headerlink" title="鸣谢"></a>鸣谢</h2><p>感谢「守望者」大佬倾情付出。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 反馈 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 反馈 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>初学者的码长怠惰</title>
       <link href="/2021/11/06/2021-11-06-037.wb/"/>
       <url>/2021/11/06/2021-11-06-037.wb/</url>
@@ -134,6 +96,31 @@
         <tags>
             
             <tag> 初学者 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>便携版五笔的一些问题</title>
+      <link href="/2021/11/06/2021-11-06-038.wb/"/>
+      <url>/2021/11/06/2021-11-06-038.wb/</url>
+      
+        <content type="html"><![CDATA[<h2 id="结构问题"><a href="#结构问题" class="headerlink" title="结构问题"></a>结构问题</h2><p>考虑到「便携的特性」的应用场景，塞到 U 盘中到其它机器上用时，误杀率 100%，不论是自带的杀毒，还是第三方的杀毒。也许拆包会好一些。</p><p>win10 专业版，21H1 对 Gdip 的「字体链接」支持出了问题，所有使用 fontlink 的字体全部无法显示被链接的对象。所以，在程序结构上，每次执行时都吐出一个 font/98WB-3.otf 已经失去意义。</p><p>事实上，即使没有「fontlink」的问题，该机制本身也需要「注销一次后生效」。这与「便携」的应用场景不符。</p><p>一定要带字体的话，字符完整的「98WB-1」或「98WB-2」更合适，毕竟装上无需注销即可使用。</p><p>建议：不再封包，以及去除内置的「fontlink」字体。</p><h2 id="功能问题"><a href="#功能问题" class="headerlink" title="功能问题"></a>功能问题</h2><ul><li><p>「~」打出异常，「~」应予在中文模式下打出，类似于「RIME」机制，「~」在中文模式下被打出并显示「以形查音」后，如遇「shift」，应将「~」顶上屏，功能入口不应同时「吞掉」编码本身。</p></li><li><p>「破折号」打出异常。</p></li></ul><ul><li><p>「『』」配对异常。</p></li><li><p>需要 shift 配合的「符号」，在顶屏时异常。比如「？」、「：」、「！」等等。这个问题，在柚子中有成熟的解决办法，应该是小问题。</p></li><li><p>中文模式下，无法打出省略号。</p></li></ul><h2 id="建议类"><a href="#建议类" class="headerlink" title="建议类"></a>建议类</h2><ul><li>字重选项意义不大</li></ul><p>请求去除「字重」选项，「常规」、「粗体」、「斜体」这些选项似乎会对选中的字体添加额外的参数，致使渲染不理想，剧齿严重，同样为 Gdip 模式下的柚子，则没有这个问题。这个能是 Gdip 本身的问题，不过这个选项意义不大，倒不如在那个窗口里设为当前选中字体名的显示栏。</p><ul><li>设置项不友好</li></ul><p>「设置字体」这个入口，感觉冗余而违反直觉，因为字体设不对时，只能如下盲猜（设为了 98WB-3，但它不能被 Gdip 正常渲染）</p><p><img src="/img/1106/1.png" alt="pic"></p><p><img src="/img/1106/2.png" alt="pic"></p><ul><li>默认配色</li></ul><p>默认配色是全白的，一上手时，啥也看不到，建议给个默认配色，</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">BgColor=4280079980</span><br><span class="line">BorderColor=4280079980</span><br><span class="line">TextColor=4294967245</span><br></pre></td></tr></table></figure><ul><li>默认字体</li></ul><p>宋体或雅黑比较普及，有个能确认能显示的字体比较重要。</p><h2 id="鸣谢"><a href="#鸣谢" class="headerlink" title="鸣谢"></a>鸣谢</h2><p>感谢「守望者」大佬倾情付出。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 反馈 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 反馈 </tag>
             
         </tags>
       
@@ -367,31 +354,6 @@
     
     
     <entry>
-      <title>荇花荷叶明人眼，犹记当年入镜湖</title>
-      <link href="/2019/06/15/2019-06-06-015.poem/"/>
-      <url>/2019/06/15/2019-06-06-015.poem/</url>
-      
-        <content type="html"><![CDATA[<p><img src="/img/old/poem/lake.jpg" alt="pic"></p><p align="center"><a href="https://500px.com/duongquocdinh">宋·孔武仲</a></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 诗 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 诗 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>无人古路歌兼笑，归去山花插满头</title>
       <link href="/2019/06/15/2019-06-06-013.poem/"/>
       <url>/2019/06/15/2019-06-06-013.poem/</url>
@@ -422,6 +384,31 @@
       <url>/2019/06/15/2019-06-06-014.poem/</url>
       
         <content type="html"><![CDATA[<p><img src="/img/old/poem/girl.jpg" alt="pic"></p><p align="center"><a href="https://500px.com/duongquocdinh">宋·吴惟信</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 诗 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 诗 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>荇花荷叶明人眼，犹记当年入镜湖</title>
+      <link href="/2019/06/15/2019-06-06-015.poem/"/>
+      <url>/2019/06/15/2019-06-06-015.poem/</url>
+      
+        <content type="html"><![CDATA[<p><img src="/img/old/poem/lake.jpg" alt="pic"></p><p align="center"><a href="https://500px.com/duongquocdinh">宋·孔武仲</a></p>]]></content>
       
       
       <categories>
