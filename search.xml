@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Ubuntu20.04上的ibus-rime</title>
+      <link href="/2021/11/12/2021-11-12-042.ibus/"/>
+      <url>/2021/11/12/2021-11-12-042.ibus/</url>
+      
+        <content type="html"><![CDATA[<h2 id="文件准备"><a href="#文件准备" class="headerlink" title="文件准备"></a>文件准备</h2><ul><li>font-linux.tar.xz</li><li>Ubuntu-20.04-LTS.tar.xz</li></ul><p>上述文件可以在 <a href="http://98wb.ys168.com/">98五笔资源库</a> 中下载。</p><p>『font-linux.tar.xz』提供字体支持，以方便显示完整的 GB18030 国标字集及拆分显示。<br>『Ubuntu-20.04-LTS.tar.xz』则是集成了无依赖打包的 ibus-rime 主程序以及供调整 ibus 显示字体的『扩展』——『ibus-font-setting』，当然在 Ubuntu20.10 中则是另一款扩展，因为它对 Gnome40 支持得更好。</p><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>仅需按照文件所附说明，执行相应脚本即可。</p><p>安装完成后，需要去『ibus-font-setting』里将字体设为『98WB-1』或『98WB-0』。</p><h2 id="图赏"><a href="#图赏" class="headerlink" title="图赏"></a>图赏</h2><p>仅桌面环境而言，Ubuntu20.04 对 Gnome 的改造，是最有设计感的。</p><p><img src="/img/1112/a1.png" alt="pic"></p><p><img src="/img/1112/a2.png" alt="pic"></p><p><img src="/img/1112/a3.png" alt="pic"></p><p><img src="/img/1112/a4.png" alt="pic"></p><p><img src="/img/1112/a5.png" alt="pic"></p><p><img src="/img/1112/a6.png" alt="pic"></p><p><img src="/img/1112/a7.png" alt="pic"></p><p><img src="/img/1112/1.png" alt="pic"></p><p><img src="/img/1112/2.png" alt="pic"></p><p><img src="/img/1112/3.png" alt="pic"></p><p><img src="/img/1112/4.png" alt="pic"></p><p><img src="/img/1112/5.png" alt="pic"></p><p><img src="/img/1112/6.png" alt="pic"></p><p><img src="/img/1112/7.png" alt="pic"></p><p><img src="/img/1112/8.png" alt="pic"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> ibus-rime </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ibus-rime </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>fcitx5已内置98方案</title>
       <link href="/2021/11/10/2021-11-10-041.fcitx5/"/>
       <url>/2021/11/10/2021-11-10-041.fcitx5/</url>
