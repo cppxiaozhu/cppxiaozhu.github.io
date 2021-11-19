@@ -954,31 +954,6 @@
     
     
     <entry>
-      <title>中州韵详解01：结构概况</title>
-      <link href="/2019/01/01/2019-05-07-001.rime/"/>
-      <url>/2019/01/01/2019-05-07-001.rime/</url>
-      
-        <content type="html"><![CDATA[<h3 id="中州韵简介"><a href="#中州韵简介" class="headerlink" title="中州韵简介"></a>中州韵简介</h3><p>中州韵不是一个简单的「输入法软件」，它是一套能够实现各种音码、形码及音形码方案的「检索引擎」。它更不是一款具象的，通常意义上的「输入法软件」，它能允许用户通过使用「RIME语法]，自由组合各种参数，以实现特定求需的「七巧板」。</p><p>一款输入法软件，宏观来说，分为「前端」和「后端」。「前端」负责呈现皮肤、字体、与操作系统的 API 对接，而「后端」则是一套如前所述的「检索引擎」，是输入法的「内核」。中州韵恰是这样一套强大的「内核」，在不同的系统平台上，封装上不同的「前端」，都可以实现相同的功能。Windows 的「小狼毫」、MacOS 的「鼠须管」、Android 的「同文输入法」，都是我们熟知的不同系统平台下的「前端」封装。</p><h3 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h3><p>中州韵的配置，是公认的门槛高。而且在具体的「前端」实现上，或多或少都存在一些弱点。比如，在 Windows 上，因存在着 IME 和 TSF 两种输入法框架新老交替的换代现象，一些陈旧的或不规范的 EXE 软件，可能无法打字，或是输入法候选框定位不准。在 Android 上，由于 Android 新版本权限变动，也或多或少地存在着对低版本 Android 设备兼容不够好的问题。Linux 下，Fcitx-rime 和 iBus-rime 都没有专属前端，外观设定不方便，而且于由 Linux 的现状，改善的可能性不高。可能问题最少的，就是 MacOS 了，然而在 iOS 设备上，又因为 iOS 太多傻缺的权限制约，「前端」实现不可以像「同文」那样自由——比如蓝牙外接键盘下使用不了，无法用于生产力活动，外援字体借调限制，无法实现注解模式的 OpenCC 码元拆分提示。</p><p>然而，中州韵是「内核」，「前端」封装上的种种不理想、小毛病，都应与中州韵这个「内核引擎」分开来看。我们相信，「前端」上的问题，只可能越来越少，因为操作系统也在趋于成熟，之所以有如此信心，那是因为它是「开源」的——只要中州韵的用户中有一位对相应操作系统的输入法 API 熟悉，有意愿改善兼容性，它就会一直活下去。我们相信中州韵这个「输入法内核」，会比我们每个人的心脏都要跳动更久。</p><p>商软既不自由，又难以给人持久的信心，个人软件就更靠不住了。但是中州韵不仅开源，而且已颇有受众，这才是让人觉得有信心的软件，值得投入精力了解一下，为它续上一秒。</p><h3 id="上手办法"><a href="#上手办法" class="headerlink" title="上手办法"></a>上手办法</h3><p>我们98五笔爱好者为98五笔的队友们制作了可直接安装使用的独立包，对于参数的讲解，基于这份配置。目前来说，在「形码功能」的实现方面，我们的98配置文件的「完成度」是最高的，没有之一。当然，复杂度也是最高的，没有之一。</p><p>建议在 <a href="https://wb98.gitee.io/">98五笔资源库</a> 上选一下自己操作系统所需的包，安装试用，以便开始全面了中州韵的参数细节。我们将由浅及深，详谈一下它在形码方面的工作模式。</p><h3 id="基本结构概况"><a href="#基本结构概况" class="headerlink" title="基本结构概况"></a>基本结构概况</h3><h4 id="程序目录"><a href="#程序目录" class="headerlink" title="程序目录"></a>程序目录</h4><p>程序目录，是软件装到你的系统之后的文件目录。输入法托盘图标中「右键」，可以看到这样的文字描述「程序目录」或「程序文件夹」。</p><h4 id="用户目录"><a href="#用户目录" class="headerlink" title="用户目录"></a>用户目录</h4><p>用户目录，则是存放当前用户设定偏好的地方。这里面文件的权限，要高于程序目录。同一个参数有不同定义时，以用户目录下的为准。</p><h4 id="YAML-与-TXT"><a href="#YAML-与-TXT" class="headerlink" title="YAML 与 TXT"></a>YAML 与 TXT</h4><p>YAML 是一种非常易读的结构化的脚本语言格式，中州韵的主要配置，都是 YAML 作为文本格式。而用户文件夹下面，另有一份以 TXT 格式存放用户输入记录的「用户词典」。</p><h3 id="方案挂载流程"><a href="#方案挂载流程" class="headerlink" title="方案挂载流程"></a>方案挂载流程</h3><blockquote><p>default.yaml ⇒ wubi98_ci.schema.yaml ⇒ wubi98_ci.extended.dict.yaml ⇒ wubi98_ci.dict.yaml</p></blockquote><p>一. default.yaml 告诉输入法程序，它有一款叫「wubi98_ci」的输入法方案。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">schema_list:</span><br><span class="line">  - schema: wubi98_dz</span><br><span class="line">  - schema: wubi98_ci</span><br><span class="line">  - schema: py</span><br></pre></td></tr></table></figure><p>二. 输入法以「wubi98_ci」为关键字，搜「 *.schema.yaml 」的文件，看看是哪个 「schema」文件定义了该输入法方案。<br>schema 定义了很多内容，都是该输入法方案的功能细节，而在如下字段中，是定义了「码表是谁」：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">translator:</span><br><span class="line">  dictionary: wubi98_ci.extended</span><br><span class="line">  db_class: tabledb</span><br><span class="line">  initial_quality: 100000</span><br><span class="line">  enable_charset_filter: false</span><br></pre></td></tr></table></figure><p>它说，我的码表，关键字是「wubi98_ci.extended」，于是，程序就以它为线索，找带着「  *.dict.yaml 」后缀的「字典文件」。</p><p>三. 寻获了「wubi98_ci.extended.dict.yaml」，这是一个「字典」，一个「特殊」的字典，它几乎没什么内容，但是它在如下字段中，引入了新的「dict」：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import_tables:</span><br><span class="line">  - wubi98_ci</span><br></pre></td></tr></table></figure><p>程序继续寻找「wubi98_ci」字眼，带着「  *.dict.yaml 」后缀的「字典文件」。</p><p>四. 终于，逮着了主码表「wubi98_ci.dict.yaml」。</p><p>我们在这里用了中州韵的高级技巧——「扩展词库」（*.extended.dict.yaml），它通过向前与「 *.schema.yaml 」对接，向后追导主码表（*.dict.yaml）的方式，做到了功能丰富与条理清晰的兼得。<br>不管是自定义带编码的短语，还是便捷式地无需编码直接添词，都可以直接实现，而且不会干扰到「主码表」，这种层级结构是非常理想的。</p><p>需要特别指出，程序加载流程的介绍，只是逻辑上的排序，实际上这些动作都是在 YMAL 转译为二进制 BIN 文件后，在二进制中完成的。</p><p>好了，这是本系列的第一篇，下篇见。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 中州韵 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 中州韵 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>98五笔资源下载</title>
       <link href="/2019/01/01/2019-01-01-001.98wb/"/>
       <url>/2019/01/01/2019-01-01-001.98wb/</url>
@@ -996,6 +971,31 @@
         <tags>
             
             <tag> 资源下载 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>中州韵详解01：结构概况</title>
+      <link href="/2019/01/01/2019-05-07-001.rime/"/>
+      <url>/2019/01/01/2019-05-07-001.rime/</url>
+      
+        <content type="html"><![CDATA[<h3 id="中州韵简介"><a href="#中州韵简介" class="headerlink" title="中州韵简介"></a>中州韵简介</h3><p>中州韵不是一个简单的「输入法软件」，它是一套能够实现各种音码、形码及音形码方案的「检索引擎」。它更不是一款具象的，通常意义上的「输入法软件」，它能允许用户通过使用「RIME语法]，自由组合各种参数，以实现特定求需的「七巧板」。</p><p>一款输入法软件，宏观来说，分为「前端」和「后端」。「前端」负责呈现皮肤、字体、与操作系统的 API 对接，而「后端」则是一套如前所述的「检索引擎」，是输入法的「内核」。中州韵恰是这样一套强大的「内核」，在不同的系统平台上，封装上不同的「前端」，都可以实现相同的功能。Windows 的「小狼毫」、MacOS 的「鼠须管」、Android 的「同文输入法」，都是我们熟知的不同系统平台下的「前端」封装。</p><h3 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h3><p>中州韵的配置，是公认的门槛高。而且在具体的「前端」实现上，或多或少都存在一些弱点。比如，在 Windows 上，因存在着 IME 和 TSF 两种输入法框架新老交替的换代现象，一些陈旧的或不规范的 EXE 软件，可能无法打字，或是输入法候选框定位不准。在 Android 上，由于 Android 新版本权限变动，也或多或少地存在着对低版本 Android 设备兼容不够好的问题。Linux 下，Fcitx-rime 和 iBus-rime 都没有专属前端，外观设定不方便，而且于由 Linux 的现状，改善的可能性不高。可能问题最少的，就是 MacOS 了，然而在 iOS 设备上，又因为 iOS 太多傻缺的权限制约，「前端」实现不可以像「同文」那样自由——比如蓝牙外接键盘下使用不了，无法用于生产力活动，外援字体借调限制，无法实现注解模式的 OpenCC 码元拆分提示。</p><p>然而，中州韵是「内核」，「前端」封装上的种种不理想、小毛病，都应与中州韵这个「内核引擎」分开来看。我们相信，「前端」上的问题，只可能越来越少，因为操作系统也在趋于成熟，之所以有如此信心，那是因为它是「开源」的——只要中州韵的用户中有一位对相应操作系统的输入法 API 熟悉，有意愿改善兼容性，它就会一直活下去。我们相信中州韵这个「输入法内核」，会比我们每个人的心脏都要跳动更久。</p><p>商软既不自由，又难以给人持久的信心，个人软件就更靠不住了。但是中州韵不仅开源，而且已颇有受众，这才是让人觉得有信心的软件，值得投入精力了解一下，为它续上一秒。</p><h3 id="上手办法"><a href="#上手办法" class="headerlink" title="上手办法"></a>上手办法</h3><p>我们98五笔爱好者为98五笔的队友们制作了可直接安装使用的独立包，对于参数的讲解，基于这份配置。目前来说，在「形码功能」的实现方面，我们的98配置文件的「完成度」是最高的，没有之一。当然，复杂度也是最高的，没有之一。</p><p>建议在 <a href="https://wb98.gitee.io/">98五笔资源库</a> 上选一下自己操作系统所需的包，安装试用，以便开始全面了中州韵的参数细节。我们将由浅及深，详谈一下它在形码方面的工作模式。</p><h3 id="基本结构概况"><a href="#基本结构概况" class="headerlink" title="基本结构概况"></a>基本结构概况</h3><h4 id="程序目录"><a href="#程序目录" class="headerlink" title="程序目录"></a>程序目录</h4><p>程序目录，是软件装到你的系统之后的文件目录。输入法托盘图标中「右键」，可以看到这样的文字描述「程序目录」或「程序文件夹」。</p><h4 id="用户目录"><a href="#用户目录" class="headerlink" title="用户目录"></a>用户目录</h4><p>用户目录，则是存放当前用户设定偏好的地方。这里面文件的权限，要高于程序目录。同一个参数有不同定义时，以用户目录下的为准。</p><h4 id="YAML-与-TXT"><a href="#YAML-与-TXT" class="headerlink" title="YAML 与 TXT"></a>YAML 与 TXT</h4><p>YAML 是一种非常易读的结构化的脚本语言格式，中州韵的主要配置，都是 YAML 作为文本格式。而用户文件夹下面，另有一份以 TXT 格式存放用户输入记录的「用户词典」。</p><h3 id="方案挂载流程"><a href="#方案挂载流程" class="headerlink" title="方案挂载流程"></a>方案挂载流程</h3><blockquote><p>default.yaml ⇒ wubi98_ci.schema.yaml ⇒ wubi98_ci.extended.dict.yaml ⇒ wubi98_ci.dict.yaml</p></blockquote><p>一. default.yaml 告诉输入法程序，它有一款叫「wubi98_ci」的输入法方案。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">schema_list:</span><br><span class="line">  - schema: wubi98_dz</span><br><span class="line">  - schema: wubi98_ci</span><br><span class="line">  - schema: py</span><br></pre></td></tr></table></figure><p>二. 输入法以「wubi98_ci」为关键字，搜「 *.schema.yaml 」的文件，看看是哪个 「schema」文件定义了该输入法方案。<br>schema 定义了很多内容，都是该输入法方案的功能细节，而在如下字段中，是定义了「码表是谁」：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">translator:</span><br><span class="line">  dictionary: wubi98_ci.extended</span><br><span class="line">  db_class: tabledb</span><br><span class="line">  initial_quality: 100000</span><br><span class="line">  enable_charset_filter: false</span><br></pre></td></tr></table></figure><p>它说，我的码表，关键字是「wubi98_ci.extended」，于是，程序就以它为线索，找带着「  *.dict.yaml 」后缀的「字典文件」。</p><p>三. 寻获了「wubi98_ci.extended.dict.yaml」，这是一个「字典」，一个「特殊」的字典，它几乎没什么内容，但是它在如下字段中，引入了新的「dict」：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import_tables:</span><br><span class="line">  - wubi98_ci</span><br></pre></td></tr></table></figure><p>程序继续寻找「wubi98_ci」字眼，带着「  *.dict.yaml 」后缀的「字典文件」。</p><p>四. 终于，逮着了主码表「wubi98_ci.dict.yaml」。</p><p>我们在这里用了中州韵的高级技巧——「扩展词库」（*.extended.dict.yaml），它通过向前与「 *.schema.yaml 」对接，向后追导主码表（*.dict.yaml）的方式，做到了功能丰富与条理清晰的兼得。<br>不管是自定义带编码的短语，还是便捷式地无需编码直接添词，都可以直接实现，而且不会干扰到「主码表」，这种层级结构是非常理想的。</p><p>需要特别指出，程序加载流程的介绍，只是逻辑上的排序，实际上这些动作都是在 YMAL 转译为二进制 BIN 文件后，在二进制中完成的。</p><p>好了，这是本系列的第一篇，下篇见。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 中州韵 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 中州韵 </tag>
             
         </tags>
       
