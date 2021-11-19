@@ -1,17 +1,17 @@
 <!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>浅谈一种「自造词」的约束性实现 | 五笔小筑</title><meta name="keywords" content="自造词"><meta name="author" content="五笔小筑"><meta name="copyright" content="五笔小筑"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="永不可能理想词库里「啥都有」，对于任何一种中文输入方案都是不现实的。不同场合，不同行业，所需的「词汇」各有不同。所以类似『细胞词库』的概念特别流行。饶是如此，「打空」或「重码位次不理想」也是中文输入法的常态。我们在输入时，总不免下意识地去考量词库中有没有相应词汇，利用一些技巧或熟练度来避免无效击键。比如拼音用户可以选择有语料库支持的商业输入法云词库，而五笔用户们则会下意识地拆解一些合成词、或直接对">
 <meta property="og:type" content="article">
 <meta property="og:title" content="浅谈一种「自造词」的约束性实现">
-<meta property="og:url" content="https://wubi98.gitee.io/2021/09/17/2021-09-17-037.rime/index.html">
+<meta property="og:url" content="https://98wb.github.io/2021/09/17/2021-09-17-037.rime/index.html">
 <meta property="og:site_name" content="五笔小筑">
 <meta property="og:description" content="永不可能理想词库里「啥都有」，对于任何一种中文输入方案都是不现实的。不同场合，不同行业，所需的「词汇」各有不同。所以类似『细胞词库』的概念特别流行。饶是如此，「打空」或「重码位次不理想」也是中文输入法的常态。我们在输入时，总不免下意识地去考量词库中有没有相应词汇，利用一些技巧或熟练度来避免无效击键。比如拼音用户可以选择有语料库支持的商业输入法云词库，而五笔用户们则会下意识地拆解一些合成词、或直接对">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://wubi98.gitee.io/img/index.jpg">
+<meta property="og:image" content="https://98wb.github.io/img/index.jpg">
 <meta property="article:published_time" content="2021-09-16T16:00:00.000Z">
 <meta property="article:modified_time" content="2021-09-16T16:00:00.000Z">
 <meta property="article:author" content="五笔小筑">
 <meta property="article:tag" content="自造词">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://wubi98.gitee.io/img/index.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://wubi98.gitee.io/2021/09/17/2021-09-17-037.rime/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+<meta name="twitter:image" content="https://98wb.github.io/img/index.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://98wb.github.io/2021/09/17/2021-09-17-037.rime/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
   root: '/',
   algolia: undefined,
   localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
