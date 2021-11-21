@@ -227,7 +227,7 @@
   function initWaline () {
     const waline = new Waline(Object.assign({
       el: '#waline-wrap',
-      serverURL: 'https://my-waline-yanhuacuo.vercel.app/',
+      serverURL: 'https://my-waline-yanhuacuo.vercel.app',
       path: location.pathname,
       visitor: false,
       dark: 'html[data-theme="dark"]'
@@ -235,7 +235,7 @@
   }
 
   if (typeof Waline === 'function') initWaline()
-  else getScript('https://cdn.jsdelivr.net/@waline/clien@latest/dist/Waline.min.js').then(initWaline)
+  else getScript('https://cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js').then(initWaline)
 }
 
 if ('Waline' === 'Waline' || !false) {
