@@ -378,14 +378,6 @@ p {
 }
 
 
-.article-meta__separator {
-    margin: 0 0.3rem;
-    margin-top: 0px;
-    margin-right: 0.6rem;
-    margin-bottom: 0px;
-    margin-left: 0.6rem;
-}
-
 #recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap .article-meta-separator {
     margin: 0 0.3rem;
     margin-top: 0px;

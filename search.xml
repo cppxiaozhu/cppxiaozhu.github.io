@@ -779,11 +779,11 @@
     
     
     <entry>
-      <title>中州韵98五笔功能简介</title>
-      <link href="/2019/05/22/2019-05-22-007.98wb/"/>
-      <url>/2019/05/22/2019-05-22-007.98wb/</url>
+      <title>安卓同文版98五笔</title>
+      <link href="/2019/05/22/2019-05-22-008.trime/"/>
+      <url>/2019/05/22/2019-05-22-008.trime/</url>
       
-        <content type="html"><![CDATA[<h2 id="方案描述"><a href="#方案描述" class="headerlink" title="方案描述"></a>方案描述</h2><p>五笔98版方案早已无版权问题（<a href="https://github.com/yanhuacuo/98wubi-tables/blob/master/README.md">见此</a>）,该档为「中州韵」通用配置文件，码表源自「至善98词库」。 </p><p>该档为中州韵可用的98版五笔通用配置文件</p><h2 id="功能简介"><a href="#功能简介" class="headerlink" title="功能简介"></a>功能简介</h2><h3 id="特色功能"><a href="#特色功能" class="headerlink" title="特色功能"></a>特色功能</h3><ul><li>即时码元拆分提示 </li></ul><p><img src="/img/old/id/01.gif" alt="pic"></p><ul><li>「z」键引导：临时拼音反查</li></ul><p><img src="/img/old/id/02.gif" alt="pic"></p><ul><li>「`」键引导：精准造词</li></ul><p><img src="/img/old/id/03.gif" alt="pic"></p><ul><li>「~」键引导：以形查音</li></ul><p><img src="/img/old/id/04.gif" alt="pic"></p><ul><li>「z」兼有：上次输入内容提示</li></ul><p>如有上屏记录，按「Z」键时，会提示上次输入历史。</p><h3 id="基础设定"><a href="#基础设定" class="headerlink" title="基础设定"></a>基础设定</h3><ul><li>回车清屏</li><li>Shift + 回车 = 编码上屏</li><li>Shift = 中英切换</li><li>Ctrl + ~ = 切换方案</li><li>分号、引号 = 选 2、3 重码上屏</li></ul><h3 id="三大开关"><a href="#三大开关" class="headerlink" title="三大开关"></a>三大开关</h3><ul><li>Ctrl + Shift + H = 拆分提示开关</li><li>Ctrl + Shift + F = 繁简转换开关</li><li>Ctrl + Shift + U = 字符集过滤开关</li></ul>]]></content>
+        <content type="html"><![CDATA[<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>在 <a href="https://wb98.gitee.io/">98五笔资源库</a> 中，我们打包制作了基于中州韵的「98五笔同文版」。</p><p>基于不同的配置偏好，在「输入法 / Android / 同文输入法」下，有公共版本，还有「个性特别版」下的至善版与小浪版。</p><p>同文输入法，是中州韵引擎在 Android 系统下的前端实现。由于 Android 开放的特性，我们实现了 PC 平台下中州韵98五笔配置文件的全部功能。</p><h2 id="功能完备"><a href="#功能完备" class="headerlink" title="功能完备"></a>功能完备</h2><h3 id="中州韵特技俱备"><a href="#中州韵特技俱备" class="headerlink" title="中州韵特技俱备"></a>中州韵特技俱备</h3><ul><li>简繁切换</li><li>拆分显隐</li><li>字集过滤</li><li>临时拼音</li><li>以形查音</li><li>精准造词</li></ul><h3 id="码元图助记键盘"><a href="#码元图助记键盘" class="headerlink" title="码元图助记键盘"></a>码元图助记键盘</h3><p>道吧为我们制作了精美的「码元助记键盘」，致谢他的辛苦付出。</p><ul><li>集成「标准键盘」与「助记键盘」，可以一键切换普通键位与码元助记键位</li></ul><p><img src="/img/old/trime/7.png" alt="pic"><br><img src="/img/old/trime/8.png" alt="pic"></p><ul><li>集成拆分注解的「显」与「隐」，打字时可以即时显示拆分详情，强化码元记忆</li></ul><p><img src="/img/old/trime/0.png" alt="pic"></p><h2 id="无碍使用"><a href="#无碍使用" class="headerlink" title="无碍使用"></a>无碍使用</h2><p>从源码编译打包，APK 直装，绕开了同文输入法繁琐的方案配置步骤，开源长寿，值得信赖。</p><h2 id="加入组织"><a href="#加入组织" class="headerlink" title="加入组织"></a>加入组织</h2><div class="content"><ul><li>98五笔-QQ群：<a href="//shang.qq.com/wpa/qunwpa?idkey=26ae7c9099c6f37a78e0501329e179da09820470312195252a6927c565fcb995">547820540</a></li><li>98五笔-项目：<a href="https://github.com/yanhuacuo/98wubi-tables">GitHub</a></li><li>98五笔-资源库：<a href="https://wb98.gitee.io/">资源下载</a></li><li>98五笔-博客：<a href="https://wubi98.gitee.io/">五笔小筑</a></li><li>98五笔-视频库：<a href="https://space.bilibili.com/13979976">B站视频库</a></li><li>98五笔-主页：<a href="http://www.98wubi.com/">98五笔主页</a></li><li>98五笔-贴吧：<a href="http://tieba.baidu.com/f?kw=98%E4%BA%94%E7%AC%94&ie=utf-8&tab=main">贴吧</a></li></ul></div><h2 id="预览图集"><a href="#预览图集" class="headerlink" title="预览图集"></a>预览图集</h2><p><img src="/img/old/trime/0.png" alt="pic"></p><p><img src="/img/old/trime/1.png" alt="pic"></p><p><img src="/img/old/trime/2.png" alt="pic"></p><p><img src="/img/old/trime/3.png" alt="pic"></p><p><img src="/img/old/trime/4.png" alt="pic"></p><p><img src="/img/old/trime/5.png" alt="pic"></p><p><img src="/img/old/trime/6.png" alt="pic"></p><p><img src="/img/old/trime/7.png" alt="pic"></p><p><img src="/img/old/trime/8.png" alt="pic"></p><p><img src="/img/old/trime/9.png" alt="pic"></p><h2 id="主要成员介绍"><a href="#主要成员介绍" class="headerlink" title="主要成员介绍"></a>主要成员介绍</h2><ul><li>言大 </li></ul><p>早期98五笔资源维护者</p><ul><li>道吧</li></ul><p>98至善码表作者，中州韵98五笔schema作者，98五笔码元全图与98五笔至善专版打包者</p><ul><li>小猪</li></ul><p>98五笔资源库管理员，小小98五笔打包人员</p><ul><li>柱子</li></ul><p>98五笔主页站长</p><ul><li>秋虫</li></ul><p>98超集扩编主持人</p><ul><li>小浪</li></ul><p>小浪98五笔（双平台）作者</p><ul><li>清新</li></ul><p>五笔98版打包人员</p><ul><li>小甜</li></ul><p>中文系高材生，汉字专家，98五笔资深用户</p><ul><li>守望者</li></ul><p>柚子98五笔作者</p><ul><li>osfans</li></ul><p>同文输入法作者，柚子rime版作者，98UV超集注解字体作者</p>]]></content>
       
       
       <categories>
@@ -804,11 +804,11 @@
     
     
     <entry>
-      <title>安卓同文版98五笔</title>
-      <link href="/2019/05/22/2019-05-22-008.trime/"/>
-      <url>/2019/05/22/2019-05-22-008.trime/</url>
+      <title>中州韵98五笔功能简介</title>
+      <link href="/2019/05/22/2019-05-22-007.98wb/"/>
+      <url>/2019/05/22/2019-05-22-007.98wb/</url>
       
-        <content type="html"><![CDATA[<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>在 <a href="https://wb98.gitee.io/">98五笔资源库</a> 中，我们打包制作了基于中州韵的「98五笔同文版」。</p><p>基于不同的配置偏好，在「输入法 / Android / 同文输入法」下，有公共版本，还有「个性特别版」下的至善版与小浪版。</p><p>同文输入法，是中州韵引擎在 Android 系统下的前端实现。由于 Android 开放的特性，我们实现了 PC 平台下中州韵98五笔配置文件的全部功能。</p><h2 id="功能完备"><a href="#功能完备" class="headerlink" title="功能完备"></a>功能完备</h2><h3 id="中州韵特技俱备"><a href="#中州韵特技俱备" class="headerlink" title="中州韵特技俱备"></a>中州韵特技俱备</h3><ul><li>简繁切换</li><li>拆分显隐</li><li>字集过滤</li><li>临时拼音</li><li>以形查音</li><li>精准造词</li></ul><h3 id="码元图助记键盘"><a href="#码元图助记键盘" class="headerlink" title="码元图助记键盘"></a>码元图助记键盘</h3><p>道吧为我们制作了精美的「码元助记键盘」，致谢他的辛苦付出。</p><ul><li>集成「标准键盘」与「助记键盘」，可以一键切换普通键位与码元助记键位</li></ul><p><img src="/img/old/trime/7.png" alt="pic"><br><img src="/img/old/trime/8.png" alt="pic"></p><ul><li>集成拆分注解的「显」与「隐」，打字时可以即时显示拆分详情，强化码元记忆</li></ul><p><img src="/img/old/trime/0.png" alt="pic"></p><h2 id="无碍使用"><a href="#无碍使用" class="headerlink" title="无碍使用"></a>无碍使用</h2><p>从源码编译打包，APK 直装，绕开了同文输入法繁琐的方案配置步骤，开源长寿，值得信赖。</p><h2 id="加入组织"><a href="#加入组织" class="headerlink" title="加入组织"></a>加入组织</h2><div class="content"><ul><li>98五笔-QQ群：<a href="//shang.qq.com/wpa/qunwpa?idkey=26ae7c9099c6f37a78e0501329e179da09820470312195252a6927c565fcb995">547820540</a></li><li>98五笔-项目：<a href="https://github.com/yanhuacuo/98wubi-tables">GitHub</a></li><li>98五笔-资源库：<a href="https://wb98.gitee.io/">资源下载</a></li><li>98五笔-博客：<a href="https://wubi98.gitee.io/">五笔小筑</a></li><li>98五笔-视频库：<a href="https://space.bilibili.com/13979976">B站视频库</a></li><li>98五笔-主页：<a href="http://www.98wubi.com/">98五笔主页</a></li><li>98五笔-贴吧：<a href="http://tieba.baidu.com/f?kw=98%E4%BA%94%E7%AC%94&ie=utf-8&tab=main">贴吧</a></li></ul></div><h2 id="预览图集"><a href="#预览图集" class="headerlink" title="预览图集"></a>预览图集</h2><p><img src="/img/old/trime/0.png" alt="pic"></p><p><img src="/img/old/trime/1.png" alt="pic"></p><p><img src="/img/old/trime/2.png" alt="pic"></p><p><img src="/img/old/trime/3.png" alt="pic"></p><p><img src="/img/old/trime/4.png" alt="pic"></p><p><img src="/img/old/trime/5.png" alt="pic"></p><p><img src="/img/old/trime/6.png" alt="pic"></p><p><img src="/img/old/trime/7.png" alt="pic"></p><p><img src="/img/old/trime/8.png" alt="pic"></p><p><img src="/img/old/trime/9.png" alt="pic"></p><h2 id="主要成员介绍"><a href="#主要成员介绍" class="headerlink" title="主要成员介绍"></a>主要成员介绍</h2><ul><li>言大 </li></ul><p>早期98五笔资源维护者</p><ul><li>道吧</li></ul><p>98至善码表作者，中州韵98五笔schema作者，98五笔码元全图与98五笔至善专版打包者</p><ul><li>小猪</li></ul><p>98五笔资源库管理员，小小98五笔打包人员</p><ul><li>柱子</li></ul><p>98五笔主页站长</p><ul><li>秋虫</li></ul><p>98超集扩编主持人</p><ul><li>小浪</li></ul><p>小浪98五笔（双平台）作者</p><ul><li>清新</li></ul><p>五笔98版打包人员</p><ul><li>小甜</li></ul><p>中文系高材生，汉字专家，98五笔资深用户</p><ul><li>守望者</li></ul><p>柚子98五笔作者</p><ul><li>osfans</li></ul><p>同文输入法作者，柚子rime版作者，98UV超集注解字体作者</p>]]></content>
+        <content type="html"><![CDATA[<h2 id="方案描述"><a href="#方案描述" class="headerlink" title="方案描述"></a>方案描述</h2><p>五笔98版方案早已无版权问题（<a href="https://github.com/yanhuacuo/98wubi-tables/blob/master/README.md">见此</a>）,该档为「中州韵」通用配置文件，码表源自「至善98词库」。 </p><p>该档为中州韵可用的98版五笔通用配置文件</p><h2 id="功能简介"><a href="#功能简介" class="headerlink" title="功能简介"></a>功能简介</h2><h3 id="特色功能"><a href="#特色功能" class="headerlink" title="特色功能"></a>特色功能</h3><ul><li>即时码元拆分提示 </li></ul><p><img src="/img/old/id/01.gif" alt="pic"></p><ul><li>「z」键引导：临时拼音反查</li></ul><p><img src="/img/old/id/02.gif" alt="pic"></p><ul><li>「`」键引导：精准造词</li></ul><p><img src="/img/old/id/03.gif" alt="pic"></p><ul><li>「~」键引导：以形查音</li></ul><p><img src="/img/old/id/04.gif" alt="pic"></p><ul><li>「z」兼有：上次输入内容提示</li></ul><p>如有上屏记录，按「Z」键时，会提示上次输入历史。</p><h3 id="基础设定"><a href="#基础设定" class="headerlink" title="基础设定"></a>基础设定</h3><ul><li>回车清屏</li><li>Shift + 回车 = 编码上屏</li><li>Shift = 中英切换</li><li>Ctrl + ~ = 切换方案</li><li>分号、引号 = 选 2、3 重码上屏</li></ul><h3 id="三大开关"><a href="#三大开关" class="headerlink" title="三大开关"></a>三大开关</h3><ul><li>Ctrl + Shift + H = 拆分提示开关</li><li>Ctrl + Shift + F = 繁简转换开关</li><li>Ctrl + Shift + U = 字符集过滤开关</li></ul>]]></content>
       
       
       <categories>
@@ -854,31 +854,6 @@
     
     
     <entry>
-      <title>关于「垂」字</title>
-      <link href="/2019/05/16/2019-05-16-005.98chr/"/>
-      <url>/2019/05/16/2019-05-16-005.98chr/</url>
-      
-        <content type="html"><![CDATA[<p>98五笔小组对98原表中的「垂」作了修正处理，这也是唯一的一例关于拆字原则角度的编码方面变更。下面，我来讲一下为什么一定要改这个字。</p><p>在此之前，我们先说一点基本共识：在98五笔中，拆好的「码元」，是按笔顺排序的，即谁先被写到，谁就排在前面。</p><p>例如: 戍 = 〔 󰂇 󰄤 󰀦 〕 , 乃是因为「戈」与「人」这两个码元，在书写时，「戈」是先被写到的部分。</p><p>这个共识贯穿于98五笔方案的始终，而原版98五笔中，对它的拆法是：垂 = 〔 丿 一 艹 士 〕，如果按「笔顺」对拆出的码元排序，将会非常怪异。</p><p>事实上，该字的原有打法，既不符合98五笔的码元排序逻辑，又没有按98的码元排序逻辑修正的价值，它实质上是对老86版的打包式继承。</p><p>而熟悉98版的人都知道，98版对于此类常规拆法难以「兼美」的汉字，都以「字源」为参照，从而找到既有形码指标价值，又俱汉字间架结构和谐美感的拆法。</p><p>汉字的演化，经历了「甲骨文」-「小篆」-「隶变」等基本过程，才确定其基本间架结构，「楷体」的基本笔势与架构，源自秦汉时代的隶书化演变。</p><p>在「小篆」时代，它是这样的写法：</p><p><img src="/img/old/98wb/1.png" alt="pic"></p><p>而后，经过了秦时时期的隶书演化，我们来看一下这个过程：</p><p>在秦至汉的相当长一段时间里，「隶体」对「小篆」有着还算「完备」的形体继承，但事情从东汉起有了变化：</p><ul><li>夏承碑</li></ul><p><img src="/img/old/98wb/2.png" alt="pic"></p><ul><li>校官碑</li></ul><p><img src="/img/old/98wb/3.png" alt="pic"></p><p>注意上图描红与描黄部分，它与《说文解字》中的「小篆」体例，是一脉相承的：</p><p><img src="/img/old/98wb/4.png" alt="pic"></p><p>上图描黄部分的「土」，是该字的「形旁」，「垂」字以《说文》体例，自此归入「土部」，但表其「形旁」的土，在同时期的隶化过程里，形旁的「土」另有「简省」掉的风格：</p><ul><li>郑固碑</li></ul><p><img src="/img/old/98wb/5.png" alt="pic"></p><p>更进一步的写法也应运而生，将上部的「声旁」，写作了「 󰁺 」，早期小篆形体中起笔竖弯，通过「加撇」处理进入「隶变」时代，这里又进一步加「横」以适应整个「声旁」的变化，以平衡字形。</p><p>「声旁」和「形旁」的各自变化，沿袭着从繁就简的历史趋势。</p><ul><li>韩勑碑<br><img src="/img/old/98wb/6.png" alt="pic"></li></ul><p>当然，仅将「声部」处理成「 󰁺 」，而不对颈部加「横」，同时期也是有的：</p><ul><li>乙瑛碑</li></ul><p><img src="/img/old/98wb/7.png" alt="pic"></p><p>后世的「垂」，则是基于同时「简化」形旁「土」，与上部声旁，并对颈部加横以平衡字体美感的方式。</p><p>不过，《六书通》里，依然保留着「土」部未简化的另一种风格：</p><ul><li>《六书通》</li></ul><p><img src="/img/old/98wb/8.png" alt="pic"></p><p>至此，关于「垂」字的拆分，中间部分取「󰁺」的原因就说清楚了，「土」部的概念始于《说文》，但是通用楷体则源自隶书，而其「土」作为「形旁」的字形，其实已因简化而不复存在，这个过程源自「隶书」对「小篆」的继承时期。</p><p>更正为：垂 = 〔 󰄋 󰂯 󰁺 󰀌 〕</p><p><img src="/img/old/98wb/9.png" alt="pic"></p><p>这样的变更，不仅取码更大，也将「垂」添作了「三级简码」，另一个好处是，在整个码表中，消失了不少含垂字的重码，也降低了重码密度。</p><p>而且，与秉，束等字相谐。</p><p>98五笔小组一直在维护98五笔的资源，而98五笔的基础单字码表，则是一切的基础，这个表不会轻易变动，而关于「垂」这个字，是唯一的一例，也是最后的一例。</p><p>这样的变动，减少冲突，符合字源，而且兼得码表效率，对未来扩编98超集，有重要意义。</p><p><img src="/img/old/98wb/10.png" alt="pic"></p><p><img src="/img/old/98wb/11.png" alt="pic"></p><h4 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h4><p>98五笔中的「字源」规则，是写在专利书中的特性之一。常规拆解带来重码问题，或者歧义时，字源规则可以是一个很好的裁判。另外，字源规则是用来发糖的，而不是添加困扰的。</p><p>当字源规则使用时，一定要同时带来形码指标与拆字畅快兼美的糖果，比如「 戍 = 〔 󰂇 󰄤 󰀦 〕 ，臧 = 〔 󰂇 󰄗 󰂋 󰂺 〕，束 = 〔 󰄅 󰃏 󰀌 〕 」，这是它存在的意义，而不是相反。</p><p>没有一种单一的「策略」可以完美兼顾到「形码三原理」，有吹毛求疵者会说何不将字源绝对贯彻？</p><p>「果」如按字源，将是「田+木」，「我」如按字源，将有「扌+戈」——这截笔顺，断笔势，彻底反祖的拆法你能接受吗？</p><p>五笔有其基本的字型间架逻辑，相交部件互相分离，已是最大程度兼顾汉字既有观感的底线了。而现有98方案中，字源参与的部分，最多是「相连可离」，比如「戍」。「相交可离」，比如「束」。而断划截笔，是不可能去做的。</p><p>所以，如何看待「字源」的存在？在98中，我们将它视作分流重码，处理纠纷的工具就可以了。</p><p>说回吹毛求疵这个问题，五笔86中存在着「取大优先」的规则，但是在98中，这个规则不明显。以86的思路硬套98的拆法，肯定是行不通的。</p><p>比如「兰」，它原是「蘭」的草书模式，正是「从阑声，从草形」，这是该字的造字原理。而在86的「取大优先」下，86拆出了「䒑+二」，我们不能说它错，但这绝对是让人反感的取码模式，问「兰」字如何写，任何人都会回答「上两点，下加三」。这就是汉字作为表意文字，给人的基本观感，但是「取大优先」的策略下，便产生如此违背直观和汉字间架构形基本原理的「取码方式」。</p><p>还是那句话，没有一种单一的「策略」可以完美兼顾到「形码三原理」（规律性，相容性，协调性）。「兰」字，在98方案里，就是「上两点，下加三」。这正是字源规则发的糖果，它做到了直观性与汉字基本结构的兼美。字源规则，在98方案中，是与五笔传统融洽的存在，并不以更高的权级去引入违反交连原则的新模式，更不会截笔断字，不像新世纪版本引入的「笔顺取码」那样，「武中取二，式里取三」，拆得乱七八糟。</p><p>三版五笔里，98是唯一真正意义上贯彻形码三原理的版本。新世纪版本为了追求商业盈利，在98的基础上裁减码元，退回老86的模式，结果不仅拆字混乱，而且码表效能低下，弄巧成拙。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 拆字 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 拆字 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>GEM 本地文件目录</title>
       <link href="/2019/05/16/2019-05-16-004.gem/"/>
       <url>/2019/05/16/2019-05-16-004.gem/</url>
@@ -896,6 +871,31 @@
         <tags>
             
             <tag> GEM </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>关于「垂」字</title>
+      <link href="/2019/05/16/2019-05-16-005.98chr/"/>
+      <url>/2019/05/16/2019-05-16-005.98chr/</url>
+      
+        <content type="html"><![CDATA[<p>98五笔小组对98原表中的「垂」作了修正处理，这也是唯一的一例关于拆字原则角度的编码方面变更。下面，我来讲一下为什么一定要改这个字。</p><p>在此之前，我们先说一点基本共识：在98五笔中，拆好的「码元」，是按笔顺排序的，即谁先被写到，谁就排在前面。</p><p>例如: 戍 = 〔 󰂇 󰄤 󰀦 〕 , 乃是因为「戈」与「人」这两个码元，在书写时，「戈」是先被写到的部分。</p><p>这个共识贯穿于98五笔方案的始终，而原版98五笔中，对它的拆法是：垂 = 〔 丿 一 艹 士 〕，如果按「笔顺」对拆出的码元排序，将会非常怪异。</p><p>事实上，该字的原有打法，既不符合98五笔的码元排序逻辑，又没有按98的码元排序逻辑修正的价值，它实质上是对老86版的打包式继承。</p><p>而熟悉98版的人都知道，98版对于此类常规拆法难以「兼美」的汉字，都以「字源」为参照，从而找到既有形码指标价值，又俱汉字间架结构和谐美感的拆法。</p><p>汉字的演化，经历了「甲骨文」-「小篆」-「隶变」等基本过程，才确定其基本间架结构，「楷体」的基本笔势与架构，源自秦汉时代的隶书化演变。</p><p>在「小篆」时代，它是这样的写法：</p><p><img src="/img/old/98wb/1.png" alt="pic"></p><p>而后，经过了秦时时期的隶书演化，我们来看一下这个过程：</p><p>在秦至汉的相当长一段时间里，「隶体」对「小篆」有着还算「完备」的形体继承，但事情从东汉起有了变化：</p><ul><li>夏承碑</li></ul><p><img src="/img/old/98wb/2.png" alt="pic"></p><ul><li>校官碑</li></ul><p><img src="/img/old/98wb/3.png" alt="pic"></p><p>注意上图描红与描黄部分，它与《说文解字》中的「小篆」体例，是一脉相承的：</p><p><img src="/img/old/98wb/4.png" alt="pic"></p><p>上图描黄部分的「土」，是该字的「形旁」，「垂」字以《说文》体例，自此归入「土部」，但表其「形旁」的土，在同时期的隶化过程里，形旁的「土」另有「简省」掉的风格：</p><ul><li>郑固碑</li></ul><p><img src="/img/old/98wb/5.png" alt="pic"></p><p>更进一步的写法也应运而生，将上部的「声旁」，写作了「 󰁺 」，早期小篆形体中起笔竖弯，通过「加撇」处理进入「隶变」时代，这里又进一步加「横」以适应整个「声旁」的变化，以平衡字形。</p><p>「声旁」和「形旁」的各自变化，沿袭着从繁就简的历史趋势。</p><ul><li>韩勑碑<br><img src="/img/old/98wb/6.png" alt="pic"></li></ul><p>当然，仅将「声部」处理成「 󰁺 」，而不对颈部加「横」，同时期也是有的：</p><ul><li>乙瑛碑</li></ul><p><img src="/img/old/98wb/7.png" alt="pic"></p><p>后世的「垂」，则是基于同时「简化」形旁「土」，与上部声旁，并对颈部加横以平衡字体美感的方式。</p><p>不过，《六书通》里，依然保留着「土」部未简化的另一种风格：</p><ul><li>《六书通》</li></ul><p><img src="/img/old/98wb/8.png" alt="pic"></p><p>至此，关于「垂」字的拆分，中间部分取「󰁺」的原因就说清楚了，「土」部的概念始于《说文》，但是通用楷体则源自隶书，而其「土」作为「形旁」的字形，其实已因简化而不复存在，这个过程源自「隶书」对「小篆」的继承时期。</p><p>更正为：垂 = 〔 󰄋 󰂯 󰁺 󰀌 〕</p><p><img src="/img/old/98wb/9.png" alt="pic"></p><p>这样的变更，不仅取码更大，也将「垂」添作了「三级简码」，另一个好处是，在整个码表中，消失了不少含垂字的重码，也降低了重码密度。</p><p>而且，与秉，束等字相谐。</p><p>98五笔小组一直在维护98五笔的资源，而98五笔的基础单字码表，则是一切的基础，这个表不会轻易变动，而关于「垂」这个字，是唯一的一例，也是最后的一例。</p><p>这样的变动，减少冲突，符合字源，而且兼得码表效率，对未来扩编98超集，有重要意义。</p><p><img src="/img/old/98wb/10.png" alt="pic"></p><p><img src="/img/old/98wb/11.png" alt="pic"></p><h4 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h4><p>98五笔中的「字源」规则，是写在专利书中的特性之一。常规拆解带来重码问题，或者歧义时，字源规则可以是一个很好的裁判。另外，字源规则是用来发糖的，而不是添加困扰的。</p><p>当字源规则使用时，一定要同时带来形码指标与拆字畅快兼美的糖果，比如「 戍 = 〔 󰂇 󰄤 󰀦 〕 ，臧 = 〔 󰂇 󰄗 󰂋 󰂺 〕，束 = 〔 󰄅 󰃏 󰀌 〕 」，这是它存在的意义，而不是相反。</p><p>没有一种单一的「策略」可以完美兼顾到「形码三原理」，有吹毛求疵者会说何不将字源绝对贯彻？</p><p>「果」如按字源，将是「田+木」，「我」如按字源，将有「扌+戈」——这截笔顺，断笔势，彻底反祖的拆法你能接受吗？</p><p>五笔有其基本的字型间架逻辑，相交部件互相分离，已是最大程度兼顾汉字既有观感的底线了。而现有98方案中，字源参与的部分，最多是「相连可离」，比如「戍」。「相交可离」，比如「束」。而断划截笔，是不可能去做的。</p><p>所以，如何看待「字源」的存在？在98中，我们将它视作分流重码，处理纠纷的工具就可以了。</p><p>说回吹毛求疵这个问题，五笔86中存在着「取大优先」的规则，但是在98中，这个规则不明显。以86的思路硬套98的拆法，肯定是行不通的。</p><p>比如「兰」，它原是「蘭」的草书模式，正是「从阑声，从草形」，这是该字的造字原理。而在86的「取大优先」下，86拆出了「䒑+二」，我们不能说它错，但这绝对是让人反感的取码模式，问「兰」字如何写，任何人都会回答「上两点，下加三」。这就是汉字作为表意文字，给人的基本观感，但是「取大优先」的策略下，便产生如此违背直观和汉字间架构形基本原理的「取码方式」。</p><p>还是那句话，没有一种单一的「策略」可以完美兼顾到「形码三原理」（规律性，相容性，协调性）。「兰」字，在98方案里，就是「上两点，下加三」。这正是字源规则发的糖果，它做到了直观性与汉字基本结构的兼美。字源规则，在98方案中，是与五笔传统融洽的存在，并不以更高的权级去引入违反交连原则的新模式，更不会截笔断字，不像新世纪版本引入的「笔顺取码」那样，「武中取二，式里取三」，拆得乱七八糟。</p><p>三版五笔里，98是唯一真正意义上贯彻形码三原理的版本。新世纪版本为了追求商业盈利，在98的基础上裁减码元，退回老86的模式，结果不仅拆字混乱，而且码表效能低下，弄巧成拙。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 拆字 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 拆字 </tag>
             
         </tags>
       
@@ -954,31 +954,6 @@
     
     
     <entry>
-      <title>中州韵详解01：结构概况</title>
-      <link href="/2019/01/01/2019-05-07-001.rime/"/>
-      <url>/2019/01/01/2019-05-07-001.rime/</url>
-      
-        <content type="html"><![CDATA[<h3 id="中州韵简介"><a href="#中州韵简介" class="headerlink" title="中州韵简介"></a>中州韵简介</h3><p>中州韵不是一个简单的「输入法软件」，它是一套能够实现各种音码、形码及音形码方案的「检索引擎」。它更不是一款具象的，通常意义上的「输入法软件」，它能允许用户通过使用「RIME语法]，自由组合各种参数，以实现特定求需的「七巧板」。</p><p>一款输入法软件，宏观来说，分为「前端」和「后端」。「前端」负责呈现皮肤、字体、与操作系统的 API 对接，而「后端」则是一套如前所述的「检索引擎」，是输入法的「内核」。中州韵恰是这样一套强大的「内核」，在不同的系统平台上，封装上不同的「前端」，都可以实现相同的功能。Windows 的「小狼毫」、MacOS 的「鼠须管」、Android 的「同文输入法」，都是我们熟知的不同系统平台下的「前端」封装。</p><h3 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h3><p>中州韵的配置，是公认的门槛高。而且在具体的「前端」实现上，或多或少都存在一些弱点。比如，在 Windows 上，因存在着 IME 和 TSF 两种输入法框架新老交替的换代现象，一些陈旧的或不规范的 EXE 软件，可能无法打字，或是输入法候选框定位不准。在 Android 上，由于 Android 新版本权限变动，也或多或少地存在着对低版本 Android 设备兼容不够好的问题。Linux 下，Fcitx-rime 和 iBus-rime 都没有专属前端，外观设定不方便，而且于由 Linux 的现状，改善的可能性不高。可能问题最少的，就是 MacOS 了，然而在 iOS 设备上，又因为 iOS 太多傻缺的权限制约，「前端」实现不可以像「同文」那样自由——比如蓝牙外接键盘下使用不了，无法用于生产力活动，外援字体借调限制，无法实现注解模式的 OpenCC 码元拆分提示。</p><p>然而，中州韵是「内核」，「前端」封装上的种种不理想、小毛病，都应与中州韵这个「内核引擎」分开来看。我们相信，「前端」上的问题，只可能越来越少，因为操作系统也在趋于成熟，之所以有如此信心，那是因为它是「开源」的——只要中州韵的用户中有一位对相应操作系统的输入法 API 熟悉，有意愿改善兼容性，它就会一直活下去。我们相信中州韵这个「输入法内核」，会比我们每个人的心脏都要跳动更久。</p><p>商软既不自由，又难以给人持久的信心，个人软件就更靠不住了。但是中州韵不仅开源，而且已颇有受众，这才是让人觉得有信心的软件，值得投入精力了解一下，为它续上一秒。</p><h3 id="上手办法"><a href="#上手办法" class="headerlink" title="上手办法"></a>上手办法</h3><p>我们98五笔爱好者为98五笔的队友们制作了可直接安装使用的独立包，对于参数的讲解，基于这份配置。目前来说，在「形码功能」的实现方面，我们的98配置文件的「完成度」是最高的，没有之一。当然，复杂度也是最高的，没有之一。</p><p>建议在 <a href="https://wb98.gitee.io/">98五笔资源库</a> 上选一下自己操作系统所需的包，安装试用，以便开始全面了中州韵的参数细节。我们将由浅及深，详谈一下它在形码方面的工作模式。</p><h3 id="基本结构概况"><a href="#基本结构概况" class="headerlink" title="基本结构概况"></a>基本结构概况</h3><h4 id="程序目录"><a href="#程序目录" class="headerlink" title="程序目录"></a>程序目录</h4><p>程序目录，是软件装到你的系统之后的文件目录。输入法托盘图标中「右键」，可以看到这样的文字描述「程序目录」或「程序文件夹」。</p><h4 id="用户目录"><a href="#用户目录" class="headerlink" title="用户目录"></a>用户目录</h4><p>用户目录，则是存放当前用户设定偏好的地方。这里面文件的权限，要高于程序目录。同一个参数有不同定义时，以用户目录下的为准。</p><h4 id="YAML-与-TXT"><a href="#YAML-与-TXT" class="headerlink" title="YAML 与 TXT"></a>YAML 与 TXT</h4><p>YAML 是一种非常易读的结构化的脚本语言格式，中州韵的主要配置，都是 YAML 作为文本格式。而用户文件夹下面，另有一份以 TXT 格式存放用户输入记录的「用户词典」。</p><h3 id="方案挂载流程"><a href="#方案挂载流程" class="headerlink" title="方案挂载流程"></a>方案挂载流程</h3><blockquote><p>default.yaml ⇒ wubi98_ci.schema.yaml ⇒ wubi98_ci.extended.dict.yaml ⇒ wubi98_ci.dict.yaml</p></blockquote><p>一. default.yaml 告诉输入法程序，它有一款叫「wubi98_ci」的输入法方案。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">schema_list:</span><br><span class="line">  - schema: wubi98_dz</span><br><span class="line">  - schema: wubi98_ci</span><br><span class="line">  - schema: py</span><br></pre></td></tr></table></figure><p>二. 输入法以「wubi98_ci」为关键字，搜「 *.schema.yaml 」的文件，看看是哪个 「schema」文件定义了该输入法方案。<br>schema 定义了很多内容，都是该输入法方案的功能细节，而在如下字段中，是定义了「码表是谁」：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">translator:</span><br><span class="line">  dictionary: wubi98_ci.extended</span><br><span class="line">  db_class: tabledb</span><br><span class="line">  initial_quality: 100000</span><br><span class="line">  enable_charset_filter: false</span><br></pre></td></tr></table></figure><p>它说，我的码表，关键字是「wubi98_ci.extended」，于是，程序就以它为线索，找带着「  *.dict.yaml 」后缀的「字典文件」。</p><p>三. 寻获了「wubi98_ci.extended.dict.yaml」，这是一个「字典」，一个「特殊」的字典，它几乎没什么内容，但是它在如下字段中，引入了新的「dict」：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import_tables:</span><br><span class="line">  - wubi98_ci</span><br></pre></td></tr></table></figure><p>程序继续寻找「wubi98_ci」字眼，带着「  *.dict.yaml 」后缀的「字典文件」。</p><p>四. 终于，逮着了主码表「wubi98_ci.dict.yaml」。</p><p>我们在这里用了中州韵的高级技巧——「扩展词库」（*.extended.dict.yaml），它通过向前与「 *.schema.yaml 」对接，向后追导主码表（*.dict.yaml）的方式，做到了功能丰富与条理清晰的兼得。<br>不管是自定义带编码的短语，还是便捷式地无需编码直接添词，都可以直接实现，而且不会干扰到「主码表」，这种层级结构是非常理想的。</p><p>需要特别指出，程序加载流程的介绍，只是逻辑上的排序，实际上这些动作都是在 YMAL 转译为二进制 BIN 文件后，在二进制中完成的。</p><p>好了，这是本系列的第一篇，下篇见。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 中州韵 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 中州韵 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>98五笔资源下载</title>
       <link href="/2019/01/01/2019-01-01-001.98wb/"/>
       <url>/2019/01/01/2019-01-01-001.98wb/</url>
@@ -996,6 +971,31 @@
         <tags>
             
             <tag> 资源下载 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>中州韵详解01：结构概况</title>
+      <link href="/2019/01/01/2019-05-07-001.rime/"/>
+      <url>/2019/01/01/2019-05-07-001.rime/</url>
+      
+        <content type="html"><![CDATA[<h3 id="中州韵简介"><a href="#中州韵简介" class="headerlink" title="中州韵简介"></a>中州韵简介</h3><p>中州韵不是一个简单的「输入法软件」，它是一套能够实现各种音码、形码及音形码方案的「检索引擎」。它更不是一款具象的，通常意义上的「输入法软件」，它能允许用户通过使用「RIME语法]，自由组合各种参数，以实现特定求需的「七巧板」。</p><p>一款输入法软件，宏观来说，分为「前端」和「后端」。「前端」负责呈现皮肤、字体、与操作系统的 API 对接，而「后端」则是一套如前所述的「检索引擎」，是输入法的「内核」。中州韵恰是这样一套强大的「内核」，在不同的系统平台上，封装上不同的「前端」，都可以实现相同的功能。Windows 的「小狼毫」、MacOS 的「鼠须管」、Android 的「同文输入法」，都是我们熟知的不同系统平台下的「前端」封装。</p><h3 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h3><p>中州韵的配置，是公认的门槛高。而且在具体的「前端」实现上，或多或少都存在一些弱点。比如，在 Windows 上，因存在着 IME 和 TSF 两种输入法框架新老交替的换代现象，一些陈旧的或不规范的 EXE 软件，可能无法打字，或是输入法候选框定位不准。在 Android 上，由于 Android 新版本权限变动，也或多或少地存在着对低版本 Android 设备兼容不够好的问题。Linux 下，Fcitx-rime 和 iBus-rime 都没有专属前端，外观设定不方便，而且于由 Linux 的现状，改善的可能性不高。可能问题最少的，就是 MacOS 了，然而在 iOS 设备上，又因为 iOS 太多傻缺的权限制约，「前端」实现不可以像「同文」那样自由——比如蓝牙外接键盘下使用不了，无法用于生产力活动，外援字体借调限制，无法实现注解模式的 OpenCC 码元拆分提示。</p><p>然而，中州韵是「内核」，「前端」封装上的种种不理想、小毛病，都应与中州韵这个「内核引擎」分开来看。我们相信，「前端」上的问题，只可能越来越少，因为操作系统也在趋于成熟，之所以有如此信心，那是因为它是「开源」的——只要中州韵的用户中有一位对相应操作系统的输入法 API 熟悉，有意愿改善兼容性，它就会一直活下去。我们相信中州韵这个「输入法内核」，会比我们每个人的心脏都要跳动更久。</p><p>商软既不自由，又难以给人持久的信心，个人软件就更靠不住了。但是中州韵不仅开源，而且已颇有受众，这才是让人觉得有信心的软件，值得投入精力了解一下，为它续上一秒。</p><h3 id="上手办法"><a href="#上手办法" class="headerlink" title="上手办法"></a>上手办法</h3><p>我们98五笔爱好者为98五笔的队友们制作了可直接安装使用的独立包，对于参数的讲解，基于这份配置。目前来说，在「形码功能」的实现方面，我们的98配置文件的「完成度」是最高的，没有之一。当然，复杂度也是最高的，没有之一。</p><p>建议在 <a href="https://wb98.gitee.io/">98五笔资源库</a> 上选一下自己操作系统所需的包，安装试用，以便开始全面了中州韵的参数细节。我们将由浅及深，详谈一下它在形码方面的工作模式。</p><h3 id="基本结构概况"><a href="#基本结构概况" class="headerlink" title="基本结构概况"></a>基本结构概况</h3><h4 id="程序目录"><a href="#程序目录" class="headerlink" title="程序目录"></a>程序目录</h4><p>程序目录，是软件装到你的系统之后的文件目录。输入法托盘图标中「右键」，可以看到这样的文字描述「程序目录」或「程序文件夹」。</p><h4 id="用户目录"><a href="#用户目录" class="headerlink" title="用户目录"></a>用户目录</h4><p>用户目录，则是存放当前用户设定偏好的地方。这里面文件的权限，要高于程序目录。同一个参数有不同定义时，以用户目录下的为准。</p><h4 id="YAML-与-TXT"><a href="#YAML-与-TXT" class="headerlink" title="YAML 与 TXT"></a>YAML 与 TXT</h4><p>YAML 是一种非常易读的结构化的脚本语言格式，中州韵的主要配置，都是 YAML 作为文本格式。而用户文件夹下面，另有一份以 TXT 格式存放用户输入记录的「用户词典」。</p><h3 id="方案挂载流程"><a href="#方案挂载流程" class="headerlink" title="方案挂载流程"></a>方案挂载流程</h3><blockquote><p>default.yaml ⇒ wubi98_ci.schema.yaml ⇒ wubi98_ci.extended.dict.yaml ⇒ wubi98_ci.dict.yaml</p></blockquote><p>一. default.yaml 告诉输入法程序，它有一款叫「wubi98_ci」的输入法方案。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">schema_list:</span><br><span class="line">  - schema: wubi98_dz</span><br><span class="line">  - schema: wubi98_ci</span><br><span class="line">  - schema: py</span><br></pre></td></tr></table></figure><p>二. 输入法以「wubi98_ci」为关键字，搜「 *.schema.yaml 」的文件，看看是哪个 「schema」文件定义了该输入法方案。<br>schema 定义了很多内容，都是该输入法方案的功能细节，而在如下字段中，是定义了「码表是谁」：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">translator:</span><br><span class="line">  dictionary: wubi98_ci.extended</span><br><span class="line">  db_class: tabledb</span><br><span class="line">  initial_quality: 100000</span><br><span class="line">  enable_charset_filter: false</span><br></pre></td></tr></table></figure><p>它说，我的码表，关键字是「wubi98_ci.extended」，于是，程序就以它为线索，找带着「  *.dict.yaml 」后缀的「字典文件」。</p><p>三. 寻获了「wubi98_ci.extended.dict.yaml」，这是一个「字典」，一个「特殊」的字典，它几乎没什么内容，但是它在如下字段中，引入了新的「dict」：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import_tables:</span><br><span class="line">  - wubi98_ci</span><br></pre></td></tr></table></figure><p>程序继续寻找「wubi98_ci」字眼，带着「  *.dict.yaml 」后缀的「字典文件」。</p><p>四. 终于，逮着了主码表「wubi98_ci.dict.yaml」。</p><p>我们在这里用了中州韵的高级技巧——「扩展词库」（*.extended.dict.yaml），它通过向前与「 *.schema.yaml 」对接，向后追导主码表（*.dict.yaml）的方式，做到了功能丰富与条理清晰的兼得。<br>不管是自定义带编码的短语，还是便捷式地无需编码直接添词，都可以直接实现，而且不会干扰到「主码表」，这种层级结构是非常理想的。</p><p>需要特别指出，程序加载流程的介绍，只是逻辑上的排序，实际上这些动作都是在 YMAL 转译为二进制 BIN 文件后，在二进制中完成的。</p><p>好了，这是本系列的第一篇，下篇见。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 中州韵 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 中州韵 </tag>
             
         </tags>
       
