@@ -129,31 +129,6 @@
     
     
     <entry>
-      <title>便携版五笔的一些问题</title>
-      <link href="/2021/11/06/2021-11-06-038.wb/"/>
-      <url>/2021/11/06/2021-11-06-038.wb/</url>
-      
-        <content type="html"><![CDATA[<h2 id="结构问题"><a href="#结构问题" class="headerlink" title="结构问题"></a>结构问题</h2><p>考虑到「便携的特性」的应用场景，塞到 U 盘中到其它机器上用时，误杀率 100%，不论是自带的杀毒，还是第三方的杀毒。也许拆包会好一些。</p><p>win10 专业版，21H1 对 Gdip 的「字体链接」支持出了问题，所有使用 fontlink 的字体全部无法显示被链接的对象。所以，在程序结构上，每次执行时都吐出一个 font/98WB-3.otf 已经失去意义。</p><p>事实上，即使没有「fontlink」的问题，该机制本身也需要「注销一次后生效」。这与「便携」的应用场景不符。</p><p>一定要带字体的话，字符完整的「98WB-1」或「98WB-2」更合适，毕竟装上无需注销即可使用。</p><p>建议：不再封包，以及去除内置的「fontlink」字体。</p><h2 id="功能问题"><a href="#功能问题" class="headerlink" title="功能问题"></a>功能问题</h2><ul><li><p>「~」打出异常，「~」应予在中文模式下打出，类似于「RIME」机制，「~」在中文模式下被打出并显示「以形查音」后，如遇「shift」，应将「~」顶上屏，功能入口不应同时「吞掉」编码本身。</p></li><li><p>「破折号」打出异常。</p></li></ul><ul><li><p>「『』」配对异常。</p></li><li><p>需要 shift 配合的「符号」，在顶屏时异常。比如「？」、「：」、「！」等等。这个问题，在柚子中有成熟的解决办法，应该是小问题。</p></li><li><p>中文模式下，无法打出省略号。</p></li></ul><h2 id="建议类"><a href="#建议类" class="headerlink" title="建议类"></a>建议类</h2><ul><li>字重选项意义不大</li></ul><p>请求去除「字重」选项，「常规」、「粗体」、「斜体」这些选项似乎会对选中的字体添加额外的参数，致使渲染不理想，剧齿严重，同样为 Gdip 模式下的柚子，则没有这个问题。这个能是 Gdip 本身的问题，不过这个选项意义不大，倒不如在那个窗口里设为当前选中字体名的显示栏。</p><ul><li>设置项不友好</li></ul><p>「设置字体」这个入口，感觉冗余而违反直觉，因为字体设不对时，只能如下盲猜（设为了 98WB-3，但它不能被 Gdip 正常渲染）</p><p><img src="/img/1106/1.png" alt="pic"></p><p><img src="/img/1106/2.png" alt="pic"></p><ul><li>默认配色</li></ul><p>默认配色是全白的，一上手时，啥也看不到，建议给个默认配色，</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">BgColor=4280079980</span><br><span class="line">BorderColor=4280079980</span><br><span class="line">TextColor=4294967245</span><br></pre></td></tr></table></figure><ul><li>默认字体</li></ul><p>宋体或雅黑比较普及，有个能确认能显示的字体比较重要。</p><h2 id="鸣谢"><a href="#鸣谢" class="headerlink" title="鸣谢"></a>鸣谢</h2><p>感谢「守望者」大佬倾情付出。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 反馈 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 反馈 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>浅谈一种「自造词」的约束性实现</title>
       <link href="/2021/09/17/2021-09-17-037.rime/"/>
       <url>/2021/09/17/2021-09-17-037.rime/</url>
@@ -271,31 +246,6 @@
         <tags>
             
             <tag> 词库工具 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>柚子·小甜版</title>
-      <link href="/2019/12/03/2019-12-03-034.yours/"/>
-      <url>/2019/12/03/2019-12-03-034.yours/</url>
-      
-        <content type="html"><![CDATA[<h2 id="基本情况"><a href="#基本情况" class="headerlink" title="基本情况"></a>基本情况</h2><ul><li>Win操作系统</li><li>98五笔方案</li><li>绿色便携软件</li><li>支持十万超集</li><li>支持划译为98五笔拆解</li><li>设置入口齐全</li></ul><h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><p><p align="center"><a href="http://98wb.ys168.com/">98五笔资源库</a></p><br><img src="/img/old/sweet/1.jpg" alt="下载地址"></p><h2 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h2><p>下载后，解压到 U 盘中。进入主程序目录，右键「以管理员权限运行」。</p><ul><li><p><p align="center"><a href="http://98wb.ys168.com/">「以管理员权限运行」</a></p><br><img src="/img/old/sweet/2.jpg" alt="使用方式"></p></li><li><p><p align="center"><a href="http://98wb.ys168.com/">「悬浮色块--右键--各种设置项」</a></p><br><img src="/img/old/sweet/3.jpg" alt="设置方式"></p></li></ul><h2 id="特别说明"><a href="#特别说明" class="headerlink" title="特别说明"></a>特别说明</h2><ul><li>超集需要到「98五笔资源库」做一下「字体支持」。</li><li>如有「拆分显示」需要，设置字体为「98WB-0」或「98WB-P0」。</li><li>右键「以管理员权限运行」，可以避免一些「兼容性问题」。</li><li>ALT + Q = 划译</li><li>CTRL + Q = 查看字根图</li><li>分号、引号 = 2，3 选重</li></ul><h2 id="功能引导"><a href="#功能引导" class="headerlink" title="功能引导"></a>功能引导</h2><p>〔 / 〕引导〔 标签别名 〕，进入相关〔 功能 〕。比如：</p><ul><li>〔 /cj 〕=〔 98超集方案开关 〕</li><li>〔 /ci 〕=〔 单字/含词切换 〕</li></ul><p>〔 / 〕同时引导〔 符号 〕，与 RIME 保持一致的逻辑：<a href="https://github.com/yanhuacuo/98wubi/blob/master/symbols.yaml">详情</a></p><p>〔 z 〕引导〔 临时拼音兼反查 〕，同时提示〔 历史输入 〕。</p><p>〔 ~ 〕引导〔 以形查音 〕。</p><p>〔 ` 〕引导〔 快捷符号 〕。</p><h2 id="标签列表"><a href="#标签列表" class="headerlink" title="标签列表"></a>标签列表</h2><div class="table-container"><table><thead><tr><th style="text-align:center">标签别名</th><th style="text-align:center">label</th><th style="text-align:center">标签说明</th></tr></thead><tbody><tr><td style="text-align:center">cx</td><td style="text-align:center">lookup_status</td><td style="text-align:center">〔转换查询开关〕</td></tr><tr><td style="text-align:center">cf</td><td style="text-align:center">Cut_Mode</td><td style="text-align:center">〔字根拆分显示开关〕</td></tr><tr><td style="text-align:center">smsp</td><td style="text-align:center">limit_code</td><td style="text-align:center">〔四码上屏开关〕</td></tr><tr><td style="text-align:center">jf</td><td style="text-align:center">Trad_Mode</td><td style="text-align:center">〔简繁模式切换〕</td></tr><tr><td style="text-align:center">ci</td><td style="text-align:center">Wubi_Schema</td><td style="text-align:center">〔单字/含词切换〕</td></tr><tr><td style="text-align:center">more</td><td style="text-align:center">More_Setting</td><td style="text-align:center">〔调出设置界面〕</td></tr><tr><td style="text-align:center">cj</td><td style="text-align:center">Extend_Schema</td><td style="text-align:center">〔98超集方案开关〕</td></tr><tr><td style="text-align:center">dz</td><td style="text-align:center">Wubi_Schema</td><td style="text-align:center">〔单字/含词切换〕</td></tr><tr><td style="text-align:center">zq</td><td style="text-align:center">Startup</td><td style="text-align:center">〔开机自启/取消自启〕</td></tr><tr><td style="text-align:center">mode</td><td style="text-align:center">Textdirection</td><td style="text-align:center">〔候选横排/竖排〕</td></tr><tr><td style="text-align:center">week</td><td style="text-align:center">get_week_now</td><td style="text-align:center">〔上屏日期+时间〕</td></tr><tr><td style="text-align:center">date</td><td style="text-align:center">get_date_now</td><td style="text-align:center">〔上屏日期〕</td></tr><tr><td style="text-align:center">nl</td><td style="text-align:center">get_lunarDate_now</td><td style="text-align:center">〔上屏农历日期+时辰〕</td></tr><tr><td style="text-align:center">time</td><td style="text-align:center">get_time_now</td><td style="text-align:center">〔上当前屏时间〕</td></tr><tr><td style="text-align:center">bqsz</td><td style="text-align:center">Label_show</td><td style="text-align:center">〔打开标签设置页〕</td></tr><tr><td style="text-align:center">zc</td><td style="text-align:center">Add_Code</td><td style="text-align:center">〔打开造词窗口〕</td></tr><tr><td style="text-align:center">hx</td><td style="text-align:center">ToolTipStyle</td><td style="text-align:center">〔候选样式切换〕</td></tr><tr><td style="text-align:center">yj</td><td style="text-align:center">Radius</td><td style="text-align:center">〔Gdip圆角开关〕</td></tr><tr><td style="text-align:center">cz</td><td style="text-align:center">OnReload</td><td style="text-align:center">〔重载脚本〕</td></tr><tr><td style="text-align:center">dzsp</td><td style="text-align:center">symb_send</td><td style="text-align:center">〔符号顶屏开关〕</td></tr><tr><td style="text-align:center">line</td><td style="text-align:center">Gdip_Line</td><td style="text-align:center">〔Gdip边框开关〕</td></tr><tr><td style="text-align:center">logo</td><td style="text-align:center">Logo_Switch</td><td style="text-align:center">〔桌面图标显示开关〕</td></tr><tr><td style="text-align:center">kmts</td><td style="text-align:center">Prompt_Word</td><td style="text-align:center">〔空码提示开关〕</td></tr><tr><td style="text-align:center">date</td><td style="text-align:center">A_YYYY A_MM A_DD</td><td style="text-align:center">〔时间一〕</td></tr><tr><td style="text-align:center">time</td><td style="text-align:center">A_Hour : A_Min : A_Sec</td><td style="text-align:center">〔时间二〕</td></tr><tr><td style="text-align:center">date</td><td style="text-align:center">A_YYYY 年 A_MM 月 A_DD 日 A_DDDD</td><td style="text-align:center">〔时间三〕</td></tr><tr><td style="text-align:center">week</td><td style="text-align:center">A_YYYY A_MM A_DD A_Hour  A_Min  A_Sec</td><td style="text-align:center">〔时间四〕</td></tr><tr><td style="text-align:center">date</td><td style="text-align:center">A_YYYY A_MM A_DD A_Hour  A_Min  A_Sec</td><td style="text-align:center">〔时间五〕</td></tr></tbody></table></div><h2 id="外观典例"><a href="#外观典例" class="headerlink" title="外观典例"></a>外观典例</h2><p><p align="center">设为「98WB-0」字体 && 「更多设置-拆分显示」&&「默认配色」</p><br><img src="/img/old/sweet/4.jpg" alt="外观"></p><h2 id="词库管理"><a href="#词库管理" class="headerlink" title="词库管理"></a>词库管理</h2><ul><li>「含词码表」支持「导出」后修改，「导入」后生效。</li><li>「单字」&amp;「超集」是固化的，这是「98五笔」的基础表单，不支持更改。</li><li>「SQLite」二进制码表，性能无忧。</li><li>「快捷造词」已支持。</li><li>「在线调频」已支持。</li><li>「在线删词」已支持。</li></ul><h2 id="好用到哭"><a href="#好用到哭" class="headerlink" title="好用到哭"></a>好用到哭</h2><ul><li>开放的码表管理策略。</li><li>音形互通，以形查音，以音查形。</li><li>拆分提示，五笔划译。</li><li>高性能，sqlite 二进制码表，日常占用 10M 以下。</li><li>兼容性好，通杀一切 win 发行版。</li><li>绿色便携，放到 U 盘，<strong>随时随地装逼</strong>。</li></ul>]]></content>
-      
-      
-      <categories>
-          
-          <category> 柚子输入法 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 柚子小甜版 </tag>
             
         </tags>
       
@@ -454,106 +404,6 @@
     
     
     <entry>
-      <title>逐渐提示与回车上屏英文</title>
-      <link href="/2019/06/15/2019-06-21-026.rime/"/>
-      <url>/2019/06/15/2019-06-21-026.rime/</url>
-      
-        <content type="html"><![CDATA[<h2 id="一键设置"><a href="#一键设置" class="headerlink" title="一键设置"></a>一键设置</h2><ul><li>资源库中小狼毫目录里下载「逐渐提示-回车上英文.7z」</li><li>解压</li><li>在「置换.bat」上，右键「以管理员权限运行」</li><li>over</li></ul><h2 id="发生了什么"><a href="#发生了什么" class="headerlink" title="发生了什么"></a>发生了什么</h2><p>在「逐渐提示-回车上英文」下，有「patch」文件夹，里面有两个后缀为「custom.yaml」的文件，它们被称之为「补丁」。<br>「置换.bat」就是把这两个东西，放到你的「用户目录」下，替换掉你原来的那份同名文件，然后「重新部署」一次小狼毫。</p><p>「用户目录」或称「用户文件夹」，以及「重新部署」的入口，都在「小狼毫输入法」的「托盘图标」处的「右键菜单」里。</p><p>当然，在 win10 或 win7 的「开始菜单」，有「小狼毫输入法」文件夹，里面也有这些入口。</p><h2 id="跨平台通用"><a href="#跨平台通用" class="headerlink" title="跨平台通用"></a>跨平台通用</h2><p>虽然你未必需要在 Linux 、MacOS、Android 或 iOS 上需要同样的设定，但是因为中州韵是跨平台的，所以你可以把这两个「补丁」放到其它中州韵系列输入法工具中使用。</p><p>方法就是把这两份东西，放到中州韵系列输入法软件的「用户文件夹」下面。</p><h2 id="值得学用它"><a href="#值得学用它" class="headerlink" title="值得学用它"></a>值得学用它</h2><p>中州韵是一款开源的输入法引擎，它是非商业化的输入法工具。这款引擎，被移植到了多种「操作系统」下面。</p><p><img src="/img/old/rime/rime.png" alt="pic"></p><p>它们，全都使用同样的核心配置文件，而且并不是真的像想象中的那么复杂难懂，未来没有赢利模式的商业软件迟早是要完蛋的，开源、自由、持续有人维护的中州韵系列工具，可能是形码用户们最好的归宿。</p><h2 id="今天的功能参数是什么"><a href="#今天的功能参数是什么" class="headerlink" title="今天的功能参数是什么"></a>今天的功能参数是什么</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;translator/enable_completion&quot;: true</span><br></pre></td></tr></table></figure><p>这个，是逐渐提示的参数，它默认是关掉的，因为绝大多数形码用户，都以形成盲打，练成肌肉反射为目标。一长串的提示，不利于熟练度的提升。</p><p>丢了救生圈，才能学会游泳。</p><p>五笔应该是一款越用越快，越用越得心应手，甚至手快过脑的输入方案，开启逐渐提示——百害而无一利，你眼下看到的「方便性」，只是一种错觉。</p><p>在 <a href="https://github.com/yanhuacuo/98wubi/blob/master/wubi98_ci.schema.yaml">schema.yaml</a> 中，有如下两句：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- &#123;accept: Return, send: Escape, when: composing&#125;</span><br><span class="line">- &#123;accept: Return, send: Escape, when: has_menu&#125;</span><br></pre></td></tr></table></figure><p>意思是：程序收到回车键「Return」时，当作ESC键「Escape」处理。</p><p>我写的新的「custom.yaml」中，抄上了别的，去除了这两句，由于「custom.yaml」的优先级更高，它便覆盖主程序默认的「schema.yaml」里的相关参数，从而实现去除掉这两句额外为「回车键」制定的「清屏」功能了。</p><p>这就是五笔用户普遍使用的「回车清屏」。因为「手误」是一种客观的存在，只有「误得多」和「误得少」的区别。出现手误时，拼音用户通常按「退格键」，但是五笔用户通常使用回车键清空所输编码——回改单个错误？No，那样太耗时了。</p><p>打字是一个思维直出的过程，尤其是熟手，常用字几乎全是条件反射，当出现错误时，一下回车，在最断的距离处理掉上屏编码，无间断地随即重输。</p><p>其实「重输」是一种下意识，不仅你在提款机输错密码时，习惯于「重输」而非「回改一下」，在各种场所输入密码、身份证号时，也是如此。</p><p>即使你以为你惯于使用「退格键」，但是你可以注意一下，你通常不会「只删一码」，而是「删光」所输编码。</p><h2 id="默认设置是绝大多数人的习惯"><a href="#默认设置是绝大多数人的习惯" class="headerlink" title="默认设置是绝大多数人的习惯"></a>默认设置是绝大多数人的习惯</h2><p>98五笔版的默认设定，是为把小白训练成熟手，让熟手更加愉快使用而反复推敲过的。所谓的「个人习惯」，也是有「好习惯」和「坏习惯」之分的。</p><p>五笔，作为一种形码，应当奔着前期上手时，不惧思考不怕慢，在强化记忆中使用，在反复使用中提高。</p><p>我相信，你迟早有一天会关掉逐渐提示，用上「回车清屏」。</p><p>至于打英文时切换 shfit 的问题，这根本就不是个问题。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 小狼毫 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 小狼毫 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>注解与词库更新</title>
-      <link href="/2019/06/15/2019-06-21-027.weasel/"/>
-      <url>/2019/06/15/2019-06-21-027.weasel/</url>
-      
-        <content type="html"><![CDATA[<h2 id="单字模式下的注解"><a href="#单字模式下的注解" class="headerlink" title="单字模式下的注解"></a>单字模式下的注解</h2><p>现在，单字模式下的注解变为 3 重注解方式，单字方案下，默认是竖排，如果不用多注解，真的是浪费了它的空间。<br>如果你不喜欢 3 重注解，想换为 2 重注解的旧样式，在「程序文件夹」，「data」下，找到「wubi98_dz.schema.yaml」<br>里面有：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">98wb_spelling:</span><br><span class="line">  opencc_config: 98wb_spelling_rk.json</span><br><span class="line">  option_name: 98wb_spelling</span><br><span class="line">  show_in_comment: true</span><br><span class="line">  comment_format:</span><br><span class="line">    - &quot;xform/☯/ · /&quot;    </span><br><span class="line">    - &quot;xform/&lt;br&gt;/\r/&quot;</span><br><span class="line">    - &quot;xform/※※※/ /&quot;</span><br><span class="line">    - &quot;xform/※※/ /&quot;    </span><br><span class="line">    - &quot;xform/※/ /&quot;</span><br><span class="line">  tags:</span><br><span class="line">    - abc</span><br><span class="line">#   - rvlk1</span><br><span class="line">  tips: all </span><br></pre></td></tr></table></figure><p>在这个字段里，定义了「注解」时的提示方式，通过修改可以还原：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">其中的：</span><br><span class="line">  opencc_config: 98wb_spelling_rk.json</span><br><span class="line">改为：</span><br><span class="line">  opencc_config: 98wb_spelling.json</span><br></pre></td></tr></table></figure><p>附：</p><p>ctrl + shift + H 可以隐藏掉注解。</p><p>另外，在「wubi98_dz.schema.yaml」中：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">switches:</span><br><span class="line">  - name: ascii_mode</span><br><span class="line">    reset: 0</span><br><span class="line">  - name: zh_trad</span><br><span class="line">    reset: 0</span><br><span class="line">    states: [ 简,繁 ]</span><br><span class="line">  - name: 98wb_spelling_rk</span><br><span class="line">    reset: 1</span><br><span class="line">  - name: 98wb_spelling</span><br><span class="line">    reset: 1    </span><br><span class="line">    states: [ 隐,显 ]    </span><br><span class="line">  - name: jiayin</span><br><span class="line">    reset: 1</span><br><span class="line">  - name: gb2312</span><br><span class="line">    reset: 0</span><br><span class="line">    states: [ 扩,常 ]</span><br></pre></td></tr></table></figure><p>这个字段，定义了开关的默认属性，比如第一个，是中英文，第二个是繁简转换，第三个是反查时的注解，第四个即是单字模式下的注解方式，你可以通过修改「reset」的值，控制打开或关闭。</p><p><p align="center">单字模式下的3注解</p><br><img src="/img/old/weasel/single.jpg" alt="pic"></p><h2 id="词库更新"><a href="#词库更新" class="headerlink" title="词库更新"></a>词库更新</h2><p>至善词库是高频词条覆盖高频单字的，很多单字手觉得不习惯，资源库里已有至善专版，公共版本现采用「高频单字-词组-生僻字」 的排序方式。</p><p><p align="center">含词模式</p><br><img src="/img/old/weasel/table.jpg" alt="pic"></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 小狼毫 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 小狼毫 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>柚子输入法</title>
-      <link href="/2019/06/15/2019-06-21-028.yours/"/>
-      <url>/2019/06/15/2019-06-21-028.yours/</url>
-      
-        <content type="html"><![CDATA[<h2 id="什么是柚子"><a href="#什么是柚子" class="headerlink" title="什么是柚子"></a>什么是柚子</h2><p>柚子是 <a href="https://www.autohotkey.com/">AutoHotkey</a> 实现的「输入法工具」。<br>它在 windows 下面，几乎 <a href="http://ahkcn.sourceforge.net/docs/AutoHotkey.htm">无所不能</a> ，因为它不仅支持流程控制、函数式编程，还有完备的 WIN-API 接口，唯一可能制约它触手的，只有你的想象力。<br>你可以在 <a href="https://www.autohotkey.com/boards/">这里</a> 找到同好会，或者与 <a href="https://www.jianshu.com/u/afb1c0f77461">柚子作者</a> 取得联系。<br>如果你对编程足够了解，甚至可以从源码改造它，没错，它是开源的：<a href="https://github.com/Lexikos/AutoHotkey_L">Github/AutoHotkey_L</a></p><h2 id="已知缺陷"><a href="#已知缺陷" class="headerlink" title="已知缺陷"></a>已知缺陷</h2><p>但是，你得理解，这不是一个「输入法软件」。它并不以输入法的通讯方式与系统对接。所以，在有些软件中打字时，输入法框无法跟随光标。这对很多人来讲是大问题，但对另一部分人来讲，不算个事。如果能接受这个缺陷，你会爱上这个工具。</p><h2 id="码表处理"><a href="#码表处理" class="headerlink" title="码表处理"></a>码表处理</h2><p>它是 <a href="https://wubi98.gitee.io/rime/2019/05/07/002.rime.html">单行多义</a> 码表，而 RIME 是单行单义码表。我们默认你已明白其中差异，现在讲一下处理方式：</p><ul><li>预换成标准「单行单义」表</li></ul><p>RIME 表的「第一列」是词条，「第二列」是编码。标准的单行单义表，只需要这两列。RIME 标准的码表里，可能还有「第三列」的词频数据，「第四列」的反查编码。它们需要被除掉。<br>你可以用 Excel 表格，直接删掉多余的列，也可以使用正则：</p><p>使用如下「正则表达式」，利用 notepad++ 对标准 RIME 码表进行一下多余数据替换，替换为「空白」，并删掉其「表头」和「表尾」。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">做一步</span><br><span class="line">找查目标：\t[0-9]&#123;1,20&#125;\s[a-z]&#123;1,4&#125;</span><br><span class="line">替换为空白；</span><br><span class="line">再做一步</span><br><span class="line">查找目标：\t[0-9]&#123;1,20&#125;\t</span><br><span class="line">替换为空白。</span><br></pre></td></tr></table></figure><ul><li>转为「UCS-2 Little Endian」编码</li></ul><p>在 notepad++ 的「编码」-「转换为 UCS-2 Little Endian 编码」项中，将数据转换为此种类型的编码，以防止制表工具对中文汉字字宽判断上出现意外。已知 Excel 等一批第三方工具，对 CJK-B 区的汉字字宽判断错误。并将之另存为 TXT 后缀的纯文本文件。</p><ul><li>转为标准的「单行多义」表</li></ul><p><a href="http://chinput-files.stor.sinaapp.com/mbEditer(v3.2.0.9">多多码表编辑器</a>.zip) 可以将「标准单行单义」转为「标准单行多义」。</p><p>打开该码表工具，点「工具」-「常见码表格式转换」，「源码表」处选中你预处理好的 TXT 后缀的单义表，接下来，转换为「酷极、极点格式」。</p><p>所谓的「酷极、极点格式」就是「标准单行多义」码表，而同一界面里，你看到的「多多格式」，则是「标准单行单义」码表。多多作者在这里使用通俗的、指示性的称谓，是为了免于小白的困惑。但是你要知道，它们对应的术语是谁。</p><ul><li>转换为柚子专用格式</li></ul><p>用 notepad++ 打开使用多多码表工具处理好的「单行多义」码表，以如下正则，做一下转换：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">查找目标：(?&lt;=[a-z])\s</span><br><span class="line">替换为：=</span><br></pre></td></tr></table></figure><p>替换好之后，转换为「UTF-8 无 BOM」格式，并保存一次。</p><h2 id="格式补齐"><a href="#格式补齐" class="headerlink" title="格式补齐"></a>格式补齐</h2><p>新版的柚子，为了防止变量名过短，添加了编码前缀。你需要在码表的每一行编码前添加「wb98_」，方法如下：</p><p>使用 notepad++ 执行替换时，正则配匹对话框的旁边有「匹配新行」的项目，不能勾选它，勾了它，逻辑就变了。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">查找目标：^(.+)$</span><br><span class="line">替换为：wb98_$1</span><br></pre></td></tr></table></figure><p>最后，码表是这样的：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">wb98_a=工 戈</span><br><span class="line">wb98_aa=式 藏</span><br><span class="line">wb98_aaa=工</span><br><span class="line">wb98_aaaa=工 藏匿 花花草草 恭恭敬敬 㠭</span><br><span class="line">wb98_aaab=㐂</span><br><span class="line">wb98_aaae=黄花菜</span><br><span class="line">wb98_aaag=工巧</span><br><span class="line">wb98_aaah=葡萄牙</span><br><span class="line">wb98_aaaj=藏蓝</span><br><span class="line">wb98_aaak=工勤</span><br><span class="line">wb98_aaal=花花世界</span><br><span class="line">wb98_aaan=工艺</span><br><span class="line">wb98_aaar=工匠 工区 藏区</span><br><span class="line">wb98_aaau=工薪 菚</span><br><span class="line">wb98_aaaw=茉莉花</span><br><span class="line">wb98_aaay=劳苦功高</span><br><span class="line">wb98_aabb=式子</span><br><span class="line">wb98_aabg=草草了事</span><br></pre></td></tr></table></figure><p>到了这一步，码表处理就结束了。<br>你可以将它改名替换掉默认的「wubi98-ci.ahk」，或以复制全部内容到「wubi98-ci.ahk」中的方式，实现码表装载。</p><p><a href="https://github.com/98wb/win">柚子98版</a> 的模版软件中，已经包含一些简要说明。</p><p>以上。</p><p>这个工具并不完美，但是，随着你对 AHK 技能的强化，它迟早强大到令你荣光焕发。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 柚子 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 柚子 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>改映射操作流程</title>
-      <link href="/2019/06/15/2019-12-03-030.rime/"/>
-      <url>/2019/06/15/2019-12-03-030.rime/</url>
-      
-        <content type="html"><![CDATA[<h1 id="五笔的设计与英文键盘无关"><a href="#五笔的设计与英文键盘无关" class="headerlink" title="五笔的设计与英文键盘无关"></a>五笔的设计与英文键盘无关</h1><p>五笔的设计思路，是将汉字的「五种笔划」（横，竖，撇，捺，折）归为「五个区」。它的布局方式，与键面字符「叫什么名称」毫无关系。</p><p>但是普通五笔码表的「编码」是基于「QWERTY」的键名映射，只需将「键名映射」改一改，那五笔就可以契合与任意一种英文键盘布局。</p><h1 id="映射关系"><a href="#映射关系" class="headerlink" title="映射关系"></a>映射关系</h1><p>这个脚本 <a href="https://github.com/98wb/qwerty2other/blob/master/%E6%98%A0%E5%B0%84%E6%95%B0%E6%8D%AE.py">映射数据.py</a> 可以建立「QWERTY」与其它键面布局的键名对应关系：</p><p>QWERTY 是 <a href="https://github.com/98wb/qwerty2other/blob/master/base/MAPPING.txt">示例数据</a> 的「第一列」，Norman layout 是 <a href="https://github.com/98wb/qwerty2other/blob/master/base/MAPPING.txt">示例数据</a> 的「第二列」—映射关系来自小妖。</p><p>运行该脚本之前，需要在 <a href="https://github.com/98wb/qwerty2other/blob/master/base/MAPPING.txt">示例数据</a> 中改好你自己的映射。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 映射数据.py</span><br></pre></td></tr></table></figure><h1 id="准备码表正文"><a href="#准备码表正文" class="headerlink" title="准备码表正文"></a>准备码表正文</h1><p>在 <a href="https://github.com/98wb/fcitx-rime">fcitx-rime</a> 这个存档中，有 <a href="https://github.com/98wb/fcitx-rime/blob/master/wubi98_U.dict.yaml">wubi98_U.dict.yaml</a> 和 <a href="https://github.com/98wb/fcitx-rime/blob/master/wubi98_ci.dict.yaml">wubi98_ci.dict.yaml</a> ，以及 <a href="https://github.com/98wb/fcitx-rime/blob/master/py.dict.yaml">py.dict.yaml</a>  三份码表文件。</p><p>至于哪些是码表正文，如何取出码表正文，在 <a href="https://github.com/98wb/qwerty2other">qwerty2other</a> 下，有 wubi98_ci.txt， wubi98_U.txt, py.txt 三份文本样版，对比着取出类似的「正文」即可。</p><p>注意一点，「 py.txt 」其实没有必要一并转码，假如你能适应新模式下的「拼音」编码布局。转了之后，将保持「QWERTY」键位下的拼音映射关系，这个看个人需求了。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 新表生成.py</span><br></pre></td></tr></table></figure><h1 id="取出-YAML-新表"><a href="#取出-YAML-新表" class="headerlink" title="取出 YAML 新表"></a>取出 YAML 新表</h1><p>脚本会直接合成新的 YAML 表，它们在 <a href="https://github.com/98wb/qwerty2other/tree/master/new-tables">new-tables</a> 下面。</p><h1 id="替换旧数据"><a href="#替换旧数据" class="headerlink" title="替换旧数据"></a>替换旧数据</h1><p>目标文档是 <a href="https://github.com/98wb/fcitx-rime">fcitx-rime</a> 这个存档。诚如所见，它的根目录下，有 wubi98_ci.dict.yaml 与 wubi98_U.dict.yaml 两份「RIME 码表」。你用新生成的 YAML 表替换掉旧的。</p><p>然后到它的 「linux」 子文件夹下，去执行 「rime.sh」 脚本。但是要注意，「rime.sh」是按照 Debian 系的「apt install」写的。要改为你的「发行版」它所认可的「安装命令」，安装 rime 的必要组件 opencc 和 fcitx-rime，脚本执行要以「普通用户」进行，直到它要求 sudo 权限时再给它。</p><p>因为不同的发行版对环境变量设计不同，如果直接以 sudo 运行，在有些发行版中，会把输入法装给超级管理员。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh rime.sh</span><br></pre></td></tr></table></figure><h1 id="要点回顾"><a href="#要点回顾" class="headerlink" title="要点回顾"></a>要点回顾</h1><ul><li>填写「qwerty2other/base/MAPPING.txt」，生成「映射数据」，作为码表转换的依据</li><li>取码表正文放到「qwerty2other」根目录下面，名称要与模版进行替换，以防意外发生</li><li>生成新的 YAML 表在「qwerty2other/new-tables」中，取出，替换掉「fcitx-rime」包中的旧表</li><li>在「fcitx-rime」包下的「linux」目录中，将「rime.sh」改为适合你发行版的 install 命令，然后以普通用户权限执行</li><li>重启计算机，在设置，区域与语言中添加「RIME」。</li></ul><h1 id="超集字体支持"><a href="#超集字体支持" class="headerlink" title="超集字体支持"></a>超集字体支持</h1><p>建议以 <a href="https://github.com/yanhuacuo/98wubi-unicode">98wubi-unicode</a> 发布的字体为准。</p><h1 id="符号补充"><a href="#符号补充" class="headerlink" title="符号补充"></a>符号补充</h1><p>非主流键盘布局，可能会涉及到「标点符号」被排在了正常的 「QWERTY」 键名「a-z」上。为添加符号支持，需要额外在「schema」文件中声明之：</p><p>比如，仔细观察，可知「alphabet」的定义里，添加了「分号」作为「编码」，嗯，还有「z」。</p><p>wubi98_ci.schema.yaml</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">speller:</span><br><span class="line">  alphabet: z;yxwvutsrqponmlkjihgfedcba</span><br><span class="line">  auto_select: true</span><br><span class="line">  auto_clear: max_length</span><br><span class="line">  delimiter: &quot;`&quot;</span><br><span class="line">  max_code_length: 4</span><br></pre></td></tr></table></figure><h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><p>这个存档中，「小妖的配置包」，就是从「qwerty」到「norman layout」的转换示例。已配置好了「dict」码表和「schema」定义声明，可以直接使用。</p><p>在这个示例中，因为「小妖」的「MAPPING.txt」里显示 「;→p」 ，所以在 schema 中，添加了一行「alphabet」来声明哪些键是用作「编码符」的。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">speller:</span><br><span class="line">  alphabet: z;yxwvutsrqponmlkjihgfedcba</span><br><span class="line">  auto_select: true</span><br><span class="line">  auto_clear: max_length</span><br><span class="line">  delimiter: &quot;`&quot;</span><br><span class="line">  max_code_length: 4</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      <categories>
-          
-          <category> python </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> python </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>柚子熟了</title>
       <link href="/2019/06/15/2019-12-03-031.yours/"/>
       <url>/2019/06/15/2019-12-03-031.yours/</url>
@@ -704,11 +554,11 @@
     
     
     <entry>
-      <title>多少春风归嫩柳，更无颜色向残红</title>
-      <link href="/2019/06/06/2019-06-06-018.poem/"/>
-      <url>/2019/06/06/2019-06-06-018.poem/</url>
+      <title>借问吹箫向紫烟，曾经学舞度芳年</title>
+      <link href="/2019/06/06/2019-06-06-017.poem/"/>
+      <url>/2019/06/06/2019-06-06-017.poem/</url>
       
-        <content type="html"><![CDATA[<ul><li>浮云去住水西东，一度韶华又复空。多少春风归嫩柳，更无颜色向残红。</li></ul><p><img src="/img/old/poem/amateur-hotaru-7.jpg" alt="pic"></p><p><img src="/img/old/poem/amateur-hotaru-1.jpg" alt="pic"></p><p align="center"><a href="http://www.jjgirls.com/japanese/amateur-hotaru/1/">明·卢重斋</a></p>]]></content>
+        <content type="html"><![CDATA[<p><img src="/img/old/poem/dance.jpg" alt="pic"></p><p align="center"><a href="https://500px.com/duongquocdinh">唐·长安古意</a></p>]]></content>
       
       
       <categories>
@@ -729,11 +579,11 @@
     
     
     <entry>
-      <title>借问吹箫向紫烟，曾经学舞度芳年</title>
-      <link href="/2019/06/06/2019-06-06-017.poem/"/>
-      <url>/2019/06/06/2019-06-06-017.poem/</url>
+      <title>多少春风归嫩柳，更无颜色向残红</title>
+      <link href="/2019/06/06/2019-06-06-018.poem/"/>
+      <url>/2019/06/06/2019-06-06-018.poem/</url>
       
-        <content type="html"><![CDATA[<p><img src="/img/old/poem/dance.jpg" alt="pic"></p><p align="center"><a href="https://500px.com/duongquocdinh">唐·长安古意</a></p>]]></content>
+        <content type="html"><![CDATA[<ul><li>浮云去住水西东，一度韶华又复空。多少春风归嫩柳，更无颜色向残红。</li></ul><p><img src="/img/old/poem/amateur-hotaru-7.jpg" alt="pic"></p><p><img src="/img/old/poem/amateur-hotaru-1.jpg" alt="pic"></p><p align="center"><a href="http://www.jjgirls.com/japanese/amateur-hotaru/1/">明·卢重斋</a></p>]]></content>
       
       
       <categories>
@@ -846,31 +696,6 @@
         <tags>
             
             <tag> 拆字 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>GEM 本地文件目录</title>
-      <link href="/2019/05/16/2019-05-16-004.gem/"/>
-      <url>/2019/05/16/2019-05-16-004.gem/</url>
-      
-        <content type="html"><![CDATA[<p>使用 Jekyll 搭建静态博客时，很多操作是摸着石头过河。<br>备忘如下：</p><ul><li>添加了 Mathjax 支持</li><li>添加了高亮语法显示支持</li><li>自定义了语法高亮细节，包括颜色和字体</li><li>在 post 的 css 中添加了code 子项</li><li>GEM 扩展功能</li></ul><p>在 GEM 扩展这里，搞了很多小飞机，没有记录下来，我都弄不清楚了。<br>留下 GEM 本地目录，以后再搞飞机，可以对照着来。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\CatSoft\Desktop&gt;gem list</span><br><span class="line">*** LOCAL GEMS ***</span><br><span class="line">activesupport (4.2.11.1, 4.2.7)</span><br><span class="line">addressable (2.6.0, 2.5.0)</span><br><span class="line">bigdecimal (default: 1.4.1)</span><br><span class="line">bundler (default: 1.17.3)</span><br><span class="line">cmath (default: 1.0.0)</span><br><span class="line">coffee-script (2.4.1)</span><br><span class="line">coffee-script-source (1.12.2, 1.11.1)</span><br><span class="line">colorator (1.1.0)</span><br><span class="line">commonmarker (0.17.13)</span><br><span class="line">concurrent-ruby (1.1.5)</span><br><span class="line">csv (default: 3.0.9)</span><br><span class="line">date (default: 2.0.0)</span><br><span class="line">dbm (default: 1.0.0)</span><br><span class="line">did_you_mean (1.3.0)</span><br><span class="line">dnsruby (1.61.2)</span><br><span class="line">e2mmap (default: 0.1.0)</span><br><span class="line">em-websocket (0.5.1)</span><br><span class="line">etc (default: 1.0.1)</span><br><span class="line">ethon (0.12.0)</span><br><span class="line">eventmachine (1.2.7 x64-mingw32)</span><br><span class="line">execjs (2.7.0)</span><br><span class="line">faraday (0.15.4)</span><br><span class="line">fcntl (default: 1.0.0)</span><br><span class="line">ffi (1.10.0 x64-mingw32)</span><br><span class="line">fiddle (default: 1.0.0)</span><br><span class="line">fileutils (default: 1.1.0)</span><br><span class="line">forwardable (default: 1.2.0)</span><br><span class="line">forwardable-extended (2.6.0)</span><br><span class="line">gdbm (default: 2.0.0)</span><br><span class="line">gemoji (3.0.1)</span><br><span class="line">github-pages (198)</span><br><span class="line">github-pages-health-check (1.16.1)</span><br><span class="line">html-pipeline (2.11.0)</span><br><span class="line">http_parser.rb (0.6.0)</span><br><span class="line">i18n (0.9.5, 0.8.1, 0.7.0)</span><br><span class="line">io-console (default: 0.4.7)</span><br><span class="line">ipaddr (default: 1.2.2)</span><br><span class="line">irb (default: 1.0.0)</span><br><span class="line">jekyll (3.8.5)</span><br><span class="line">jekyll-avatar (0.6.0)</span><br><span class="line">jekyll-coffeescript (1.1.1)</span><br><span class="line">jekyll-commonmark (1.3.1)</span><br><span class="line">jekyll-commonmark-ghpages (0.1.5)</span><br><span class="line">jekyll-default-layout (0.1.4)</span><br><span class="line">jekyll-feed (0.12.1, 0.11.0)</span><br><span class="line">jekyll-gist (1.5.0)</span><br><span class="line">jekyll-github-metadata (2.12.1)</span><br><span class="line">jekyll-mentions (1.4.1)</span><br><span class="line">jekyll-optional-front-matter (0.3.0)</span><br><span class="line">jekyll-paginate (1.1.0)</span><br><span class="line">jekyll-readme-index (0.2.0)</span><br><span class="line">jekyll-redirect-from (0.14.0)</span><br><span class="line">jekyll-relative-links (0.6.0)</span><br><span class="line">jekyll-remote-theme (0.3.1)</span><br><span class="line">jekyll-sass-converter (1.5.2)</span><br><span class="line">jekyll-seo-tag (2.6.0, 2.5.0)</span><br><span class="line">jekyll-sitemap (1.2.0)</span><br><span class="line">jekyll-swiss (0.4.0)</span><br><span class="line">jekyll-theme-architect (0.1.1)</span><br><span class="line">jekyll-theme-cayman (0.1.1)</span><br><span class="line">jekyll-theme-dinky (0.1.1)</span><br><span class="line">jekyll-theme-hacker (0.1.1)</span><br><span class="line">jekyll-theme-leap-day (0.1.1)</span><br><span class="line">jekyll-theme-merlot (0.1.1)</span><br><span class="line">jekyll-theme-midnight (0.1.1)</span><br><span class="line">jekyll-theme-minimal (0.1.1)</span><br><span class="line">jekyll-theme-modernist (0.1.1)</span><br><span class="line">jekyll-theme-primer (0.5.3)</span><br><span class="line">jekyll-theme-slate (0.1.1)</span><br><span class="line">jekyll-theme-tactile (0.1.1)</span><br><span class="line">jekyll-theme-time-machine (0.1.1)</span><br><span class="line">jekyll-titles-from-headings (0.5.1)</span><br><span class="line">jekyll-watch (2.2.1)</span><br><span class="line">jemoji (0.10.2)</span><br><span class="line">json (2.2.0, default: 2.1.0, 1.8.6)</span><br><span class="line">kramdown (2.1.0, 1.17.0)</span><br><span class="line">liquid (4.0.3, 4.0.0)</span><br><span class="line">listen (3.1.5)</span><br><span class="line">logger (default: 1.3.0)</span><br><span class="line">matrix (default: 0.1.0)</span><br><span class="line">mercenary (0.3.6)</span><br><span class="line">mini_portile2 (2.4.0)</span><br><span class="line">minima (2.5.0)</span><br><span class="line">minitest (5.11.3, 5.10.1)</span><br><span class="line">multipart-post (2.0.0)</span><br><span class="line">mutex_m (default: 0.1.0)</span><br><span class="line">net-telnet (0.2.0)</span><br><span class="line">nokogiri (1.10.3 x64-mingw32)</span><br><span class="line">octokit (4.14.0)</span><br><span class="line">openssl (default: 2.1.2)</span><br><span class="line">ostruct (default: 0.1.0)</span><br><span class="line">pathutil (0.16.2)</span><br><span class="line">power_assert (1.1.3)</span><br><span class="line">prime (default: 0.1.0)</span><br><span class="line">psych (default: 3.1.0)</span><br><span class="line">public_suffix (3.0.3, 2.0.5)</span><br><span class="line">rake (12.3.2)</span><br><span class="line">rb-fsevent (0.10.3)</span><br><span class="line">rb-inotify (0.10.0)</span><br><span class="line">rdoc (default: 6.1.0)</span><br><span class="line">rexml (default: 3.1.9)</span><br><span class="line">rouge (3.3.0, 2.2.1)</span><br><span class="line">rss (default: 0.2.7)</span><br><span class="line">ruby-enum (0.7.2)</span><br><span class="line">ruby_dep (1.5.0)</span><br><span class="line">rubyzip (1.2.2)</span><br><span class="line">safe_yaml (1.0.5)</span><br><span class="line">sass (3.7.4)</span><br><span class="line">sass-listen (4.0.0)</span><br><span class="line">sawyer (0.8.2)</span><br><span class="line">scanf (default: 1.0.0)</span><br><span class="line">sdbm (default: 1.0.0)</span><br><span class="line">shell (default: 0.7)</span><br><span class="line">stringio (default: 0.0.2)</span><br><span class="line">strscan (default: 1.0.0)</span><br><span class="line">sync (default: 0.5.0)</span><br><span class="line">terminal-table (1.8.0)</span><br><span class="line">test-unit (3.2.9)</span><br><span class="line">thread_safe (0.3.6)</span><br><span class="line">thwait (default: 0.1.0)</span><br><span class="line">tracer (default: 0.1.0)</span><br><span class="line">typhoeus (1.3.1)</span><br><span class="line">tzinfo (2.0.0, 1.2.5, 1.2.2)</span><br><span class="line">tzinfo-data (1.2019.1)</span><br><span class="line">unicode-display_width (1.5.0)</span><br><span class="line">wdm (0.1.1)</span><br><span class="line">webrick (default: 1.4.2)</span><br><span class="line">xmlrpc (0.3.0)</span><br><span class="line">zlib (default: 1.0.0)</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      <categories>
-          
-          <category> GEM </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> GEM </tag>
             
         </tags>
       
