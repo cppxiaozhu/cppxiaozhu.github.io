@@ -144,22 +144,25 @@
     font-size: 90%;
 }
 
+#pagination .prev-post a,
+#pagination .next-post a {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  height: 150px;
+  background-color: #efefef00;
+  
+}
+#pagination.pagination-post {
+  overflow: hidden;
+  margin-top: 40px;
+  background: #efefef00;
+}
+
 #pagination .prev_info, #pagination .next_info {
     color: #090909;
     font-weight: 500;
 }
-
-
-#pagination img.prev-cover,
-#pagination img.next-cover {
-display: none !important;
-}
-
-#pagination.pagination-post {
-  margin: 2rem 0 !important;
-  background: #0000;
-}
-
 
 #pagination .pagination-info {
   position: absolute;
@@ -178,9 +181,9 @@ display: none !important;
     background: rgba(255,255,255,.2);
 }
 
-
 #pagination.pagination-post {
     margin: 2rem 0 !important;
+    background-color: #efefef00;
 }
 #aside-content .card-widget, #recent-posts>.recent-post-item, .layout_post>#post, .layout > div:first-child:not(.recent-posts) {
     background: rgba(255,255,255,.2);
