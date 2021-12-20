@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="屏幕管理程序解读, 听涛小筑">
-    <meta name="description" content="第七章屏幕管理程序的学习">
+    <meta name="keywords" content="派生类的构造函数, 听涛小筑">
+    <meta name="description" content="实例解析派生类中的构造函数">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>屏幕管理程序解读 | 听涛小筑</title>
+    <title>派生类的构造函数 | 听涛小筑</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -312,12 +312,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/banner/60.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/banner/2.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">屏幕管理程序解读</h1>
+                    <h1 class="description center-align post-title">派生类的构造函数</h1>
                 </div>
             </div>
         </div>
@@ -343,16 +343,16 @@
                                 <span class="chip bg-color">CPP</span>
                             </a>
                         
-                            <a href="/tags/%E9%87%8D%E8%BD%BD%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0/">
-                                <span class="chip bg-color">重载成员函数</span>
+                            <a href="/tags/%E7%BB%A7%E6%89%BF/">
+                                <span class="chip bg-color">继承</span>
                             </a>
                         
-                            <a href="/tags/%E5%8F%AF%E5%8F%98%E6%95%B0%E6%8D%AE%E6%88%90%E5%91%98/">
-                                <span class="chip bg-color">可变数据成员</span>
+                            <a href="/tags/%E6%B4%BE%E7%94%9F/">
+                                <span class="chip bg-color">派生</span>
                             </a>
                         
-                            <a href="/tags/this%E6%8C%87%E9%92%88/">
-                                <span class="chip bg-color">this指针</span>
+                            <a href="/tags/%E6%9E%90%E6%9E%84/">
+                                <span class="chip bg-color">析构</span>
                             </a>
                         
                     </div>
@@ -376,21 +376,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-12-19
+                    2021-12-20
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-12-19
+                    2021-12-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    910
+                    407
                 </div>
                 
 
@@ -415,138 +415,73 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;string&gt;</span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
-<span class="token keyword">using</span> std<span class="token double-colon punctuation">::</span>string<span class="token punctuation">;</span>
-<span class="token keyword">using</span> std<span class="token double-colon punctuation">::</span>cout<span class="token punctuation">;</span>
-<span class="token keyword">using</span> std<span class="token double-colon punctuation">::</span>endl<span class="token punctuation">;</span>
-<span class="token keyword">class</span> <span class="token class-name">Screen</span> <span class="token punctuation">{</span>
-<span class="token comment">/* 公有属性↓ */</span>
-<span class="token keyword">public</span><span class="token operator">:</span>
-<span class="token comment">//定义类型的别名 pos</span>
-    <span class="token keyword">typedef</span> std<span class="token double-colon punctuation">::</span>string<span class="token double-colon punctuation">::</span>size_type pos<span class="token punctuation">;</span>
-<span class="token comment">//定义类的构造函数，构造函数初始值列表，其中第一个是提供类内初始值的方法</span>
-	<span class="token function">Screen</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token function">cursor</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">height</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">width</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
-    <span class="token function">Screen</span><span class="token punctuation">(</span>pos ht<span class="token punctuation">,</span> pos wd<span class="token punctuation">,</span> <span class="token keyword">char</span> c<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token function">cursor</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-	                                <span class="token function">height</span><span class="token punctuation">(</span>ht<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">width</span><span class="token punctuation">(</span>wd<span class="token punctuation">)</span><span class="token punctuation">,</span> 
-	                                <span class="token function">contents</span><span class="token punctuation">(</span>ht <span class="token operator">*</span> wd<span class="token punctuation">,</span> c<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
-    <span class="token function">Screen</span><span class="token punctuation">(</span>pos ht <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> pos wd <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token operator">:</span> 
-       <span class="token function">cursor</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">height</span><span class="token punctuation">(</span>ht<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">width</span><span class="token punctuation">(</span>wd<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">contents</span><span class="token punctuation">(</span>ht <span class="token operator">*</span> wd<span class="token punctuation">,</span> <span class="token string">'&amp;'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
-<span class="token comment">//声明友元类 Window_mgr</span>
-<span class="token comment">//  friend class Window_mgr;</span>
-<span class="token comment">//无参获取光标处字符，隐式内联</span>
-    <span class="token keyword">char</span> <span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">const</span><span class="token punctuation">{</span> <span class="token keyword">return</span> contents<span class="token punctuation">[</span>cursor<span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
-<span class="token comment">//坐标获取字符方法，显式内联</span>
-    <span class="token keyword">inline</span> <span class="token keyword">char</span> <span class="token function">get</span><span class="token punctuation">(</span>pos ht<span class="token punctuation">,</span> pos wd<span class="token punctuation">)</span> <span class="token keyword">const</span><span class="token punctuation">;</span>
-<span class="token comment">//格式化屏幕，默认 char 为空白符</span>
-	Screen <span class="token operator">&amp;</span><span class="token function">clear</span><span class="token punctuation">(</span><span class="token keyword">char</span> <span class="token operator">=</span> bkground<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment">//移动光标</span>
-    Screen <span class="token operator">&amp;</span><span class="token function">move</span><span class="token punctuation">(</span>pos r<span class="token punctuation">,</span> pos c<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment">//插入字符</span>
-    Screen <span class="token operator">&amp;</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment">//定义位置并设定其字符</span>
-    Screen <span class="token operator">&amp;</span><span class="token function">set</span><span class="token punctuation">(</span>pos<span class="token punctuation">,</span> pos<span class="token punctuation">,</span> <span class="token keyword">char</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment">//为常量成员、非常量成员设置相同的私有成员函数</span>
-    Screen <span class="token operator">&amp;</span><span class="token function">display</span><span class="token punctuation">(</span>std<span class="token double-colon punctuation">::</span>ostream <span class="token operator">&amp;</span>os<span class="token punctuation">)</span> 
-        <span class="token punctuation">{</span> <span class="token function">do_display</span><span class="token punctuation">(</span>os<span class="token punctuation">)</span><span class="token punctuation">;</span> cout<span class="token operator">&lt;&lt;</span><span class="token string">" ←非常量对象"</span><span class="token operator">&lt;&lt;</span>endl <span class="token punctuation">;</span><span class="token keyword">return</span> <span class="token operator">*</span><span class="token keyword">this</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
-    <span class="token keyword">const</span> Screen <span class="token operator">&amp;</span><span class="token function">display</span><span class="token punctuation">(</span>std<span class="token double-colon punctuation">::</span>ostream <span class="token operator">&amp;</span>os<span class="token punctuation">)</span> <span class="token keyword">const</span>
-         <span class="token punctuation">{</span> <span class="token function">do_display</span><span class="token punctuation">(</span>os<span class="token punctuation">)</span><span class="token punctuation">;</span>cout<span class="token operator">&lt;&lt;</span><span class="token string">" ←来自常量对象"</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span> <span class="token keyword">return</span> <span class="token operator">*</span><span class="token keyword">this</span><span class="token punctuation">;</span><span class="token punctuation">}</span>
-<span class="token comment">/* 私有属性↓ */</span>
+                <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>定义派生类的构造函数时，可以用成员函数初始化的方式，先对父类进行初始化。</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span> <span class="token directive keyword">include</span><span class="token string">&lt;iostream&gt;</span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+<span class="token keyword">class</span> <span class="token class-name">Point</span>
+<span class="token punctuation">{</span>
 <span class="token keyword">private</span><span class="token operator">:</span>
-<span class="token comment">//静态成员数据，背景定义</span>
-	<span class="token keyword">static</span> <span class="token keyword">const</span> <span class="token keyword">char</span> bkground <span class="token operator">=</span> <span class="token string">' '</span><span class="token punctuation">;</span>
-<span class="token comment">//私有功能函数，用输出流，输出「contents」</span>
-    <span class="token keyword">void</span> <span class="token function">do_display</span><span class="token punctuation">(</span>std<span class="token double-colon punctuation">::</span>ostream <span class="token operator">&amp;</span>os<span class="token punctuation">)</span> <span class="token keyword">const</span> <span class="token punctuation">{</span>os <span class="token operator">&lt;&lt;</span> contents<span class="token punctuation">;</span><span class="token punctuation">}</span>
-<span class="token comment">//光标、高、宽、内容的属性声明</span>
-    pos cursor<span class="token punctuation">;</span>
-    pos height<span class="token punctuation">,</span> width<span class="token punctuation">;</span>
-    std<span class="token double-colon punctuation">::</span>string contents<span class="token punctuation">;</span>
+    <span class="token keyword">float</span> x<span class="token punctuation">,</span>y<span class="token punctuation">;</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token function">Point</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">Point</span><span class="token punctuation">(</span><span class="token keyword">float</span> x<span class="token punctuation">,</span><span class="token keyword">float</span> y<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">void</span> <span class="token function">move</span><span class="token punctuation">(</span><span class="token keyword">float</span> offX<span class="token punctuation">,</span><span class="token keyword">float</span> offY<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">float</span> <span class="token function">getX</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">float</span> <span class="token function">getY</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">void</span> <span class="token function">display</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token operator">~</span><span class="token function">Point</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token class-name">Point</span><span class="token double-colon punctuation">::</span><span class="token function">Point</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span><span class="token function">x</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">y</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>cout<span class="token operator">&lt;&lt;</span><span class="token string">"调用『点』的『无参』构造函数"</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span><span class="token punctuation">}</span>
+<span class="token class-name">Point</span><span class="token double-colon punctuation">::</span><span class="token function">Point</span><span class="token punctuation">(</span><span class="token keyword">float</span> x<span class="token punctuation">,</span><span class="token keyword">float</span> y<span class="token punctuation">)</span><span class="token operator">:</span><span class="token function">x</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">y</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">{</span>cout<span class="token operator">&lt;&lt;</span><span class="token string">"调用『点』的『有参』构造函数"</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span><span class="token punctuation">}</span>
+<span class="token keyword">void</span> <span class="token class-name">Point</span><span class="token double-colon punctuation">::</span><span class="token function">move</span><span class="token punctuation">(</span><span class="token keyword">float</span> offX<span class="token punctuation">,</span><span class="token keyword">float</span> offY<span class="token punctuation">)</span><span class="token punctuation">{</span>x<span class="token operator">+=</span>offX<span class="token punctuation">;</span>y<span class="token operator">+=</span>offY<span class="token punctuation">;</span><span class="token punctuation">}</span>
+<span class="token keyword">float</span> <span class="token class-name">Point</span><span class="token double-colon punctuation">::</span><span class="token function">getX</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token keyword">return</span> x<span class="token punctuation">;</span><span class="token punctuation">}</span>
+<span class="token keyword">float</span> <span class="token class-name">Point</span><span class="token double-colon punctuation">::</span><span class="token function">getY</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token keyword">return</span> y<span class="token punctuation">;</span><span class="token punctuation">}</span>
+<span class="token keyword">void</span> <span class="token class-name">Point</span><span class="token double-colon punctuation">::</span><span class="token function">display</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"x = "</span><span class="token operator">&lt;&lt;</span>x<span class="token operator">&lt;&lt;</span> <span class="token string">",y = "</span><span class="token operator">&lt;&lt;</span>y <span class="token operator">&lt;&lt;</span><span class="token string">";"</span><span class="token punctuation">;</span><span class="token punctuation">}</span>
+<span class="token class-name">Point</span><span class="token double-colon punctuation">::</span><span class="token operator">~</span><span class="token function">Point</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>cout<span class="token operator">&lt;&lt;</span><span class="token string">"调用『点』的『析构』函数"</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span><span class="token punctuation">}</span>
+<span class="token keyword">class</span> <span class="token class-name">Rectangle</span><span class="token operator">:</span> <span class="token base-clause"><span class="token keyword">public</span> <span class="token class-name">Point</span></span><span class="token punctuation">{</span>
+<span class="token keyword">private</span><span class="token operator">:</span>
+    <span class="token keyword">float</span> width<span class="token punctuation">,</span>height<span class="token punctuation">;</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token function">Rectangle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">Rectangle</span><span class="token punctuation">(</span><span class="token keyword">float</span> x<span class="token punctuation">,</span><span class="token keyword">float</span> y<span class="token punctuation">,</span><span class="token keyword">float</span> w<span class="token punctuation">,</span><span class="token keyword">float</span> h<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">float</span> <span class="token function">getHeight</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">float</span> <span class="token function">getWidth</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">void</span> <span class="token function">display</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token operator">~</span><span class="token function">Rectangle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-<span class="token comment">/* 类外函数体定义↓ */</span>
-<span class="token comment">//用 c 来格式化屏幕</span>
-<span class="token comment">//调用此方法的对象被 c 改变后，并返回并返回该对象</span>
-Screen <span class="token operator">&amp;</span><span class="token class-name">Screen</span><span class="token double-colon punctuation">::</span><span class="token function">clear</span><span class="token punctuation">(</span><span class="token keyword">char</span> c<span class="token punctuation">)</span> 
-<span class="token punctuation">{</span>
-	contents <span class="token operator">=</span> std<span class="token double-colon punctuation">::</span><span class="token function">string</span><span class="token punctuation">(</span>height<span class="token operator">*</span>width<span class="token punctuation">,</span> c<span class="token punctuation">)</span><span class="token punctuation">;</span>
-	<span class="token keyword">return</span> <span class="token operator">*</span><span class="token keyword">this</span><span class="token punctuation">;</span>
+<span class="token class-name">Rectangle</span><span class="token double-colon punctuation">::</span><span class="token function">Rectangle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span><span class="token function">width</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">height</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    cout<span class="token operator">&lt;&lt;</span><span class="token string">"『无参』构造派生类"</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-<span class="token comment">//显示声明内联，按坐标移动到某处</span>
-<span class="token comment">//调用此方法的对象被执行移动光标操作后，并返回该对象</span>
-<span class="token keyword">inline</span>                   
-Screen <span class="token operator">&amp;</span><span class="token class-name">Screen</span><span class="token double-colon punctuation">::</span><span class="token function">move</span><span class="token punctuation">(</span>pos r<span class="token punctuation">,</span> pos c<span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    pos row <span class="token operator">=</span> r <span class="token operator">*</span> width<span class="token punctuation">;</span> 
-    cursor <span class="token operator">=</span> row <span class="token operator">+</span> c<span class="token punctuation">;</span>    
-    <span class="token keyword">return</span> <span class="token operator">*</span><span class="token keyword">this</span><span class="token punctuation">;</span> 
+<span class="token class-name">Rectangle</span><span class="token double-colon punctuation">::</span><span class="token function">Rectangle</span><span class="token punctuation">(</span><span class="token keyword">float</span> x<span class="token punctuation">,</span><span class="token keyword">float</span> y<span class="token punctuation">,</span><span class="token keyword">float</span> w<span class="token punctuation">,</span><span class="token keyword">float</span> h<span class="token punctuation">)</span><span class="token operator">:</span><span class="token function">Point</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">width</span><span class="token punctuation">(</span>w<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">height</span><span class="token punctuation">(</span>h<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    cout<span class="token operator">&lt;&lt;</span><span class="token string">"『有参』构造派生类"</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-<span class="token comment">//用传入的坐标，获取光标处的字符</span>
-<span class="token keyword">char</span> <span class="token class-name">Screen</span><span class="token double-colon punctuation">::</span><span class="token function">get</span><span class="token punctuation">(</span>pos r<span class="token punctuation">,</span> pos c<span class="token punctuation">)</span> <span class="token keyword">const</span>
-<span class="token punctuation">{</span>
-    pos row <span class="token operator">=</span> r <span class="token operator">*</span> width<span class="token punctuation">;</span>
-    <span class="token keyword">return</span> contents<span class="token punctuation">[</span>row <span class="token operator">+</span> c<span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token comment">//改变当前对象光标处的字符</span>
-<span class="token comment">//传入的 c 是新字符，读取对象的光标坐标，并改变，然后返回被修改后的对象</span>
-<span class="token keyword">inline</span> Screen <span class="token operator">&amp;</span><span class="token class-name">Screen</span><span class="token double-colon punctuation">::</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token keyword">char</span> c<span class="token punctuation">)</span> 
-<span class="token punctuation">{</span> 
-    contents<span class="token punctuation">[</span>cursor<span class="token punctuation">]</span> <span class="token operator">=</span> c<span class="token punctuation">;</span> 
-    <span class="token keyword">return</span> <span class="token operator">*</span><span class="token keyword">this</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token comment">//用传入的坐标，计算出坐标序数位后，并修改为传入的字符</span>
-<span class="token keyword">inline</span> Screen <span class="token operator">&amp;</span><span class="token class-name">Screen</span><span class="token double-colon punctuation">::</span><span class="token function">set</span><span class="token punctuation">(</span>pos r<span class="token punctuation">,</span> pos col<span class="token punctuation">,</span> <span class="token keyword">char</span> ch<span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-	contents<span class="token punctuation">[</span>r<span class="token operator">*</span>width <span class="token operator">+</span> col<span class="token punctuation">]</span> <span class="token operator">=</span> ch<span class="token punctuation">;</span>
-	<span class="token keyword">return</span> <span class="token operator">*</span><span class="token keyword">this</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token comment">/*调试代码*/</span>
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
+<span class="token keyword">float</span> <span class="token class-name">Rectangle</span><span class="token double-colon punctuation">::</span><span class="token function">getHeight</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token keyword">return</span> height<span class="token punctuation">;</span><span class="token punctuation">}</span>
+<span class="token keyword">float</span> <span class="token class-name">Rectangle</span><span class="token double-colon punctuation">::</span><span class="token function">getWidth</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token keyword">return</span> width<span class="token punctuation">;</span><span class="token punctuation">}</span>
+<span class="token keyword">void</span> <span class="token class-name">Rectangle</span><span class="token double-colon punctuation">::</span><span class="token function">display</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token class-name">Point</span><span class="token double-colon punctuation">::</span><span class="token function">display</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cout<span class="token operator">&lt;&lt;</span><span class="token string">" width = "</span><span class="token operator">&lt;&lt;</span> width <span class="token operator">&lt;&lt;</span><span class="token string">", height = "</span><span class="token operator">&lt;&lt;</span> height<span class="token operator">&lt;&lt;</span><span class="token string">";"</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token class-name">Rectangle</span><span class="token double-colon punctuation">::</span><span class="token operator">~</span><span class="token function">Rectangle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>cout<span class="token operator">&lt;&lt;</span><span class="token string">"派生类的『析构』函数被调用啦！"</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span><span class="token punctuation">}</span>
 
-<span class="token comment">//初始化一个 5*3 像素的屏幕对象；</span>
-Screen <span class="token function">myScreen</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment">//修改第 4*3+0 处的字符为「#」;</span>
-myScreen<span class="token punctuation">.</span><span class="token function">move</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">'#'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment">//打印出来这个对象；</span>
-myScreen<span class="token punctuation">.</span><span class="token function">display</span><span class="token punctuation">(</span>cout<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment">//关于 set() 成员函数的调用</span>
-myScreen<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">'@'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">display</span><span class="token punctuation">(</span>cout<span class="token punctuation">)</span><span class="token punctuation">;</span>
-myScreen<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token string">'*'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">display</span><span class="token punctuation">(</span>cout<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">char</span> c <span class="token operator">=</span> myScreen<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-cout <span class="token operator">&lt;&lt;</span> c <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
-
-<span class="token comment">//定义 5*5 像素的屏幕对象，并以 x 格式化;</span>
-<span class="token comment">//将第 4*5+0 处的字符修改为「#」</span>
-<span class="token comment">//然后用「Q」格式化</span>
-Screen <span class="token function">nextScreen</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token string">'X'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-nextScreen<span class="token punctuation">.</span><span class="token function">move</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">'#'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">display</span><span class="token punctuation">(</span>cout<span class="token punctuation">)</span><span class="token punctuation">;</span>
-nextScreen<span class="token punctuation">.</span><span class="token function">clear</span><span class="token punctuation">(</span><span class="token string">'Q'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">display</span><span class="token punctuation">(</span>cout<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment">//定义一个常量对象，并打印出来；</span>
-<span class="token keyword">const</span> Screen <span class="token function">blank</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-blank<span class="token punctuation">.</span><span class="token function">display</span><span class="token punctuation">(</span>cout<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment">//将 myScreen 对象用 「Z」 格式化；</span>
-myScreen<span class="token punctuation">.</span><span class="token function">clear</span><span class="token punctuation">(</span><span class="token string">'Z'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">display</span><span class="token punctuation">(</span>cout<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment">//修改 4*3+0 处的对象为 「#」,并输出；</span>
-myScreen<span class="token punctuation">.</span><span class="token function">move</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-myScreen<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">'#'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-myScreen<span class="token punctuation">.</span><span class="token function">display</span><span class="token punctuation">(</span>cout<span class="token punctuation">)</span><span class="token punctuation">;</span> 
-<span class="token comment">//再次将 myScreen 格式化为 「Z」</span>
-myScreen<span class="token punctuation">.</span><span class="token function">clear</span><span class="token punctuation">(</span><span class="token string">'Z'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">display</span><span class="token punctuation">(</span>cout<span class="token punctuation">)</span><span class="token punctuation">;</span>
-cout <span class="token operator">&lt;&lt;</span><span class="token string">"程序结束"</span><span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><pre class="line-numbers language-console" data-language="console"><code class="language-console">&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;#&amp;&amp; ←非常量对象
-&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;@&amp;&amp; ←非常量对象
-*&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;@&amp;&amp; ←非常量对象
-*
-XXXXXXXXXXXXXXXXXXXX#XXXX ←非常量对象
-QQQQQQQQQQQQQQQQQQQQQQQQQ ←非常量对象
-&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp; ←来自常量对象
-ZZZZZZZZZZZZZZZ ←非常量对象
-ZZZZZZZZZZZZ#ZZ ←非常量对象
-ZZZZZZZZZZZZZZZ ←非常量对象
-程序结束<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    Rectangle r1<span class="token punctuation">;</span>
+    r1<span class="token punctuation">.</span><span class="token function">display</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    Rectangle <span class="token function">r2</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    r2<span class="token punctuation">.</span><span class="token function">display</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><pre class="line-numbers language-console" data-language="console"><code class="language-console">调用『点』的『无参』构造函数
+『无参』构造派生类
+x = 0,y = 0; width = 5, height = 5;
+调用『点』的『有参』构造函数
+『有参』构造派生类
+x = 7,y = 7; width = 7, height = 7;
+派生类的『析构』函数被调用啦！
+调用『点』的『析构』函数
+派生类的『析构』函数被调用啦！
+调用『点』的『析构』函数<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
                 
             </div>
             <hr/>
@@ -572,7 +507,7 @@ ZZZZZZZZZZZZZZZ ←非常量对象
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://cppxiaozhu.github.io/2021/12/19/2021.12.19.screen/">https://cppxiaozhu.github.io/2021/12/19/2021.12.19.screen/</a>
+                    <a href="https://cppxiaozhu.github.io/2021/12/20/2021.12.20.rectangle/">https://cppxiaozhu.github.io/2021/12/20/2021.12.20.rectangle/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -614,16 +549,16 @@ ZZZZZZZZZZZZZZZ ←非常量对象
                                     <span class="chip bg-color">CPP</span>
                                 </a>
                             
-                                <a href="/tags/%E9%87%8D%E8%BD%BD%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0/">
-                                    <span class="chip bg-color">重载成员函数</span>
+                                <a href="/tags/%E7%BB%A7%E6%89%BF/">
+                                    <span class="chip bg-color">继承</span>
                                 </a>
                             
-                                <a href="/tags/%E5%8F%AF%E5%8F%98%E6%95%B0%E6%8D%AE%E6%88%90%E5%91%98/">
-                                    <span class="chip bg-color">可变数据成员</span>
+                                <a href="/tags/%E6%B4%BE%E7%94%9F/">
+                                    <span class="chip bg-color">派生</span>
                                 </a>
                             
-                                <a href="/tags/this%E6%8C%87%E9%92%88/">
-                                    <span class="chip bg-color">this指针</span>
+                                <a href="/tags/%E6%9E%90%E6%9E%84/">
+                                    <span class="chip bg-color">析构</span>
                                 </a>
                             
                         </div>
@@ -1069,28 +1004,29 @@ ZZZZZZZZZZZZZZZ ←非常量对象
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/12/20/2021.12.20.derived/">
+                <a href="/2021/12/20/2021.12.20.rectangle/">
                     <div class="card-image">
                         
-                        <img src="/medias/banner/1.jpg" class="responsive-img" alt="类的继承">
+                        <img src="/medias/banner/2.jpg" class="responsive-img" alt="派生类的构造函数">
                         
-                        <span class="card-title">类的继承</span>
+                        <span class="card-title">派生类的构造函数</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            一个实例来理解继承中的构造函数与析构次序
+                            实例解析派生类中的构造函数
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-12-20
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-20
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1103,6 +1039,7 @@ ZZZZZZZZZZZZZZZ ←非常量对象
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1133,23 +1070,23 @@ ZZZZZZZZZZZZZZZ ←非常量对象
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/12/17/2021.12.17.const/">
+                <a href="/2021/12/20/2021.12.20.derived/">
                     <div class="card-image">
                         
-                        <img src="/medias/banner/39.jpg" class="responsive-img" alt="回顾 const">
+                        <img src="/medias/banner/1.jpg" class="responsive-img" alt="类的继承">
                         
-                        <span class="card-title">回顾 const</span>
+                        <span class="card-title">类的继承</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            回顾 const 的用法
+                            一个实例来理解继承中的构造函数与析构次序
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-17
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-20
                             </span>
                         <span class="publish-author">
                             
@@ -1170,20 +1107,16 @@ ZZZZZZZZZZZZZZZ ←非常量对象
                         <span class="chip bg-color">CPP</span>
                     </a>
                     
-                    <a href="/tags/const/">
-                        <span class="chip bg-color">const</span>
+                    <a href="/tags/%E7%BB%A7%E6%89%BF/">
+                        <span class="chip bg-color">继承</span>
                     </a>
                     
-                    <a href="/tags/%E5%B8%B8%E9%87%8F%E6%8C%87%E9%92%88/">
-                        <span class="chip bg-color">常量指针</span>
+                    <a href="/tags/%E6%B4%BE%E7%94%9F/">
+                        <span class="chip bg-color">派生</span>
                     </a>
                     
-                    <a href="/tags/%E9%A1%B6%E5%B1%82-const/">
-                        <span class="chip bg-color">顶层 const</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%BA%95%E5%B1%82-const/">
-                        <span class="chip bg-color">底层 const</span>
+                    <a href="/tags/%E6%9E%90%E6%9E%84/">
+                        <span class="chip bg-color">析构</span>
                     </a>
                     
                 </div>
