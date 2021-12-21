@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="从一个类派生出三个类的示例, 听涛小筑">
-    <meta name="description" content="实例解析派生类中的构造函数">
+    <meta name="keywords" content="多态的第二个例子, 听涛小筑">
+    <meta name="description" content="使用多态实现多个子类对象的属性计算">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>从一个类派生出三个类的示例 | 听涛小筑</title>
+    <title>多态的第二个例子 | 听涛小筑</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -312,12 +312,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/banner/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/banner/5.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">从一个类派生出三个类的示例</h1>
+                    <h1 class="description center-align post-title">多态的第二个例子</h1>
                 </div>
             </div>
         </div>
@@ -351,8 +351,8 @@
                                 <span class="chip bg-color">派生</span>
                             </a>
                         
-                            <a href="/tags/%E6%9E%90%E6%9E%84/">
-                                <span class="chip bg-color">析构</span>
+                            <a href="/tags/%E5%A4%9A%E6%80%81/">
+                                <span class="chip bg-color">多态</span>
                             </a>
                         
                     </div>
@@ -376,7 +376,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-12-20
+                    2021-12-21
                 </div>
                 
 
@@ -390,7 +390,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    1k
                 </div>
                 
 
@@ -416,70 +416,78 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><ul>
-<li>父类的方法，可以被子类继承</li>
-<li>子类实例化的对象，可以用父类的方法修改自己从父类继承到的属性</li>
+<li><code>new</code> 与 <code>delete</code> 必须相伴出现；</li>
+<li>将子类对象，传给父类类型的指针数组，用数组来调用虚函数，以实现多态；</li>
+<li>注意给父类及子类的析构函数都添上 <code>virtual</code> ，使之成为 <code>虚析构函数</code>，防止 <code>析构</code> 时出错；</li>
+<li>核心要点，还是用父类指针来管理子类对象，只不过是调用的方法，是用虚函数定义的；</li>
 </ul>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;iostream&gt;</span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;string&gt;</span></span>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;string&gt;</span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 
 <span class="token keyword">class</span> <span class="token class-name">Shape</span>
 <span class="token punctuation">{</span>
 <span class="token keyword">private</span><span class="token operator">:</span>
     string color<span class="token punctuation">;</span>
+
 <span class="token keyword">public</span><span class="token operator">:</span>
     <span class="token function">Shape</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token function">Shape</span><span class="token punctuation">(</span>string c<span class="token punctuation">)</span><span class="token punctuation">;</span>
     string <span class="token function">getColor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">void</span> <span class="token function">setColor</span><span class="token punctuation">(</span>string c<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">double</span> <span class="token function">getArea</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// 定义抽象类「getArea()」</span>
+    <span class="token keyword">virtual</span> <span class="token keyword">double</span> <span class="token function">getArea</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
     <span class="token keyword">void</span> <span class="token function">display</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token operator">~</span><span class="token function">Shape</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">virtual</span> <span class="token operator">~</span><span class="token function">Shape</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token class-name">Shape</span><span class="token double-colon punctuation">::</span><span class="token function">Shape</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span><span class="token function">color</span><span class="token punctuation">(</span><span class="token string">"white"</span><span class="token punctuation">)</span><span class="token punctuation">{</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Shape 的无参构造函数被调用。"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span><span class="token punctuation">}</span>
-<span class="token class-name">Shape</span><span class="token double-colon punctuation">::</span><span class="token function">Shape</span><span class="token punctuation">(</span>string c<span class="token punctuation">)</span><span class="token operator">:</span><span class="token function">color</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">{</span>cout<span class="token operator">&lt;&lt;</span><span class="token string">"Shape 的有参构造函数被调用。"</span><span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span><span class="token punctuation">}</span>
-<span class="token class-name">Shape</span><span class="token double-colon punctuation">::</span><span class="token operator">~</span><span class="token function">Shape</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>cout<span class="token operator">&lt;&lt;</span><span class="token string">"Shape 的析构函数被调用。"</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span><span class="token punctuation">}</span>
-<span class="token keyword">void</span> <span class="token class-name">Shape</span><span class="token double-colon punctuation">::</span><span class="token function">setColor</span><span class="token punctuation">(</span>string c<span class="token punctuation">)</span><span class="token punctuation">{</span>color<span class="token operator">=</span>c<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
-string <span class="token class-name">Shape</span><span class="token double-colon punctuation">::</span><span class="token function">getColor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token keyword">return</span> color<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token keyword">double</span> <span class="token class-name">Shape</span><span class="token double-colon punctuation">::</span><span class="token function">getArea</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token punctuation">}</span>
-<span class="token keyword">void</span> <span class="token class-name">Shape</span><span class="token double-colon punctuation">::</span><span class="token function">display</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    cout<span class="token operator">&lt;&lt;</span><span class="token string">"Shape Object color = "</span>
-    <span class="token operator">&lt;&lt;</span> <span class="token function">getColor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span> <span class="token string">";area = "</span><span class="token operator">&lt;&lt;</span> <span class="token function">getArea</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+<span class="token class-name">Shape</span><span class="token double-colon punctuation">::</span><span class="token function">Shape</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token function">color</span><span class="token punctuation">(</span><span class="token string">"white"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Shape 的无参构造函数被调用。"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+<span class="token class-name">Shape</span><span class="token double-colon punctuation">::</span><span class="token function">Shape</span><span class="token punctuation">(</span>string c<span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token function">color</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span> <span class="token punctuation">{</span> cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Shape 的有参构造函数被调用。"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+<span class="token class-name">Shape</span><span class="token double-colon punctuation">::</span><span class="token operator">~</span><span class="token function">Shape</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Shape 的析构函数被调用。"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+<span class="token keyword">void</span> <span class="token class-name">Shape</span><span class="token double-colon punctuation">::</span><span class="token function">setColor</span><span class="token punctuation">(</span>string c<span class="token punctuation">)</span> <span class="token punctuation">{</span> color <span class="token operator">=</span> c<span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+string <span class="token class-name">Shape</span><span class="token double-colon punctuation">::</span><span class="token function">getColor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> color<span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">double</span> <span class="token class-name">Shape</span><span class="token double-colon punctuation">::</span><span class="token function">getArea</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+<span class="token keyword">void</span> <span class="token class-name">Shape</span><span class="token double-colon punctuation">::</span><span class="token function">display</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Shape Object color = "</span>
+         <span class="token operator">&lt;&lt;</span> <span class="token function">getColor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> <span class="token string">";area = "</span> <span class="token operator">&lt;&lt;</span> <span class="token function">getArea</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-<span class="token keyword">class</span> <span class="token class-name">Circle</span><span class="token operator">:</span><span class="token base-clause"><span class="token keyword">public</span> <span class="token class-name">Shape</span></span>
+<span class="token keyword">class</span> <span class="token class-name">Circle</span> <span class="token operator">:</span> <span class="token base-clause"><span class="token keyword">public</span> <span class="token class-name">Shape</span></span>
 <span class="token punctuation">{</span>
 <span class="token keyword">private</span><span class="token operator">:</span>
     <span class="token keyword">double</span> radius<span class="token punctuation">;</span>
+
 <span class="token keyword">public</span><span class="token operator">:</span>
     <span class="token function">Circle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">Circle</span><span class="token punctuation">(</span>string c<span class="token punctuation">,</span><span class="token keyword">double</span> r<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">Circle</span><span class="token punctuation">(</span>string c<span class="token punctuation">,</span> <span class="token keyword">double</span> r<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">void</span> <span class="token function">setRadius</span><span class="token punctuation">(</span><span class="token keyword">double</span> r<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">double</span> <span class="token function">getRadius</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">double</span> <span class="token function">getArea</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">void</span> <span class="token function">display</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token operator">~</span><span class="token function">Circle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">virtual</span> <span class="token operator">~</span><span class="token function">Circle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-<span class="token class-name">Circle</span><span class="token double-colon punctuation">::</span><span class="token function">Circle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span><span class="token function">Shape</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">radius</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>cout<span class="token operator">&lt;&lt;</span><span class="token string">"调用「Circle」的『无参』构造函数"</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span><span class="token punctuation">}</span>
-<span class="token class-name">Circle</span><span class="token double-colon punctuation">::</span><span class="token function">Circle</span><span class="token punctuation">(</span>string c<span class="token punctuation">,</span><span class="token keyword">double</span> r<span class="token punctuation">)</span><span class="token operator">:</span><span class="token function">Shape</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">radius</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span><span class="token punctuation">{</span>cout<span class="token operator">&lt;&lt;</span><span class="token string">"调用「Circle」的『无参』构造函数"</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span><span class="token punctuation">}</span>
-<span class="token class-name">Circle</span><span class="token double-colon punctuation">::</span><span class="token operator">~</span><span class="token function">Circle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>cout<span class="token operator">&lt;&lt;</span><span class="token string">"调用「Circle」的『析构』函数"</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span><span class="token punctuation">}</span>
-<span class="token keyword">void</span> <span class="token class-name">Circle</span><span class="token double-colon punctuation">::</span><span class="token function">setRadius</span><span class="token punctuation">(</span><span class="token keyword">double</span> r<span class="token punctuation">)</span><span class="token punctuation">{</span>radius<span class="token operator">=</span>r<span class="token punctuation">;</span><span class="token punctuation">}</span>
-<span class="token keyword">double</span> <span class="token class-name">Circle</span><span class="token double-colon punctuation">::</span><span class="token function">getRadius</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token keyword">return</span> radius<span class="token punctuation">;</span><span class="token punctuation">}</span>
-<span class="token keyword">double</span> <span class="token class-name">Circle</span><span class="token double-colon punctuation">::</span><span class="token function">getArea</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token keyword">return</span> <span class="token number">3.14159</span><span class="token operator">*</span>radius<span class="token operator">*</span>radius<span class="token punctuation">;</span><span class="token punctuation">}</span>
-<span class="token keyword">void</span> <span class="token class-name">Circle</span><span class="token double-colon punctuation">::</span><span class="token function">display</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    cout<span class="token operator">&lt;&lt;</span><span class="token string">"Circle Object color = "</span><span class="token operator">&lt;&lt;</span> <span class="token function">getColor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span><span class="token string">"; area = "</span><span class="token operator">&lt;&lt;</span><span class="token function">getArea</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token operator">&lt;&lt;</span> <span class="token string">"; radius ="</span><span class="token operator">&lt;&lt;</span> <span class="token function">getRadius</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span><span class="token string">";"</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+<span class="token class-name">Circle</span><span class="token double-colon punctuation">::</span><span class="token function">Circle</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token function">Shape</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">radius</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> cout <span class="token operator">&lt;&lt;</span> <span class="token string">"调用「Circle」的『无参』构造函数"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+<span class="token class-name">Circle</span><span class="token double-colon punctuation">::</span><span class="token function">Circle</span><span class="token punctuation">(</span>string c<span class="token punctuation">,</span> <span class="token keyword">double</span> r<span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token function">Shape</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">radius</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span> <span class="token punctuation">{</span> cout <span class="token operator">&lt;&lt;</span> <span class="token string">"调用「Circle」的『无参』构造函数"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+<span class="token class-name">Circle</span><span class="token double-colon punctuation">::</span><span class="token operator">~</span><span class="token function">Circle</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> cout <span class="token operator">&lt;&lt;</span> <span class="token string">"调用「Circle」的『析构』函数"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+<span class="token keyword">void</span> <span class="token class-name">Circle</span><span class="token double-colon punctuation">::</span><span class="token function">setRadius</span><span class="token punctuation">(</span><span class="token keyword">double</span> r<span class="token punctuation">)</span> <span class="token punctuation">{</span> radius <span class="token operator">=</span> r<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+<span class="token keyword">double</span> <span class="token class-name">Circle</span><span class="token double-colon punctuation">::</span><span class="token function">getRadius</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> radius<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+<span class="token keyword">double</span> <span class="token class-name">Circle</span><span class="token double-colon punctuation">::</span><span class="token function">getArea</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token number">3.14159</span> <span class="token operator">*</span> radius <span class="token operator">*</span> radius<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+<span class="token keyword">void</span> <span class="token class-name">Circle</span><span class="token double-colon punctuation">::</span><span class="token function">display</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Circle Object color = "</span> <span class="token operator">&lt;&lt;</span> <span class="token function">getColor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> <span class="token string">"; area = "</span> <span class="token operator">&lt;&lt;</span> <span class="token function">getArea</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+         <span class="token operator">&lt;&lt;</span> <span class="token string">"; radius ="</span> <span class="token operator">&lt;&lt;</span> <span class="token function">getRadius</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> <span class="token string">";"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-<span class="token keyword">class</span> <span class="token class-name">Rectangle</span><span class="token operator">:</span><span class="token base-clause"><span class="token keyword">public</span> <span class="token class-name">Shape</span></span>
+<span class="token keyword">class</span> <span class="token class-name">Rectangle</span> <span class="token operator">:</span> <span class="token base-clause"><span class="token keyword">public</span> <span class="token class-name">Shape</span></span>
 <span class="token punctuation">{</span>
 <span class="token keyword">private</span><span class="token operator">:</span>
-   <span class="token keyword">double</span> width<span class="token punctuation">,</span>height<span class="token punctuation">;</span>
+    <span class="token keyword">double</span> width<span class="token punctuation">,</span> height<span class="token punctuation">;</span>
+
 <span class="token keyword">public</span><span class="token operator">:</span>
     <span class="token function">Rectangle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">Rectangle</span><span class="token punctuation">(</span>string c<span class="token punctuation">,</span><span class="token keyword">double</span> w<span class="token punctuation">,</span><span class="token keyword">double</span> h<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token operator">~</span><span class="token function">Rectangle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">Rectangle</span><span class="token punctuation">(</span>string c<span class="token punctuation">,</span> <span class="token keyword">double</span> w<span class="token punctuation">,</span> <span class="token keyword">double</span> h<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">virtual</span> <span class="token operator">~</span><span class="token function">Rectangle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">void</span> <span class="token function">setWidth</span><span class="token punctuation">(</span><span class="token keyword">double</span> w<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">void</span> <span class="token function">setHeight</span><span class="token punctuation">(</span><span class="token keyword">double</span> h<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">void</span> <span class="token function">display</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -488,118 +496,100 @@ string <span class="token class-name">Shape</span><span class="token double-colo
     <span class="token keyword">double</span> <span class="token function">getArea</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-<span class="token class-name">Rectangle</span><span class="token double-colon punctuation">::</span><span class="token function">Rectangle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span><span class="token function">Shape</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">width</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">height</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>cout<span class="token operator">&lt;&lt;</span><span class="token string">"调用 Rectangle 的『无参』构造函数"</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token class-name">Rectangle</span><span class="token double-colon punctuation">::</span><span class="token function">Rectangle</span><span class="token punctuation">(</span>string c<span class="token punctuation">,</span> <span class="token keyword">double</span> w<span class="token punctuation">,</span> <span class="token keyword">double</span> h<span class="token punctuation">)</span><span class="token operator">:</span><span class="token function">Shape</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token function">width</span><span class="token punctuation">(</span>w<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">height</span><span class="token punctuation">(</span>h<span class="token punctuation">)</span><span class="token punctuation">{</span>cout<span class="token operator">&lt;&lt;</span><span class="token string">"调用 Rectangle 的『有参』构造函数"</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
-Rectangle<span class="token double-colon punctuation">::</span><span class="token class-name">Rectangle</span><span class="token double-colon punctuation">::</span><span class="token operator">~</span><span class="token function">Rectangle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>cout<span class="token operator">&lt;&lt;</span><span class="token string">"调用 Rectangle 的『析构』函数"</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span><span class="token punctuation">}</span>
-<span class="token keyword">void</span> <span class="token class-name">Rectangle</span><span class="token double-colon punctuation">::</span><span class="token function">setWidth</span><span class="token punctuation">(</span><span class="token keyword">double</span> w<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token operator">-&gt;</span> width <span class="token operator">=</span> w<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token keyword">void</span> <span class="token class-name">Rectangle</span><span class="token double-colon punctuation">::</span><span class="token function">setHeight</span><span class="token punctuation">(</span><span class="token keyword">double</span> h<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token operator">-&gt;</span> height <span class="token operator">=</span> h<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token keyword">void</span> <span class="token class-name">Rectangle</span><span class="token double-colon punctuation">::</span><span class="token function">display</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    cout<span class="token operator">&lt;&lt;</span><span class="token string">"Rectangle Object color = "</span><span class="token operator">&lt;&lt;</span> <span class="token function">getColor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span><span class="token string">"; area = "</span><span class="token operator">&lt;&lt;</span><span class="token function">getArea</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token operator">&lt;&lt;</span> <span class="token string">"; width ="</span><span class="token operator">&lt;&lt;</span> <span class="token function">getWidth</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span><span class="token string">"; height = "</span><span class="token operator">&lt;&lt;</span> <span class="token function">getHeight</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span><span class="token string">";"</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+<span class="token class-name">Rectangle</span><span class="token double-colon punctuation">::</span><span class="token function">Rectangle</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token function">Shape</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">width</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">height</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> cout <span class="token operator">&lt;&lt;</span> <span class="token string">"调用 Rectangle 的『无参』构造函数"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token class-name">Rectangle</span><span class="token double-colon punctuation">::</span><span class="token function">Rectangle</span><span class="token punctuation">(</span>string c<span class="token punctuation">,</span> <span class="token keyword">double</span> w<span class="token punctuation">,</span> <span class="token keyword">double</span> h<span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token function">Shape</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token function">width</span><span class="token punctuation">(</span>w<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">height</span><span class="token punctuation">(</span>h<span class="token punctuation">)</span> <span class="token punctuation">{</span> cout <span class="token operator">&lt;&lt;</span> <span class="token string">"调用 Rectangle 的『有参』构造函数"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+Rectangle<span class="token double-colon punctuation">::</span><span class="token class-name">Rectangle</span><span class="token double-colon punctuation">::</span><span class="token operator">~</span><span class="token function">Rectangle</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> cout <span class="token operator">&lt;&lt;</span> <span class="token string">"调用 Rectangle 的『析构』函数"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+<span class="token keyword">void</span> <span class="token class-name">Rectangle</span><span class="token double-colon punctuation">::</span><span class="token function">setWidth</span><span class="token punctuation">(</span><span class="token keyword">double</span> w<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">this</span><span class="token operator">-&gt;</span>width <span class="token operator">=</span> w<span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">void</span> <span class="token class-name">Rectangle</span><span class="token double-colon punctuation">::</span><span class="token function">setHeight</span><span class="token punctuation">(</span><span class="token keyword">double</span> h<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">this</span><span class="token operator">-&gt;</span>height <span class="token operator">=</span> h<span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">void</span> <span class="token class-name">Rectangle</span><span class="token double-colon punctuation">::</span><span class="token function">display</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Rectangle Object color = "</span> <span class="token operator">&lt;&lt;</span> <span class="token function">getColor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> <span class="token string">"; area = "</span> <span class="token operator">&lt;&lt;</span> <span class="token function">getArea</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+         <span class="token operator">&lt;&lt;</span> <span class="token string">"; width ="</span> <span class="token operator">&lt;&lt;</span> <span class="token function">getWidth</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> <span class="token string">"; height = "</span> <span class="token operator">&lt;&lt;</span> <span class="token function">getHeight</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> <span class="token string">";"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token keyword">double</span> <span class="token class-name">Rectangle</span><span class="token double-colon punctuation">::</span><span class="token function">getWidth</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token keyword">return</span> width<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token keyword">double</span> <span class="token class-name">Rectangle</span><span class="token double-colon punctuation">::</span><span class="token function">getHeight</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token keyword">return</span> height<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token keyword">double</span> <span class="token class-name">Rectangle</span><span class="token double-colon punctuation">::</span><span class="token function">getArea</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token keyword">return</span> width<span class="token operator">*</span>height<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">double</span> <span class="token class-name">Rectangle</span><span class="token double-colon punctuation">::</span><span class="token function">getWidth</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> width<span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">double</span> <span class="token class-name">Rectangle</span><span class="token double-colon punctuation">::</span><span class="token function">getHeight</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> height<span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">double</span> <span class="token class-name">Rectangle</span><span class="token double-colon punctuation">::</span><span class="token function">getArea</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> width <span class="token operator">*</span> height<span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
 
 <span class="token comment">/*圆角矩形类的定义*/</span>
 
-<span class="token keyword">class</span> <span class="token class-name">RoundRectangle</span><span class="token operator">:</span><span class="token base-clause"><span class="token keyword">public</span> <span class="token class-name">Rectangle</span></span>
+<span class="token keyword">class</span> <span class="token class-name">RoundRectangle</span> <span class="token operator">:</span> <span class="token base-clause"><span class="token keyword">public</span> <span class="token class-name">Rectangle</span></span>
 <span class="token punctuation">{</span>
 <span class="token keyword">private</span><span class="token operator">:</span>
-   <span class="token keyword">double</span> roundRadius<span class="token punctuation">;</span>
+    <span class="token keyword">double</span> roundRadius<span class="token punctuation">;</span>
+
 <span class="token keyword">public</span><span class="token operator">:</span>
     <span class="token function">RoundRectangle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">RoundRectangle</span><span class="token punctuation">(</span>string c<span class="token punctuation">,</span><span class="token keyword">double</span> w<span class="token punctuation">,</span><span class="token keyword">double</span> h<span class="token punctuation">,</span><span class="token keyword">double</span> r<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token operator">~</span><span class="token function">RoundRectangle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">RoundRectangle</span><span class="token punctuation">(</span>string c<span class="token punctuation">,</span> <span class="token keyword">double</span> w<span class="token punctuation">,</span> <span class="token keyword">double</span> h<span class="token punctuation">,</span> <span class="token keyword">double</span> r<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">virtual</span> <span class="token operator">~</span><span class="token function">RoundRectangle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">void</span> <span class="token function">setRoundRadius</span><span class="token punctuation">(</span><span class="token keyword">double</span> r<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">void</span> <span class="token function">display</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">double</span> <span class="token function">getArea</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">double</span> <span class="token function">getRoundRadius</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-<span class="token class-name">RoundRectangle</span><span class="token double-colon punctuation">::</span><span class="token function">RoundRectangle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span><span class="token function">Rectangle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">roundRadius</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>cout<span class="token operator">&lt;&lt;</span><span class="token string">"调用 RoundRectangle 的『无参』构造函数"</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token class-name">RoundRectangle</span><span class="token double-colon punctuation">::</span><span class="token function">RoundRectangle</span><span class="token punctuation">(</span>string c<span class="token punctuation">,</span> <span class="token keyword">double</span> w<span class="token punctuation">,</span> <span class="token keyword">double</span> h<span class="token punctuation">,</span><span class="token keyword">double</span> r<span class="token punctuation">)</span><span class="token operator">:</span><span class="token function">Rectangle</span><span class="token punctuation">(</span>c<span class="token punctuation">,</span>w<span class="token punctuation">,</span>h<span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token function">roundRadius</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span><span class="token punctuation">{</span>cout<span class="token operator">&lt;&lt;</span><span class="token string">"调用 RoundRectangle 的『有参』构造函数"</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
-RoundRectangle<span class="token double-colon punctuation">::</span><span class="token class-name">RoundRectangle</span><span class="token double-colon punctuation">::</span><span class="token operator">~</span><span class="token function">RoundRectangle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>cout<span class="token operator">&lt;&lt;</span><span class="token string">"调用 RoundRectangle 的『析构』函数"</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span><span class="token punctuation">}</span>
-<span class="token keyword">void</span> <span class="token class-name">RoundRectangle</span><span class="token double-colon punctuation">::</span><span class="token function">setRoundRadius</span><span class="token punctuation">(</span><span class="token keyword">double</span> r<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token operator">-&gt;</span>roundRadius <span class="token operator">=</span> r<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token class-name">RoundRectangle</span><span class="token double-colon punctuation">::</span><span class="token function">RoundRectangle</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token function">Rectangle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">roundRadius</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> cout <span class="token operator">&lt;&lt;</span> <span class="token string">"调用 RoundRectangle 的『无参』构造函数"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token class-name">RoundRectangle</span><span class="token double-colon punctuation">::</span><span class="token function">RoundRectangle</span><span class="token punctuation">(</span>string c<span class="token punctuation">,</span> <span class="token keyword">double</span> w<span class="token punctuation">,</span> <span class="token keyword">double</span> h<span class="token punctuation">,</span> <span class="token keyword">double</span> r<span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token function">Rectangle</span><span class="token punctuation">(</span>c<span class="token punctuation">,</span> w<span class="token punctuation">,</span> h<span class="token punctuation">)</span><span class="token punctuation">,</span>
+         <span class="token function">roundRadius</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span> <span class="token punctuation">{</span> cout <span class="token operator">&lt;&lt;</span> <span class="token string">"调用 RoundRectangle 的『有参』构造函数"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+RoundRectangle<span class="token double-colon punctuation">::</span><span class="token class-name">RoundRectangle</span><span class="token double-colon punctuation">::</span><span class="token operator">~</span><span class="token function">RoundRectangle</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> cout <span class="token operator">&lt;&lt;</span> <span class="token string">"调用 RoundRectangle 的『析构』函数"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+<span class="token keyword">void</span> <span class="token class-name">RoundRectangle</span><span class="token double-colon punctuation">::</span><span class="token function">setRoundRadius</span><span class="token punctuation">(</span><span class="token keyword">double</span> r<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">this</span><span class="token operator">-&gt;</span>roundRadius <span class="token operator">=</span> r<span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-<span class="token keyword">double</span> <span class="token class-name">RoundRectangle</span><span class="token double-colon punctuation">::</span><span class="token function">getRoundRadius</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token keyword">return</span> roundRadius<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token keyword">double</span> <span class="token class-name">RoundRectangle</span><span class="token double-colon punctuation">::</span><span class="token function">getArea</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token keyword">return</span> 
-<span class="token punctuation">(</span><span class="token function">getWidth</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token function">getHeight</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">4</span><span class="token operator">*</span>roundRadius<span class="token operator">*</span>roundRadius<span class="token operator">+</span><span class="token number">2</span><span class="token operator">*</span><span class="token punctuation">(</span><span class="token number">3.14159</span><span class="token punctuation">)</span><span class="token operator">*</span>roundRadius<span class="token operator">*</span>roundRadius<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">double</span> <span class="token class-name">RoundRectangle</span><span class="token double-colon punctuation">::</span><span class="token function">getRoundRadius</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> roundRadius<span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">double</span> <span class="token class-name">RoundRectangle</span><span class="token double-colon punctuation">::</span><span class="token function">getArea</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+    <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token function">getWidth</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span><span class="token function">getHeight</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">4</span> <span class="token operator">*</span> roundRadius <span class="token operator">*</span> roundRadius <span class="token operator">+</span> <span class="token number">2</span> <span class="token operator">*</span> <span class="token punctuation">(</span><span class="token number">3.1415926</span><span class="token punctuation">)</span> <span class="token operator">*</span> roundRadius <span class="token operator">*</span> roundRadius<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-<span class="token keyword">void</span> <span class="token class-name">RoundRectangle</span><span class="token double-colon punctuation">::</span><span class="token function">display</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-cout <span class="token operator">&lt;&lt;</span> <span class="token string">"RoundRectangle Object color = "</span> <span class="token operator">&lt;&lt;</span> <span class="token function">getColor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> <span class="token string">"; "</span>
-    <span class="token operator">&lt;&lt;</span> <span class="token string">"area ="</span> <span class="token operator">&lt;&lt;</span>  <span class="token function">getArea</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token operator">&lt;&lt;</span> <span class="token string">"; width = "</span> <span class="token operator">&lt;&lt;</span> <span class="token function">getWidth</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> <span class="token string">"; height = "</span><span class="token operator">&lt;&lt;</span> <span class="token function">getHeight</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span><span class="token string">"; "</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+<span class="token keyword">void</span> <span class="token class-name">RoundRectangle</span><span class="token double-colon punctuation">::</span><span class="token function">display</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"RoundRectangle Object color = "</span> <span class="token operator">&lt;&lt;</span> <span class="token function">getColor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> <span class="token string">"; "</span>
+         <span class="token operator">&lt;&lt;</span> <span class="token string">"area ="</span> <span class="token operator">&lt;&lt;</span> <span class="token function">getArea</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> <span class="token string">"; width = "</span> <span class="token operator">&lt;&lt;</span> <span class="token function">getWidth</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> <span class="token string">"; height = "</span> <span class="token operator">&lt;&lt;</span> <span class="token function">getHeight</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> <span class="token string">"; "</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    Shape shape1<span class="token punctuation">,</span><span class="token function">shape2</span><span class="token punctuation">(</span><span class="token string">"red"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    shape1<span class="token punctuation">.</span><span class="token function">display</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    shape2<span class="token punctuation">.</span><span class="token function">display</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    cout <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+<span class="token keyword">double</span> <span class="token function">sumArea</span><span class="token punctuation">(</span>Shape <span class="token operator">*</span>shape<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">double</span> sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        sum <span class="token operator">+=</span> shape<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">-&gt;</span><span class="token function">getArea</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> sum<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-    Circle circle1<span class="token punctuation">,</span><span class="token function">circle2</span><span class="token punctuation">(</span><span class="token string">"red"</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    circle1<span class="token punctuation">.</span><span class="token function">display</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    circle2<span class="token punctuation">.</span><span class="token function">display</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    cout <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">// 多态实现</span>
+    <span class="token keyword">const</span> <span class="token keyword">int</span> N <span class="token operator">=</span> <span class="token number">4</span><span class="token punctuation">;</span>
+    Shape <span class="token operator">*</span>shape<span class="token punctuation">[</span>N<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token keyword">new</span> <span class="token function">Circle</span><span class="token punctuation">(</span><span class="token string">"red"</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token function">Circle</span><span class="token punctuation">(</span><span class="token string">"green"</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">,</span> 
+        <span class="token keyword">new</span> <span class="token function">Rectangle</span><span class="token punctuation">(</span><span class="token string">"black"</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token function">RoundRectangle</span><span class="token punctuation">(</span><span class="token string">"green"</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">0.7</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token keyword">double</span> totalArea <span class="token operator">=</span> <span class="token function">sumArea</span><span class="token punctuation">(</span>shape<span class="token punctuation">,</span> N<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"totalArea = "</span> <span class="token operator">&lt;&lt;</span> sumArea <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"程序结束"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
 
-    Rectangle rectangle1<span class="token punctuation">,</span><span class="token function">rectangle2</span><span class="token punctuation">(</span><span class="token string">"red"</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    rectangle1<span class="token punctuation">.</span><span class="token function">display</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    rectangle2<span class="token punctuation">.</span><span class="token function">display</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    cout <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
-
-    RoundRectangle roundRectangle1<span class="token punctuation">,</span><span class="token function">roundRectangle2</span><span class="token punctuation">(</span><span class="token string">"red"</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    roundRectangle1<span class="token punctuation">.</span><span class="token function">display</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    roundRectangle2<span class="token punctuation">.</span><span class="token function">display</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    cout <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><pre class="line-numbers language-console" data-language="console"><code class="language-console">Shape 的无参构造函数被调用。
-Shape 的有参构造函数被调用。
-Shape Object color = white;area = 0
-Shape Object color = red;area = 0
-
-Shape 的无参构造函数被调用。
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>N<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">delete</span> shape<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><pre class="line-numbers language-console" data-language="console"><code class="language-console">Shape 的有参构造函数被调用。
 调用「Circle」的『无参』构造函数
 Shape 的有参构造函数被调用。
 调用「Circle」的『无参』构造函数
-Circle Object color = white; area = 3.14159; radius =1;
-Circle Object color = red; area = 28.2743; radius =3;
-
-Shape 的无参构造函数被调用。
-调用 Rectangle 的『无参』构造函数
 Shape 的有参构造函数被调用。
 调用 Rectangle 的『有参』构造函数
-Rectangle Object color = white; area = 1; width =1; height = 1;
-Rectangle Object color = red; area = 24; width =3; height = 8;
-
-Shape 的无参构造函数被调用。
-调用 Rectangle 的『无参』构造函数
-调用 RoundRectangle 的『无参』构造函数
 Shape 的有参构造函数被调用。
 调用 Rectangle 的『有参』构造函数
 调用 RoundRectangle 的『有参』构造函数
-RoundRectangle Object color = white; area =3.28318; width = 1; height = 1; 
-RoundRectangle Object color = red; area =135.876; width = 3; height = 8; 
-
-调用 RoundRectangle 的『析构』函数
-调用 Rectangle 的『析构』函数
-Shape 的析构函数被调用。
-调用 RoundRectangle 的『析构』函数
-调用 Rectangle 的『析构』函数
-Shape 的析构函数被调用。
-调用 Rectangle 的『析构』函数
-Shape 的析构函数被调用。
-调用 Rectangle 的『析构』函数
-Shape 的析构函数被调用。
+totalArea = 1
+程序结束
 调用「Circle」的『析构』函数
 Shape 的析构函数被调用。
 调用「Circle」的『析构』函数
 Shape 的析构函数被调用。
+调用 Rectangle 的『析构』函数
 Shape 的析构函数被调用。
-Shape 的析构函数被调用。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+调用 RoundRectangle 的『析构』函数
+调用 Rectangle 的『析构』函数
+Shape 的析构函数被调用。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
                 
             </div>
             <hr/>
@@ -625,7 +615,7 @@ Shape 的析构函数被调用。<span aria-hidden="true" class="line-numbers-ro
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://cppxiaozhu.github.io/2021/12/20/2021.12.20.circle/">https://cppxiaozhu.github.io/2021/12/20/2021.12.20.circle/</a>
+                    <a href="https://cppxiaozhu.github.io/2021/12/21/2021.12.21.sumarea/">https://cppxiaozhu.github.io/2021/12/21/2021.12.21.sumarea/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -675,8 +665,8 @@ Shape 的析构函数被调用。<span aria-hidden="true" class="line-numbers-ro
                                     <span class="chip bg-color">派生</span>
                                 </a>
                             
-                                <a href="/tags/%E6%9E%90%E6%9E%84/">
-                                    <span class="chip bg-color">析构</span>
+                                <a href="/tags/%E5%A4%9A%E6%80%81/">
+                                    <span class="chip bg-color">多态</span>
                                 </a>
                             
                         </div>
@@ -1122,28 +1112,90 @@ Shape 的析构函数被调用。<span aria-hidden="true" class="line-numbers-ro
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/12/20/2021.12.20.derived/">
+                <a href="/2021/12/21/2021.12.21.sumarea/">
                     <div class="card-image">
                         
-                        <img src="/medias/banner/1.jpg" class="responsive-img" alt="类的继承">
+                        <img src="/medias/banner/5.jpg" class="responsive-img" alt="多态的第二个例子">
                         
-                        <span class="card-title">类的继承</span>
+                        <span class="card-title">多态的第二个例子</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            一个实例来理解继承中的构造函数与析构次序
+                            使用多态实现多个子类对象的属性计算
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-12-20
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-21
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/C/" class="post-category">
+                                    C++
+                                </a>
+                            
+                            
                         </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/CPP/">
+                        <span class="chip bg-color">CPP</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%BB%A7%E6%89%BF/">
+                        <span class="chip bg-color">继承</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%B4%BE%E7%94%9F/">
+                        <span class="chip bg-color">派生</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%A4%9A%E6%80%81/">
+                        <span class="chip bg-color">多态</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/12/21/2021.12.21.polymorphic/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/banner/4.jpg" class="responsive-img" alt="多态的第一个例子">
+                        
+                        <span class="card-title">多态的第一个例子</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            一个例子了解多态的实现
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-21
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1171,68 +1223,8 @@ Shape 的析构函数被调用。<span aria-hidden="true" class="line-numbers-ro
                         <span class="chip bg-color">派生</span>
                     </a>
                     
-                    <a href="/tags/%E6%9E%90%E6%9E%84/">
-                        <span class="chip bg-color">析构</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/12/19/2021.12.19.screen/">
-                    <div class="card-image">
-                        
-                        <img src="/medias/banner/60.jpg" class="responsive-img" alt="屏幕管理程序解读">
-                        
-                        <span class="card-title">屏幕管理程序解读</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            第七章屏幕管理程序的学习
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-19
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/C/" class="post-category">
-                                    C++
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/CPP/">
-                        <span class="chip bg-color">CPP</span>
-                    </a>
-                    
-                    <a href="/tags/%E9%87%8D%E8%BD%BD%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0/">
-                        <span class="chip bg-color">重载成员函数</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%8F%AF%E5%8F%98%E6%95%B0%E6%8D%AE%E6%88%90%E5%91%98/">
-                        <span class="chip bg-color">可变数据成员</span>
-                    </a>
-                    
-                    <a href="/tags/this%E6%8C%87%E9%92%88/">
-                        <span class="chip bg-color">this指针</span>
+                    <a href="/tags/%E5%A4%9A%E6%80%81/">
+                        <span class="chip bg-color">多态</span>
                     </a>
                     
                 </div>
