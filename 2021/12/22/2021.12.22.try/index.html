@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="初识顺序栈, 听涛小筑">
-    <meta name="description" content="通过一个例子了解栈的初始化以及出栈入栈">
+    <meta name="keywords" content="定义异常内部类, 听涛小筑">
+    <meta name="description" content="通过定义异常内部类捕获异常">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>初识顺序栈 | 听涛小筑</title>
+    <title>定义异常内部类 | 听涛小筑</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -312,12 +312,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/banner/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/banner/7.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">初识顺序栈</h1>
+                    <h1 class="description center-align post-title">定义异常内部类</h1>
                 </div>
             </div>
         </div>
@@ -343,16 +343,16 @@
                                 <span class="chip bg-color">CPP</span>
                             </a>
                         
-                            <a href="/tags/%E5%A0%86%E6%A0%88/">
-                                <span class="chip bg-color">堆栈</span>
-                            </a>
-                        
                             <a href="/tags/%E5%87%BA%E6%A0%88/">
                                 <span class="chip bg-color">出栈</span>
                             </a>
                         
                             <a href="/tags/%E5%85%A5%E6%A0%88/">
                                 <span class="chip bg-color">入栈</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%BC%82%E5%B8%B8%E5%86%85%E9%83%A8%E7%B1%BB/">
+                                <span class="chip bg-color">异常内部类</span>
                             </a>
                         
                     </div>
@@ -390,7 +390,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    443
+                    664
                 </div>
                 
 
@@ -415,7 +415,13 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
+                <ul>
+<li>在栈类成员函数中，声明 <code>class Full{}</code> 与 <code>class Empty{}</code>;</li>
+<li>在栈类成员函数中，相关函数的抛异常定义处，抛出异常<code>throw Full()</code> 或 <code>throw Empty()</code>;</li>
+<li>在调试代码中，使用 <code>try &amp; catch</code> 的组合来捕获异常；</li>
+<li>特别地 <code>catch(Stack::Empty)</code> 或 <code>catch(Stack::Full)</code> 的方式注明形参列表； </li>
+</ul>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream&gt;</span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;string&gt;</span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 <span class="token keyword">const</span> <span class="token keyword">int</span> MAX_SIZE <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span><span class="token comment">//定义栈『最大值』常量；</span>
@@ -429,52 +435,97 @@
     <span class="token function">Stack</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token function">Stack</span><span class="token punctuation">(</span><span class="token keyword">int</span> s<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token operator">~</span><span class="token function">Stack</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">void</span> <span class="token function">push</span><span class="token punctuation">(</span><span class="token keyword">char</span> ch<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//方法：入栈；</span>
+    <span class="token keyword">void</span> <span class="token function">push</span><span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token keyword">char</span> ch<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//方法：入栈；</span>
     <span class="token keyword">void</span> <span class="token function">setNull</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//方法：设置栈为空；</span>
     <span class="token keyword">char</span> <span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//方法：出栈，并返回栈顶元素；</span>
     <span class="token keyword">char</span> <span class="token function">getTop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//方法：获取栈顶元素；</span>
     <span class="token keyword">bool</span> <span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//方法：检测是否为空；</span>
     <span class="token keyword">bool</span> <span class="token function">isFull</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//方法：检测是否已满；</span>
+    <span class="token comment">/*异常内部类*/</span>
+    <span class="token keyword">class</span> <span class="token class-name">Empty</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token keyword">class</span> <span class="token class-name">Full</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token comment">/*无参构造，则传参 MAX_SIZE;有参构造，则传参 int s;析构要回收内存*/</span>
 <span class="token class-name">Stack</span><span class="token double-colon punctuation">::</span><span class="token function">Stack</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span><span class="token function">data</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token keyword">char</span><span class="token punctuation">[</span>MAX_SIZE<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">size</span><span class="token punctuation">(</span>MAX_SIZE<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">top</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>cout<span class="token operator">&lt;&lt;</span><span class="token string">"无参构造"</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token class-name">Stack</span><span class="token double-colon punctuation">::</span><span class="token function">Stack</span><span class="token punctuation">(</span><span class="token keyword">int</span> s<span class="token punctuation">)</span><span class="token operator">:</span><span class="token function">data</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token keyword">char</span><span class="token punctuation">[</span>s<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">size</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">top</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>cout<span class="token operator">&lt;&lt;</span><span class="token string">"有参构造"</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token class-name">Stack</span><span class="token double-colon punctuation">::</span><span class="token operator">~</span><span class="token function">Stack</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token keyword">delete</span><span class="token punctuation">[</span><span class="token punctuation">]</span> data<span class="token punctuation">;</span>cout<span class="token operator">&lt;&lt;</span><span class="token string">"调用析构"</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token comment">/*异常内部类*/</span>
+<span class="token keyword">void</span> <span class="token class-name">Stack</span><span class="token double-colon punctuation">::</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token keyword">char</span> ch<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">isFull</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">throw</span> <span class="token function">Full</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token keyword">else</span> <span class="token punctuation">{</span>data<span class="token punctuation">[</span><span class="token operator">++</span>top<span class="token punctuation">]</span><span class="token operator">=</span>ch<span class="token punctuation">;</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">char</span> <span class="token class-name">Stack</span><span class="token double-colon punctuation">::</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">throw</span> <span class="token function">Empty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token keyword">else</span> <span class="token punctuation">{</span><span class="token keyword">return</span> data<span class="token punctuation">[</span>top<span class="token operator">--</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token comment">/*普通成员函数的定义*/</span>
-<span class="token keyword">void</span> <span class="token class-name">Stack</span><span class="token double-colon punctuation">::</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token keyword">char</span> ch<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">isFull</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>data<span class="token punctuation">[</span><span class="token operator">++</span>top<span class="token punctuation">]</span><span class="token operator">=</span>ch<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token keyword">void</span> <span class="token class-name">Stack</span><span class="token double-colon punctuation">::</span><span class="token function">setNull</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>top<span class="token operator">=</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token keyword">char</span> <span class="token class-name">Stack</span><span class="token double-colon punctuation">::</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">?</span><span class="token punctuation">(</span>data<span class="token punctuation">[</span>top<span class="token operator">--</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token keyword">char</span> <span class="token class-name">Stack</span><span class="token double-colon punctuation">::</span><span class="token function">getTop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">?</span><span class="token punctuation">(</span>data<span class="token punctuation">[</span>top<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token keyword">bool</span> <span class="token class-name">Stack</span><span class="token double-colon punctuation">::</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token keyword">return</span> <span class="token punctuation">(</span>top<span class="token operator">==</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">?</span><span class="token boolean">true</span><span class="token operator">:</span><span class="token boolean">false</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token keyword">bool</span> <span class="token class-name">Stack</span><span class="token double-colon punctuation">::</span><span class="token function">isFull</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token keyword">return</span> <span class="token punctuation">(</span>top<span class="token operator">+</span><span class="token number">1</span><span class="token operator">==</span>size<span class="token punctuation">)</span><span class="token operator">?</span><span class="token boolean">true</span><span class="token operator">:</span><span class="token boolean">false</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
 
 <span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    Stack <span class="token function">s1</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    Stack <span class="token function">s1</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">try</span><span class="token punctuation">{</span>
     s1<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     s1<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">'b'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    s1<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">'c'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    cout<span class="token operator">&lt;&lt;</span><span class="token string">"栈满检测："</span><span class="token operator">&lt;&lt;</span>s1<span class="token punctuation">.</span><span class="token function">isFull</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
-    cout<span class="token operator">&lt;&lt;</span><span class="token string">"栈顶元素："</span><span class="token operator">&lt;&lt;</span>s1<span class="token punctuation">.</span><span class="token function">getTop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
-    cout<span class="token operator">&lt;&lt;</span><span class="token string">"出栈一次!移除了："</span><span class="token operator">&lt;&lt;</span>s1<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
-    cout<span class="token operator">&lt;&lt;</span><span class="token string">"出栈一次!移除了："</span><span class="token operator">&lt;&lt;</span>s1<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
-    cout<span class="token operator">&lt;&lt;</span><span class="token string">"出栈一次!移除了："</span><span class="token operator">&lt;&lt;</span>s1<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
-    cout<span class="token operator">&lt;&lt;</span><span class="token string">"栈空检测："</span><span class="token operator">&lt;&lt;</span>s1<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
-    s1<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    s1<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">'b'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    s1<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">'c'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    s1<span class="token punctuation">.</span><span class="token function">setNull</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    cout<span class="token operator">&lt;&lt;</span><span class="token string">"栈空检测："</span><span class="token operator">&lt;&lt;</span>s1<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    s1<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">'c'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    
+    s1<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">'d'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+    s1<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">'e'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token punctuation">}</span>
+<span class="token keyword">catch</span><span class="token punctuation">(</span>Stack<span class="token double-colon punctuation">::</span>Full<span class="token punctuation">)</span><span class="token punctuation">{</span>
+ cout<span class="token operator">&lt;&lt;</span><span class="token string">"异常：栈满!"</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>   
+<span class="token punctuation">}</span>
+
+<span class="token keyword">try</span><span class="token punctuation">{</span>
+    s1<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    s1<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    s1<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    s1<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    s1<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token punctuation">}</span>
+<span class="token keyword">catch</span><span class="token punctuation">(</span>Stack<span class="token double-colon punctuation">::</span>Empty<span class="token punctuation">)</span><span class="token punctuation">{</span>
+ cout<span class="token operator">&lt;&lt;</span><span class="token string">"异常：栈空!"</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>   
+<span class="token punctuation">}</span>
+
+cout<span class="token operator">&lt;&lt;</span><span class="token string">"入栈：‘a’"</span><span class="token operator">&lt;&lt;</span><span class="token string">'\n'</span><span class="token punctuation">;</span>s1<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+cout<span class="token operator">&lt;&lt;</span><span class="token string">"入栈：‘b’"</span><span class="token operator">&lt;&lt;</span><span class="token string">'\n'</span><span class="token punctuation">;</span>s1<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">'b'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+cout<span class="token operator">&lt;&lt;</span><span class="token string">"入栈：‘c’"</span><span class="token operator">&lt;&lt;</span><span class="token string">'\n'</span><span class="token punctuation">;</span>s1<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">'c'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+cout<span class="token operator">&lt;&lt;</span><span class="token string">"入栈：‘d’"</span><span class="token operator">&lt;&lt;</span><span class="token string">'\n'</span><span class="token punctuation">;</span>s1<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">'d'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+cout<span class="token operator">&lt;&lt;</span><span class="token string">"栈满检测（1为满）："</span><span class="token operator">&lt;&lt;</span>s1<span class="token punctuation">.</span><span class="token function">isFull</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+cout<span class="token operator">&lt;&lt;</span><span class="token string">"栈顶元素："</span><span class="token operator">&lt;&lt;</span>s1<span class="token punctuation">.</span><span class="token function">getTop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+    
+cout<span class="token operator">&lt;&lt;</span><span class="token string">"出栈一次!移除了："</span><span class="token operator">&lt;&lt;</span>s1<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+cout<span class="token operator">&lt;&lt;</span><span class="token string">"出栈一次!移除了："</span><span class="token operator">&lt;&lt;</span>s1<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+cout<span class="token operator">&lt;&lt;</span><span class="token string">"出栈一次!移除了："</span><span class="token operator">&lt;&lt;</span>s1<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+cout<span class="token operator">&lt;&lt;</span><span class="token string">"出栈一次!移除了："</span><span class="token operator">&lt;&lt;</span>s1<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+
+cout<span class="token operator">&lt;&lt;</span><span class="token string">"栈空检测（1为空）："</span><span class="token operator">&lt;&lt;</span>s1<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+
+<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><pre class="line-numbers language-console" data-language="console"><code class="language-console">有参构造
-栈满检测：1
-栈顶元素：c
+异常：栈满!
+异常：栈空!
+入栈：‘a’
+入栈：‘b’
+入栈：‘c’
+入栈：‘d’
+栈满检测（1为满）：1
+栈顶元素：d
+出栈一次!移除了：d
 出栈一次!移除了：c
 出栈一次!移除了：b
 出栈一次!移除了：a
-栈空检测：1
-栈空检测：1
-调用析构<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+栈空检测（1为空）：1
+调用析构<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
                 
             </div>
             <hr/>
@@ -500,7 +551,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://cppxiaozhu.github.io/2021/12/22/2021.12.21.stack/">https://cppxiaozhu.github.io/2021/12/22/2021.12.21.stack/</a>
+                    <a href="https://cppxiaozhu.github.io/2021/12/22/2021.12.22.try/">https://cppxiaozhu.github.io/2021/12/22/2021.12.22.try/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -542,16 +593,16 @@
                                     <span class="chip bg-color">CPP</span>
                                 </a>
                             
-                                <a href="/tags/%E5%A0%86%E6%A0%88/">
-                                    <span class="chip bg-color">堆栈</span>
-                                </a>
-                            
                                 <a href="/tags/%E5%87%BA%E6%A0%88/">
                                     <span class="chip bg-color">出栈</span>
                                 </a>
                             
                                 <a href="/tags/%E5%85%A5%E6%A0%88/">
                                     <span class="chip bg-color">入栈</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%BC%82%E5%B8%B8%E5%86%85%E9%83%A8%E7%B1%BB/">
+                                    <span class="chip bg-color">异常内部类</span>
                                 </a>
                             
                         </div>
@@ -1002,7 +1053,68 @@
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/2021/12/22/2021.12.21.stack/">
+                <a href="/2021/12/22/2021.12.22.try/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/banner/7.jpg" class="responsive-img" alt="定义异常内部类">
+                        
+                        <span class="card-title">定义异常内部类</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            通过定义异常内部类捕获异常
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-22
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/C/" class="post-category">
+                                    C++
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/CPP/">
+                        <span class="chip bg-color">CPP</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%87%BA%E6%A0%88/">
+                        <span class="chip bg-color">出栈</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%85%A5%E6%A0%88/">
+                        <span class="chip bg-color">入栈</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%BC%82%E5%B8%B8%E5%86%85%E9%83%A8%E7%B1%BB/">
+                        <span class="chip bg-color">异常内部类</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/12/22/2021.12.22.stack/">
                     <div class="card-image">
                         
                         <img src="/medias/banner/6.jpg" class="responsive-img" alt="初识顺序栈">
@@ -1032,7 +1144,6 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -1050,66 +1161,6 @@
                     
                     <a href="/tags/%E5%85%A5%E6%A0%88/">
                         <span class="chip bg-color">入栈</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/12/21/2021.12.21.sumarea/">
-                    <div class="card-image">
-                        
-                        <img src="/medias/banner/5.jpg" class="responsive-img" alt="多态的第二个例子">
-                        
-                        <span class="card-title">多态的第二个例子</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            使用多态实现多个子类对象的属性计算
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-21
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/C/" class="post-category">
-                                    C++
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/CPP/">
-                        <span class="chip bg-color">CPP</span>
-                    </a>
-                    
-                    <a href="/tags/%E7%BB%A7%E6%89%BF/">
-                        <span class="chip bg-color">继承</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%B4%BE%E7%94%9F/">
-                        <span class="chip bg-color">派生</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%A4%9A%E6%80%81/">
-                        <span class="chip bg-color">多态</span>
                     </a>
                     
                 </div>
