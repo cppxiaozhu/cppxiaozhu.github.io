@@ -1,0 +1,198 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>派生类的构造函数 | 焚箋小築</title><meta name="author" content="焚箋小築"><meta name="copyright" content="焚箋小築"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="代码定义派生类的构造函数时，可以用成员函数初始化的方式，先对父类进行初始化。 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162# include&lt;iostream&gt;using namespace std;c">
+<meta property="og:type" content="article">
+<meta property="og:title" content="派生类的构造函数">
+<meta property="og:url" content="https://cppxiaozhu.github.io/2021/12/20/2021.12.20.rectangle/index.html">
+<meta property="og:site_name" content="焚箋小築">
+<meta property="og:description" content="代码定义派生类的构造函数时，可以用成员函数初始化的方式，先对父类进行初始化。 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162# include&lt;iostream&gt;using namespace std;c">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cppxiaozhu.github.io/img/pic/river.png">
+<meta property="article:published_time" content="2021-12-20T09:00:55.000Z">
+<meta property="article:modified_time" content="2021-12-20T09:00:55.000Z">
+<meta property="article:author" content="焚箋小築">
+<meta property="article:tag" content="CPP">
+<meta property="article:tag" content="继承">
+<meta property="article:tag" content="派生">
+<meta property="article:tag" content="析构">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cppxiaozhu.github.io/img/pic/river.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://cppxiaozhu.github.io/2021/12/20/2021.12.20.rectangle/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: {"limitDay":500,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '派生类的构造函数',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-12-20 17:00:55'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/footer.min.css"><link rel="stylesheet" href="/css/buttons.min.css"><link rel="stylesheet" href="/css/plugins.min.css"><link rel="stylesheet" href="/css/my.css"><link rel="stylesheet" href="/css/font.css"><link rel="stylesheet" href="/css/iconfont.css"><meta name="generator" content="Hexo 7.1.1"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/me.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">28</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">41</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/message/"><i class="fa-fw fas fa-paw"></i><span> 诗组</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url('/img/pic/01.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="焚箋小築"><img class="site-icon" src="/img/favicon.png"/><span class="site-name">焚箋小築</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/message/"><i class="fa-fw fas fa-paw"></i><span> 诗组</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">派生类的构造函数</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-12-20T09:00:55.000Z" title="发表于 2021-12-20 17:00:55">2021-12-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-12-20T09:00:55.000Z" title="更新于 2021-12-20 17:00:55">2021-12-20</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/C/">C++</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">508</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>2分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="派生类的构造函数"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>定义派生类的构造函数时，可以用成员函数初始化的方式，先对父类进行初始化。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Point</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="type">float</span> x,y;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Point</span>();</span><br><span class="line">    <span class="built_in">Point</span>(<span class="type">float</span> x,<span class="type">float</span> y);</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">move</span><span class="params">(<span class="type">float</span> offX,<span class="type">float</span> offY)</span></span>;</span><br><span class="line">    <span class="function"><span class="type">float</span> <span class="title">getX</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="type">float</span> <span class="title">getY</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">display</span><span class="params">()</span></span>;</span><br><span class="line">    ~<span class="built_in">Point</span>();</span><br><span class="line">&#125;;</span><br><span class="line">Point::<span class="built_in">Point</span>():<span class="built_in">x</span>(<span class="number">0</span>),<span class="built_in">y</span>(<span class="number">0</span>)&#123;cout&lt;&lt;<span class="string">&quot;调用『点』的『无参』构造函数&quot;</span>&lt;&lt;endl;&#125;</span><br><span class="line">Point::<span class="built_in">Point</span>(<span class="type">float</span> x,<span class="type">float</span> y):<span class="built_in">x</span>(x),<span class="built_in">y</span>(x)&#123;cout&lt;&lt;<span class="string">&quot;调用『点』的『有参』构造函数&quot;</span>&lt;&lt;endl;&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Point::move</span><span class="params">(<span class="type">float</span> offX,<span class="type">float</span> offY)</span></span>&#123;x+=offX;y+=offY;&#125;</span><br><span class="line"><span class="function"><span class="type">float</span> <span class="title">Point::getX</span><span class="params">()</span></span>&#123;<span class="keyword">return</span> x;&#125;</span><br><span class="line"><span class="function"><span class="type">float</span> <span class="title">Point::getY</span><span class="params">()</span></span>&#123;<span class="keyword">return</span> y;&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Point::display</span><span class="params">()</span></span>&#123;cout &lt;&lt; <span class="string">&quot;x = &quot;</span>&lt;&lt;x&lt;&lt; <span class="string">&quot;,y = &quot;</span>&lt;&lt;y &lt;&lt;<span class="string">&quot;;&quot;</span>;&#125;</span><br><span class="line">Point::~<span class="built_in">Point</span>()&#123;cout&lt;&lt;<span class="string">&quot;调用『点』的『析构』函数&quot;</span>&lt;&lt;endl;&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Rectangle</span>: <span class="keyword">public</span> Point&#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="type">float</span> width,height;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Rectangle</span>();</span><br><span class="line">    <span class="built_in">Rectangle</span>(<span class="type">float</span> x,<span class="type">float</span> y,<span class="type">float</span> w,<span class="type">float</span> h);</span><br><span class="line">    <span class="function"><span class="type">float</span> <span class="title">getHeight</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="type">float</span> <span class="title">getWidth</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">display</span><span class="params">()</span></span>;</span><br><span class="line">    ~<span class="built_in">Rectangle</span>();</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Rectangle::<span class="built_in">Rectangle</span>():<span class="built_in">Point</span>(),<span class="built_in">width</span>(<span class="number">5</span>),<span class="built_in">height</span>(<span class="number">5</span>)&#123;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;『无参』构造派生类&quot;</span>&lt;&lt;endl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 等效写法，其实上面的写法中，亦可对 Point() 传参哦。</span></span><br><span class="line"><span class="comment">Rectangle::Rectangle():width(5),height(5)&#123;</span></span><br><span class="line"><span class="comment">    cout&lt;&lt;&quot;『无参』构造派生类&quot;&lt;&lt;endl;</span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line">Rectangle::<span class="built_in">Rectangle</span>(<span class="type">float</span> x,<span class="type">float</span> y,<span class="type">float</span> w,<span class="type">float</span> h):<span class="built_in">Point</span>(x,y),</span><br><span class="line">    <span class="built_in">width</span>(w),<span class="built_in">height</span>(h)&#123;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;『有参』构造派生类&quot;</span>&lt;&lt;endl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">float</span> <span class="title">Rectangle::getHeight</span><span class="params">()</span></span>&#123;<span class="keyword">return</span> height;&#125;</span><br><span class="line"><span class="function"><span class="type">float</span> <span class="title">Rectangle::getWidth</span><span class="params">()</span></span>&#123;<span class="keyword">return</span> width;&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Rectangle::display</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Point::<span class="built_in">display</span>();</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot; width = &quot;</span>&lt;&lt; width &lt;&lt;<span class="string">&quot;, height = &quot;</span>&lt;&lt; height&lt;&lt;<span class="string">&quot;;&quot;</span>&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">Rectangle::~<span class="built_in">Rectangle</span>()&#123;cout&lt;&lt;<span class="string">&quot;派生类的『析构』函数被调用啦！&quot;</span>&lt;&lt;endl;&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Rectangle r1;</span><br><span class="line">    r1.<span class="built_in">display</span>();</span><br><span class="line">    <span class="function">Rectangle <span class="title">r2</span><span class="params">(<span class="number">7</span>,<span class="number">7</span>,<span class="number">7</span>,<span class="number">7</span>)</span></span>;</span><br><span class="line">    r2.<span class="built_in">display</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><figure class="highlight console"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">调用『点』的『无参』构造函数</span><br><span class="line">『无参』构造派生类</span><br><span class="line">x = 0,y = 0; width = 5, height = 5;</span><br><span class="line">调用『点』的『有参』构造函数</span><br><span class="line">『有参』构造派生类</span><br><span class="line">x = 7,y = 7; width = 7, height = 7;</span><br><span class="line">派生类的『析构』函数被调用啦！</span><br><span class="line">调用『点』的『析构』函数</span><br><span class="line">派生类的『析构』函数被调用啦！</span><br><span class="line">调用『点』的『析构』函数</span><br></pre></td></tr></table></figure></article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/CPP/">CPP</a><a class="post-meta__tags" href="/tags/%E7%BB%A7%E6%89%BF/">继承</a><a class="post-meta__tags" href="/tags/%E6%B4%BE%E7%94%9F/">派生</a><a class="post-meta__tags" href="/tags/%E6%9E%90%E6%9E%84/">析构</a></div><div class="post_share"><div class="social-share" data-image="/img/pic/river.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赞助</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.png" target="_blank"><img class="post-qr-code-img" src="/img/wechat.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/img/alipay.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/12/21/2021.12.21.polymorphic/" title="多态的第一个例子"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">多态的第一个例子</div></div></a></div><div class="next-post pull-right"><a href="/2021/12/20/2021.12.20.derived/" title="类的继承"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">类的继承</div></div></a></div></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="gitalk-container"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/me.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">焚箋小築</div><div class="author-info__description">焚箋小築</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">28</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">41</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="/wubixiaozhu@126.com" target="_blank" title="Email"><i class="iconfont icon-Email"></i></a><a class="social-icon" href="https://github.com/cppxiaozhu" target="_blank" title="Github"><i class="iconfont icon-github"></i></a><a class="social-icon" href="https://space.bilibili.com/13979976" target="_blank" title="bilibili"><i class="iconfont icon-bilibili"></i></a><a class="social-icon" href="https://weibo.com/u/7747027448" target="_blank" title="weibo"><i class="iconfont icon-weibo"></i></a><a class="social-icon" href="https://cppxiaozhu.github.io/img/wechat.png" target="_blank" title="wechat"><i class="iconfont icon-wechat"></i></a><a class="social-icon" href="https://cppxiaozhu.github.io/img/QQ.png" target="_blank" title="QQ"><i class="iconfont icon-qq"></i></a><a class="social-icon" href="https://cppxiaozhu.github.io/img/alipay.jpg" target="_blank" title="alipay"><i class="iconfont icon-zhifubaozhifu"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">紅箋與訴無從寄，留予他生說夢痕。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-number">1.</span> <span class="toc-text">代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E6%9E%9C"><span class="toc-number">2.</span> <span class="toc-text">结果</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/01/30/2024.01.29.talk/" title="人迹板桥霜">人迹板桥霜</a><time datetime="2024-01-30T03:00:53.000Z" title="发表于 2024-01-30 11:00:53">2024-01-30</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/07/09/2023.07.09.talk/" title="絮语">絮语</a><time datetime="2023-07-09T04:34:49.000Z" title="发表于 2023-07-09 12:34:49">2023-07-09</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/02/09/2023.02.10.front/" title="文章表头记录">文章表头记录</a><time datetime="2023-02-09T15:10:22.000Z" title="发表于 2023-02-09 23:10:22">2023-02-09</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/12/23/2021.12.23.functemplate/" title="类模版的成员函数写法">类模版的成员函数写法</a><time datetime="2021-12-23T00:24:04.000Z" title="发表于 2021-12-23 08:24:04">2021-12-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/12/22/2021.12.22.try/" title="定义异常内部类">定义异常内部类</a><time datetime="2021-12-22T00:24:04.000Z" title="发表于 2021-12-22 08:24:04">2021-12-22</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text"><span>©2021 </span><i id="heartbeat" class="fa fas fa-heartbeat"></i> <span> Continue.Run</span><br>焚箋小築<br></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"></div><div id="rightside-config-show"><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>(() => {
+  const initGitalk = () => {
+    const gitalk = new Gitalk(Object.assign({
+      clientID: 'eb99bf6c4d868fd4373f',
+      clientSecret: '45a8e90859525bc433dd214f16394bd65ea8802a',
+      repo: 'gitalk-comments',
+      owner: 'cppxiaozhu',
+      admin: ['cppxiaozhu'],
+      id: '578fa37b849cbb72028fe8c906ce0a61',
+      updateCountCallback: commentCount
+    },null))
+
+    gitalk.render('gitalk-container')
+  }
+
+  const loadGitalk = async() => {
+    if (typeof Gitalk === 'function') initGitalk()
+    else {
+      await getCSS('/css/gitalk.css')
+      await getScript('/css/gitalk.min.js')
+      initGitalk()
+    }
+  }
+  
+  const commentCount = n => {
+    const isCommentCount = document.querySelector('#post-meta .gitalk-comment-count')
+    if (isCommentCount) {
+      isCommentCount.textContent= n
+    }
+  }
+
+  if ('Gitalk' === 'Gitalk' || !false) {
+    if (false) btf.loadComment(document.getElementById('gitalk-container'), loadGitalk)
+    else loadGitalk()
+  } else {
+    window.loadOtherComment = loadGitalk
+  }
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
