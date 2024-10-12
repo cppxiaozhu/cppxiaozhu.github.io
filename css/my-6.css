@@ -147,7 +147,7 @@
     background-color: rgba(255, 255, 255) !important;
 }
 
-#aside-content .card-widget, #recent-posts.recent-posts.nc >.recent-post-items>.recent-post-item, .layout_post>#post, .layout > div:first-child:not(.recent-posts) {
+#aside-content .card-widget, #recent-posts>.recent-post-item, .layout_post>#post, .layout > div:first-child:not(.recent-posts) {
     background: rgba(255,255,255,.2);
     background-image: initial;
     background-position-x: initial;
@@ -170,7 +170,7 @@
 }
 
 
-#recent-posts.recent-posts.nc >.recent-post-items > 
+#recent-posts > 
 .recent-post-item:hover {
     height: 102px;
     animation-duration: 2s;
@@ -189,7 +189,7 @@
     display: none !important;
 }
 
-#recent-posts.recent-posts.nc >.recent-post-items > 
+#recent-posts > 
 .recent-post-item {
     height: 102px;
 /*
@@ -318,7 +318,7 @@
 }
 
 
-#recent-posts.recent-posts.nc >.recent-post-items > .recent-post-item >.recent-post-info > .article-meta-wrap .article-meta-separator {
+#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap .article-meta-separator {
     margin: 0 0.3rem;
     margin-top: 0px;
     margin-right: 0.6rem;
