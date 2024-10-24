@@ -3815,8 +3815,11 @@ background: #efefef00 {
   position: relative;
   display: inline-block;
   overflow: hidden;
-  background: #000;
+  background: rgba(239,239,239,0);
   vertical-align: bottom;
+}
+.pagination-related.next-post {
+  color: var(--tab-botton-color);
 }
 .pagination-related.next-post .info {
   text-align: right;
