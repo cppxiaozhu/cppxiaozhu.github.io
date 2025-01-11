@@ -1670,7 +1670,7 @@ figure.highlight pre .javascript .function {
 .container pre,
 .container code {
   font-size: var(--global-font-size);
-  font-family: consolas, Menlo, 'PingFang SC', 'Microsoft YaHei', sans-serif !important;
+  font-family: consolas, Menlo, monospace, 'PingFang SC', 'Microsoft YaHei', sans-serif !important;
   border-radius: 6px;
 }
 .container code {
@@ -2138,6 +2138,10 @@ figure.highlight pre .javascript .function {
   .container .flink .flink-list > .flink-list-item {
     width: calc(100% - 15px) !important;
   }
+}
+.container .flink .flink-list > .flink-list-item:hover .flink-item-icon {
+  margin-left: -10px;
+  width: 0;
 }
 .container .flink .flink-list > .flink-list-item:before {
   position: absolute;
@@ -3857,6 +3861,7 @@ figure.highlight pre .javascript .function {
   position: relative;
   display: inline-block;
   overflow: hidden;
+  background: #000;
   vertical-align: bottom;
 }
 .pagination-related.next-post .info {
@@ -3873,7 +3878,7 @@ figure.highlight pre .javascript .function {
   transition: transform 0.3s, opacity 0.3s;
 }
 .pagination-related .info .info-1 .info-item-1 {
-  color: var(--white);
+  color: var(--light-grey);
   text-transform: uppercase;
   font-size: 90%;
 }
