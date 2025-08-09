@@ -1,0 +1,221 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 2372670 */
+  src: url('iconfont.woff2?t=1661251571008') format('woff2'),
+       url('iconfont.woff?t=1661251571008') format('woff'),
+       url('iconfont.ttf?t=1661251571008') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 26px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-safari:before {
+  content: "\ebdd";
+}
+
+.icon-windows:before {
+  content: "\ec83";
+}
+
+.icon-email:before {
+  content: "\e641";
+}
+
+.icon-phone:before {
+  content: "\e647";
+}
+
+.icon-windows1:before {
+  content: "\e841";
+}
+
+.icon-youtube:before {
+  content: "\e850";
+}
+
+.icon-flower4f:before {
+  content: "\e61c";
+}
+
+.icon-zhenxue:before {
+  content: "\e6fa";
+}
+
+.icon-twitter:before {
+  content: "\e63d";
+}
+
+.icon-zhifubaofukuan:before {
+  content: "\e668";
+}
+
+.icon-wechat1:before {
+  content: "\e640";
+}
+
+.icon-qq1:before {
+  content: "\e612";
+}
+
+.icon-suselinuxos:before {
+  content: "\e680";
+}
+
+.icon-friends02:before {
+  content: "\e63a";
+}
+
+.icon-weibo:before {
+  content: "\e65a";
+  color: #EA262A;
+}
+
+.icon-xiaomi:before {
+  content: "\e832";
+}
+
+.icon-github1:before {
+  content: "\e691";
+}
+
+.icon-zhifubaozhifu:before {
+  content: "\e634";
+  color: #1378FE;
+}
+
+.icon-rss:before {
+  content: "\e690";
+}
+
+.icon-ios:before {
+  content: "\e604";
+}
+
+.icon-GitHub:before {
+  content: "\ea0a";
+}
+
+.icon-android:before {
+  content: "\e633";
+}
+
+.icon-IE:before {
+  content: "\e87a";
+}
+
+.icon-zhihu:before {
+  content: "\e87c";
+}
+
+.icon-chrome:before {
+  content: "\f178";
+}
+
+.icon-tell:before {
+  content: "\e64f";
+}
+
+.icon-cloud:before {
+  content: "\e605";
+}
+
+.icon-facebook:before {
+  content: "\e606";
+}
+
+.icon-gitee-fill-round:before {
+  content: "\e686";
+}
+
+.icon-ubuntu:before {
+  content: "\e607";
+}
+
+.icon-telegram-original:before {
+  content: "\e726";
+}
+
+.icon-archlinux:before {
+  content: "\eb42";
+}
+
+.icon-debian:before {
+  content: "\eb74";
+}
+
+.icon-linux:before {
+  content: "\ebf7";
+}
+
+.icon-linuxmint:before {
+  content: "\ebf8";
+}
+
+.icon-xiaomi1:before {
+  content: "\ed18";
+}
+
+.icon-bilibili-fill:before {
+  content: "\e646";
+}
+
+.icon-alipay:before {
+  content: "\e8de";
+}
+
+.icon-Flower-5:before {
+  content: "\e94d";
+}
+
+.icon-Gmail:before {
+  content: "\e880";
+}
+
+.icon-Huawei:before {
+  content: "\e621";
+}
+
+.icon-qq:before {
+  content: "\e711";
+  color: #12aae7;
+}
+
+.icon-hua1:before {
+  content: "\e603";
+}
+
+.icon-hua:before {
+  content: "\e602";
+}
+
+.icon-bilibili:before {
+  content: "\e601";
+  color: #4EABE6;
+}
+
+.icon-github:before {
+  content: "\e600";
+}
+
+.icon-wechat:before {
+  content: "\e6ca";
+  color: green;
+}
+
+.icon-QQ:before {
+  content: "\e610";
+  color: #12aae7;
+}
+
+.icon-Email:before {
+  content: "\eb6c";
+  color: #7f0ca3d4;
+}
+
+#aside-content .card-info .card-info-social-icons{
+  font-family: "iconfont";
+}
