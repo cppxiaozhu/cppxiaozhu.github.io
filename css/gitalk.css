@@ -1194,6 +1194,7 @@
 }
 .gt-container .gt-comment-body {
   color: #333 !important;
+  font-family: zgFont;
 }
 .gt-container .gt-comment-body .email-hidden-toggle a {
   display: inline-block;
