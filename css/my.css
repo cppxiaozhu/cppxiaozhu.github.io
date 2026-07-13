@@ -1,3 +1,7 @@
+.footer_custom_text{
+	color: #8a1499;
+}
+
 #heartbeat {
   color: #ff0000;
   animation: iconAnimate 1.33s ease-in-out infinite;
