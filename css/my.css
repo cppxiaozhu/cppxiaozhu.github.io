@@ -1,3 +1,8 @@
+.info .info-item-1,
+.info .info-item-2 {
+  color: red !important;
+  // 想要十六进制红 #f00 / #ff0000 都可以替换 red
+}
 .footer_custom_text{
 	color: #8a1499;
 }
